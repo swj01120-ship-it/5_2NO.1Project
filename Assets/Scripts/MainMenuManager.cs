@@ -9,7 +9,7 @@ public class MainMenuManager : MonoBehaviour
         Debug.Log("게임 시작 버튼 클릭!");
 
         // 나중에 게임 씬으로 이동
-        // SceneManager.LoadScene("GameScene");
+         SceneManager.LoadScene("GameScene");
     }
 
     // 옵션 버튼
