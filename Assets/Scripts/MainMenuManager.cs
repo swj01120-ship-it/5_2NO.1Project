@@ -8,8 +8,9 @@ public class MainMenuManager : MonoBehaviour
     {
         Debug.Log("게임 시작 버튼 클릭!");
 
-        // 나중에 게임 씬으로 이동
-         SceneManager.LoadScene("GameScene");
+        // 로딩 씬을 통해 게임 씬으로 이동
+        LoadingSceneManager.nextScene = "GameScene";
+        SceneManager.LoadScene("LoadingScene");
     }
 
     // 옵션 버튼
@@ -27,6 +28,10 @@ public class MainMenuManager : MonoBehaviour
 
         // 나중에 튜토리얼 씬으로 이동
         // SceneManager.LoadScene("TutorialScene");
+        
+        // 나중에 로딩 필요하면 주석제거
+        //LoadingSceneManager.nextScene = "TutorialScene";
+        //SceneManager.LoadScene("LoadingScene");
     }
 
     // 게임 종료 버튼
