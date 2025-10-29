@@ -39,10 +39,28 @@ public class VRLaserPointer : MonoBehaviour
     {
         laserLine.startWidth = 0.01f;
         laserLine.endWidth = 0.01f;
-        laserLine.material = new Material(Shader.Find("Sprites/Default"));
+
+        // Material 설정 개선
+        Material lineMaterial = new Material(Shader.Find("Sprites/Default"));
+        lineMaterial.color = normalColor;
+        laserLine.material = lineMaterial;
+
+        // 색상 설정
         laserLine.startColor = normalColor;
         laserLine.endColor = normalColor;
+
+        // 포지션 개수
         laserLine.positionCount = 2;
+
+        // 추가 설정 (Game 뷰에서 보이게)
+        laserLine.useWorldSpace = true;
+        laserLine.sortingOrder = 1000; // 다른 UI 위에 표시
+
+        
+        //laserLine.material = new Material(Shader.Find("Sprites/Default"));
+        //laserLine.startColor = normalColor;
+        //laserLine.endColor = normalColor;
+        //laserLine.positionCount = 2;
     }
 
     void Update()
