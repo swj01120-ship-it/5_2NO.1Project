@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class VRPlayerMovement : MonoBehaviour
 {
+   
     [Header("Movement Settings")]
     public float moveSpeed = 3f;                // 이동 속도
     public float sprintSpeed = 5f;              // 달리기 속도
@@ -25,6 +26,7 @@ public class VRPlayerMovement : MonoBehaviour
 
     void Start()
     {
+        
         // CharacterController 자동 추가
         if (characterController == null)
         {
@@ -42,7 +44,9 @@ public class VRPlayerMovement : MonoBehaviour
 
         // 텔레포트 마커 생성
         CreateTeleportMarker();
+        //CreateTeleportLine();
     }
+    
 
     void Update()
     {
@@ -130,7 +134,7 @@ public class VRPlayerMovement : MonoBehaviour
         Ray ray = new Ray(vrCamera.position, vrCamera.forward);
         RaycastHit hit;
 
-        // 바닥에 레이캐스트
+         //바닥에 레이캐스트
         if (Physics.Raycast(ray, out hit, teleportDistance, teleportMask))
         {
             // 텔레포트 가능한 위치
