@@ -9,17 +9,22 @@ public class GameManager : MonoBehaviour
 
     public Text scoreText;
     public Text comboText;
-    public Text judgementText; // Perfect/Good/Miss 표시
+    public Text judgementText;
     public AudioSource audioSource;
     public NoteSpawner noteSpawner;
+
+    // 파티클 이펙트
+    public GameObject perfectEffect;
+    public GameObject goodEffect;
+    public GameObject missEffect;
 
     private int score = 0;
     private int combo = 0;
     private int maxCombo = 0;
+    private Vector3 lastHitPosition; // 마지막 히트 위치
 
     void Awake()
     {
-        // 싱글톤 패턴
         if (instance == null)
         {
             instance = this;
@@ -33,7 +38,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         UpdateUI();
-        // 1초 후 게임 시작
         Invoke("StartGame", 1f);
     }
 
@@ -52,7 +56,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        // 스페이스바로 노트 치기
         if (Input.GetKeyDown(KeyCode.Space))
         {
             HitNote();
@@ -61,7 +64,6 @@ public class GameManager : MonoBehaviour
 
     void HitNote()
     {
-        // 판정선 근처의 노트 찾기
         GameObject[] notes = GameObject.FindGameObjectsWithTag("Note");
         GameObject closestNote = null;
         float closestDistance = float.MaxValue;
@@ -69,16 +71,18 @@ public class GameManager : MonoBehaviour
         foreach (GameObject noteObj in notes)
         {
             float distance = Mathf.Abs(noteObj.transform.position.y - 1f);
-            if (distance < closestDistance && distance < 0.5f) // 판정 범위
+            if (distance < closestDistance && distance < 0.5f)
             {
                 closestDistance = distance;
                 closestNote = noteObj;
             }
         }
 
-        // 가장 가까운 노트 히트
         if (closestNote != null)
         {
+            // 노트 위치 저장
+            lastHitPosition = closestNote.transform.position;
+
             Note note = closestNote.GetComponent<Note>();
             if (note != null)
             {
@@ -93,6 +97,7 @@ public class GameManager : MonoBehaviour
         combo++;
         UpdateMaxCombo();
         ShowJudgement("PERFECT!", Color.yellow);
+        PlayEffect(perfectEffect, lastHitPosition);
         UpdateUI();
     }
 
@@ -102,6 +107,7 @@ public class GameManager : MonoBehaviour
         combo++;
         UpdateMaxCombo();
         ShowJudgement("GOOD", Color.green);
+        PlayEffect(goodEffect, lastHitPosition);
         UpdateUI();
     }
 
@@ -109,6 +115,7 @@ public class GameManager : MonoBehaviour
     {
         combo = 0;
         ShowJudgement("MISS", Color.red);
+        PlayEffect(missEffect, lastHitPosition);
         UpdateUI();
     }
 
@@ -136,6 +143,16 @@ public class GameManager : MonoBehaviour
         if (judgementText != null)
         {
             judgementText.text = "";
+        }
+    }
+
+    // 파티클 이펙트 재생
+    void PlayEffect(GameObject effectPrefab, Vector3 position)
+    {
+        if (effectPrefab != null)
+        {
+            GameObject effect = Instantiate(effectPrefab, position, Quaternion.identity);
+            Destroy(effect, 1f); // 1초 후 자동 삭제
         }
     }
 

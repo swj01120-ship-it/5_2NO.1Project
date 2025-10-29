@@ -881,6 +881,9 @@ MonoBehaviour:
   judgementText: {fileID: 509162595}
   audioSource: {fileID: 1163335029}
   noteSpawner: {fileID: 249517569}
+  perfectEffect: {fileID: 3449192826405232893, guid: 4066af490949daa488fafbecabf26760, type: 3}
+  goodEffect: {fileID: 3449192826405232893, guid: b22e06723c176034fb403d23eefdf0e4, type: 3}
+  missEffect: {fileID: 3449192826405232893, guid: cbac1f92beec9704cace1d02f576152b, type: 3}
 --- !u!1 &1213750555
 GameObject:
   m_ObjectHideFlags: 0
