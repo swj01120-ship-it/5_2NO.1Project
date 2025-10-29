@@ -29,9 +29,9 @@ public class MainMenuManager : MonoBehaviour
         // 나중에 튜토리얼 씬으로 이동
         // SceneManager.LoadScene("TutorialScene");
         
-        // 나중에 로딩 필요하면 주석제거
-        //LoadingSceneManager.nextScene = "TutorialScene";
-        //SceneManager.LoadScene("LoadingScene");
+        // 로딩 화면을 통해 튜토리얼 씬으로 이동
+        LoadingSceneManager.nextScene = "TutorialScene";
+        SceneManager.LoadScene("LoadingScene");
     }
 
     // 게임 종료 버튼
