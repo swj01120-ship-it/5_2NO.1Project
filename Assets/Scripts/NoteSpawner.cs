@@ -5,35 +5,47 @@ using UnityEngine;
 public class NoteSpawner : MonoBehaviour
 {
     public GameObject notePrefab; // 노트 프리팹
-    public Transform spawnPoint; // 노트가 생성될 위치
-    public float bpm = 120f; // 음악의 BPM (Beats Per Minute)
+    public Transform spawnPoint; // 노트 생성 위치
+    public float bpm = 128f; // 음악의 BPM
+    public int maxNotes = 100; // 생성할 최대 노트 수
 
-    private float beatInterval; // 한 박자의 시간
+    private float beatInterval; // 한 박자의 시간 간격
     private float nextBeatTime;
+    private int noteCount = 0;
+    private bool isSpawning = false;
 
     void Start()
     {
-        // BPM을 시간으로 변환 (60초 / BPM)
+        // BPM을 초 단위로 변환
         beatInterval = 60f / bpm;
-        nextBeatTime = beatInterval;
+        nextBeatTime = Time.time + beatInterval * 2; // 2박자 후 시작
     }
 
     void Update()
     {
-        // 박자마다 노트 생성
-        if (Time.time >= nextBeatTime)
+        // 게임 시작 후 노트 생성
+        if (isSpawning && Time.time >= nextBeatTime && noteCount < maxNotes)
         {
             SpawnNote();
             nextBeatTime += beatInterval;
         }
     }
 
+    public void StartSpawning()
+    {
+        isSpawning = true;
+    }
+
     void SpawnNote()
     {
-        // 약간의 랜덤 X 위치 (선택사항)
-        Vector3 spawnPos = spawnPoint.position;
-        spawnPos.x += Random.Range(-0.5f, 0.5f);
+        if (notePrefab != null && spawnPoint != null)
+        {
+            // 랜덤 X 위치 (-1 ~ 1 범위)
+            Vector3 spawnPos = spawnPoint.position;
+            spawnPos.x = Random.Range(-1f, 1f);
 
-        Instantiate(notePrefab, spawnPos, Quaternion.identity);
+            Instantiate(notePrefab, spawnPos, Quaternion.identity);
+            noteCount++;
+        }
     }
 }
