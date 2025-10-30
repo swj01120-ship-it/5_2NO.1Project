@@ -23,6 +23,9 @@ public class DrumGameManager : MonoBehaviour
     public AudioClip hitSound;
     private AudioSource hitSoundSource;
 
+    [Header("Game Settings")]
+    public NoteSpawner noteSpawner;
+
     private int score = 0;
     private int totalCombo = 0;
     private int maxCombo = 0;
@@ -59,6 +62,7 @@ public class DrumGameManager : MonoBehaviour
         totalCombo++;
         laneCombo[lane]++;
         UpdateMaxCombo();
+        CameraShake.instance.Shake(0.1f, 0.15f);
 
         ShowJudgement("GREAT!", new Color(1f, 0.84f, 0f)); // ±Ý»ö
         PlayEffect(greatEffect, lane);
