@@ -98,6 +98,13 @@ public class GameManager : MonoBehaviour
         UpdateMaxCombo();
         ShowJudgement("PERFECT!", Color.yellow);
         PlayEffect(perfectEffect, lastHitPosition);
+
+        //카메라 쉐이크 추가
+        if(CameraShake.instance != null)
+        {
+            CameraShake.instance.Shake(0.1f, 0.2f);
+        }
+
         UpdateUI();
     }
 
@@ -163,5 +170,27 @@ public class GameManager : MonoBehaviour
 
         if (comboText != null)
             comboText.text = "Combo: " + combo + " (Max: " + maxCombo + ")";
+
+        //콤보가 높을수록 텍스트 크기 증가
+        if(combo >= 50)
+        {
+            comboText.fontSize = 60;
+            comboText.color = Color.red;
+        }
+        else if (combo >= 30)
+        {
+            comboText.fontSize = 50;
+            comboText.color = new Color(1f, 0.5f, 0f);
+        }
+        else if (combo >= 10)
+        {
+            comboText.fontSize = 45;
+            comboText.color = Color.yellow;
+        }
+        else
+        {
+            comboText.fontSize = 36;
+            comboText.color = Color.white;
+        }
     }
 }
