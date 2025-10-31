@@ -57,10 +57,27 @@ public class RhythmGameManager : MonoBehaviour
             return;
         }
 
-        if (beatChart.beats.Count == 0)
+        if(DifficultySettings.Instance != null)
         {
-            Debug.LogError("❌ Beat Chart가 비어있습니다! Inspector에서 우클릭 > Generate Test Chart를 실행하세요.");
-            return;
+            float bpm = DifficultySettings.Instance.GetBPM();
+            float desity = DifficultySettings.Instance.GetDensity();
+            float duration = DifficultySettings.Instance.GetHighlightDuration();
+
+            Debug.Log($"🎯 난이도: {DifficultySettings.Instance.currentDifficulty}");
+            Debug.Log($"📊 BPM: {bpm}, Density: {density}, Duration: {duration}");
+
+            GenerateDynamicChart(bpm, density, duration);
+        }
+
+        else
+        {
+            Debug.LogWarning("⚠️ DifficultySettings가 없습니다. 기존 차트 사용");
+
+            if (beatChart.beats.Count == 0)
+            {
+                Debug.LogError("❌ Beat Chart가 비어있습니다!");
+                return;
+            }
         }
 
         if (musicSource == null)
@@ -226,5 +243,30 @@ public class RhythmGameManager : MonoBehaviour
     {
         gameStarted = false;
         Debug.Log($"🎉 게임 종료! 최종 점수: {score}, 최대 콤보: {maxCombo}");
+    }
+    void GenerateDynamicChart(float bpm, float density, float duration)
+    {
+        beatChart.beats.Clear();
+
+        float beatInterval = 60f / bpm;
+        float currentTime = 2f; // 2초부터 시작
+
+        System.Random random = new System.Random();
+
+        while (currentTime < beatChart.songLength)
+        {
+            // 랜덤하게 1~3개의 드럼 선택
+            int numberOfDrums = random.Next(1, 4);
+
+            for (int i = 0; i < numberOfDrums; i++)
+            {
+                int randomDrum = random.Next(0, 4);
+                beatChart.beats.Add(new BeatNote(currentTime, randomDrum, duration));
+            }
+
+            currentTime += beatInterval / density;
+        }
+
+        Debug.Log($"✅ 동적 차트 생성 완료! 총 {beatChart.beats.Count}개의 비트");
     }
 }

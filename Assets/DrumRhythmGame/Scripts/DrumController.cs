@@ -20,9 +20,9 @@ public class DrumController : MonoBehaviour
     [Header("타이밍")]
     private bool isHighlighted = false;
     private float highlightStartTime;
-    private float perfectWindow = 0.2f;  // Perfect 판정 범위 (±0.1초)
-    private float greatWindow = 0.35f;    // Great 판정 범위 (±0.15초)
-    private float goodWindow = 0.5f;      // Good 판정 범위 (±0.2초)
+    private float perfectWindow;   // Perfect 판정 범위 (±0.1초)
+    private float greatWindow;  // Great 판정 범위 (±0.15초)
+    private float goodWindow;     // Good 판정 범위 (±0.2초)
 
     void Start()
     {
@@ -39,6 +39,20 @@ public class DrumController : MonoBehaviour
         drumRenderer.material = drumMaterial;
 
         SetColor(normalColor);
+
+        if (DifficultySettings.Instance != null)
+        {
+            DifficultySettings.Instance.GetJudgmentWindows(out perfectWindow, out greatWindow, out goodWindow);
+            Debug.Log($"✅ Drum {drumIndex} 초기화! (Perfect: {perfectWindow}s, Great: {greatWindow}s, Good: {goodWindow}s)");
+        }
+        else
+        {
+            // DifficultySettings가 없으면 기본값 사용
+            perfectWindow = 0.15f;
+            greatWindow = 0.25f;
+            goodWindow = 0.35f;
+            Debug.LogWarning($"⚠️ DifficultySettings가 없습니다. 기본 난이도 사용");
+        }
 
         Debug.Log($"✅ Drum {drumIndex} 초기화 완료! (키: {drumKey})");
     }
