@@ -64,9 +64,9 @@ public class RhythmGameManager : MonoBehaviour
             float duration = DifficultySettings.Instance.GetHighlightDuration();
 
             Debug.Log($"🎯 난이도: {DifficultySettings.Instance.currentDifficulty}");
-            Debug.Log($"📊 BPM: {bpm}, Density: {density}, Duration: {duration}");
+           // Debug.Log($"📊 BPM: {bpm}, Density: {density}, Duration: {duration}");
 
-            GenerateDynamicChart(bpm, density, duration);
+           // GenerateDynamicChart(bpm, density, duration);
         }
 
         else
