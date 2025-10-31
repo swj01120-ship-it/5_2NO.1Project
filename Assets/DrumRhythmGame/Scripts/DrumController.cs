@@ -20,9 +20,9 @@ public class DrumController : MonoBehaviour
     [Header("타이밍")]
     private bool isHighlighted = false;
     private float highlightStartTime;
-    private float perfectWindow = 0.1f;  // Perfect 판정 범위 (±0.1초)
-    private float greatWindow = 0.15f;    // Great 판정 범위 (±0.15초)
-    private float goodWindow = 0.2f;      // Good 판정 범위 (±0.2초)
+    private float perfectWindow = 0.2f;  // Perfect 판정 범위 (±0.1초)
+    private float greatWindow = 0.35f;    // Great 판정 범위 (±0.15초)
+    private float goodWindow = 0.5f;      // Good 판정 범위 (±0.2초)
 
     void Start()
     {

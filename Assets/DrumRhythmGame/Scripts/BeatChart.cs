@@ -33,7 +33,7 @@ public class BeatChart : ScriptableObject
             for (int i = 0; i < numberOfDrums; i++)
             {
                 int randomDrum = random.Next(0, 4);
-                beats.Add(new BeatNote(currentTime, randomDrum, 0.4f));
+                beats.Add(new BeatNote(currentTime, randomDrum, 0.6f));
             }
 
             currentTime += beatInterval / noteDensity;
