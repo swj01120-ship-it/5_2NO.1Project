@@ -4,6 +4,12 @@ using TMPro;
 
 public class OptionManager : MonoBehaviour
 {
+    [Header("난이도 선택 버튼")]
+    public Button difficultyEasyButton;
+    public Button difficultyNormalButton;
+    public Button difficultyHardButton;
+    public Text currentDifficultyText;
+
     [Header("UI References")]
     public GameObject optionPanel;
     public Slider volumeSlider;
@@ -32,6 +38,23 @@ public class OptionManager : MonoBehaviour
 
         // 초기 볼륨 표시
         UpdateVolumeDisplay();
+
+        // 난이도 버튼 이벤트 연결
+        if (difficultyEasyButton != null)
+            difficultyEasyButton.onClick.AddListener(() => SetDifficulty(DifficultySettings.Difficulty.Easy));
+
+        if (difficultyNormalButton != null)
+            difficultyNormalButton.onClick.AddListener(() => SetDifficulty(DifficultySettings.Difficulty.Normal));
+
+        if (difficultyHardButton != null)
+            difficultyHardButton.onClick.AddListener(() => SetDifficulty(DifficultySettings.Difficulty.Hard));
+
+        // 저장된 난이도 불러오기
+        if (DifficultySettings.Instance != null)
+        {
+            DifficultySettings.Instance.LoadSavedDifficulty();
+            UpdateDifficultyText();
+        }
     }
 
     // 볼륨 변경
@@ -120,6 +143,22 @@ public class OptionManager : MonoBehaviour
             // 음소거 해제
             float tempVolume = PlayerPrefs.GetFloat("TempVolume", 1f);
             volumeSlider.value = tempVolume;
+        }
+    }
+    void SetDifficulty(DifficultySettings.Difficulty difficulty)
+    {
+        if (DifficultySettings.Instance != null)
+        {
+            DifficultySettings.Instance.SetDifficulty(difficulty);
+            UpdateDifficultyText();
+        }
+    }
+
+    void UpdateDifficultyText()
+    {
+        if (currentDifficultyText != null && DifficultySettings.Instance != null)
+        {
+            currentDifficultyText.text = $"현재: {DifficultySettings.Instance.GetDifficultyName()}";
         }
     }
 }

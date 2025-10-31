@@ -1,9 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
+
+
     // 게임 시작 버튼
+
+
     public void OnStartGame()
     {
         Debug.Log("게임 시작 버튼 클릭!");
@@ -20,7 +25,7 @@ public class MainMenuManager : MonoBehaviour
 
         // 나중에 옵션 화면 열기
     }
-
+  
     // 튜토리얼 버튼
     public void OnTutorial()
     {

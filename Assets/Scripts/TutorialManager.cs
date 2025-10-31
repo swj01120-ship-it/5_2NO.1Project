@@ -155,6 +155,12 @@ public class TutorialManager : MonoBehaviour
     // 게임 시작
     public void StartGame()
     {
+        if (DifficultySettings.Instance == null)
+        {
+            GameObject difficultyObj = new GameObject("DifficultySettings");
+            difficultyObj.AddComponent<DifficultySettings>();
+        }
+
         Debug.Log("튜토리얼에서 게임 시작");
         LoadingSceneManager.nextScene = "GameScene";
         SceneManager.LoadScene("LoadingScene");
