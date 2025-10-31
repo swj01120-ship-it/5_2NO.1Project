@@ -687,7 +687,7 @@ Transform:
   m_GameObject: {fileID: 420199579}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 6, z: 2.7}
+  m_LocalPosition: {x: 3, y: 8, z: 2.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -832,7 +832,7 @@ Transform:
   m_GameObject: {fileID: 520601657}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.7, y: 6, z: -0.41}
+  m_LocalPosition: {x: 4.7, y: 8, z: -0.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -964,7 +964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0cd2fdbe77915a44a48087cc1ae7240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notePrefab: {fileID: 8952454407896892066, guid: 3897d4589a5441c468e3df265bc1a666, type: 3}
+  notePrefab: {fileID: 7528024457229248227, guid: 0ab8326617727484f817262fa9dbfc37, type: 3}
   spawnPoints:
   - {fileID: 1210696756}
   - {fileID: 1127967887}
@@ -1071,8 +1071,513 @@ MonoBehaviour:
     time: 22.5
   - lane: 0
     time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
+  - lane: 0
+    time: 22.96875
   songBPM: 128
   noteSpeed: 5
+  chartStartDelay: 2
+  songLengthInSeconds: 96
+  noteDensity: 2
+  fillEntireSong: 1
+  autoStart: 0
 --- !u!4 &537118296
 Transform:
   m_ObjectHideFlags: 0
@@ -2167,7 +2672,7 @@ Transform:
   m_GameObject: {fileID: 1127967886}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4, y: 6, z: 2.5}
+  m_LocalPosition: {x: -1.4, y: 8, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2277,7 +2782,7 @@ Transform:
   m_GameObject: {fileID: 1210696755}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.65, y: 6, z: 0}
+  m_LocalPosition: {x: -4.65, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
