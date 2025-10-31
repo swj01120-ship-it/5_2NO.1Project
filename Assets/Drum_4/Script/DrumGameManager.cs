@@ -62,7 +62,7 @@ public class DrumGameManager : MonoBehaviour
         totalCombo++;
         laneCombo[lane]++;
         UpdateMaxCombo();
-        CameraShake.instance.Shake(0.1f, 0.15f);
+        //CameraShake.instance.Shake(0.1f, 0.15f);
 
         ShowJudgement("GREAT!", new Color(1f, 0.84f, 0f)); // ±Ý»ö
         PlayEffect(greatEffect, lane);
