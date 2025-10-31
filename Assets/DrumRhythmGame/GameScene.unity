@@ -261,16 +261,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
+    - target: {fileID: -5568371526223589888, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       propertyPath: m_Name
       value: Drum_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
+      propertyPath: m_Name
+      value: Drum_S
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       propertyPath: m_TagString
       value: Drum
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8513859187771203891, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       insertIndex: -1
@@ -279,9 +284,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2032951044}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
+    - targetCorrespondingSourceObject: {fileID: -5568371526223589888, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2032951045}
+      addedObject: {fileID: 1058914467}
   m_SourcePrefab: {fileID: 100100000, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
 --- !u!4 &219460698 stripped
 Transform:
@@ -520,10 +525,10 @@ MonoBehaviour:
   beatChart: {fileID: 11400000, guid: 701999e3d2636394d9fa6a2e62412c1d, type: 2}
   musicSource: {fileID: 261367968}
   drums:
-  - {fileID: 1835267934}
-  - {fileID: 2032951045}
-  - {fileID: 1966465822}
-  - {fileID: 2026572345}
+  - {fileID: 1553556713}
+  - {fileID: 1058914467}
+  - {fileID: 629675411}
+  - {fileID: 1131054993}
   startDelay: 2
   scoreText: {fileID: 1423324011}
   comboText: {fileID: 325652510}
@@ -718,6 +723,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 24.728, y: 0, z: 0}
+--- !u!1 &629675407 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
+  m_PrefabInstance: {fileID: 1966465819}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &629675411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629675407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82996c8a5fe9eed4e8ae394976b6b4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drumIndex: 2
+  drumKey: 100
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  highlightColor: {r: 0, g: 1, b: 0, a: 1}
+  hitColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,9 +1164,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 945069586}
-  - component: {fileID: 945069587}
   m_Layer: 0
-  m_Name: Drums
+  m_Name: Drum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1164,23 +1190,55 @@ Transform:
   - {fileID: 1487955987}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &945069587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 945069585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecadb86425626fb4d9d4d281dc240fe8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &977243319 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
   m_PrefabInstance: {fileID: 1966465819}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1058914463 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
+  m_PrefabInstance: {fileID: 219460697}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1058914467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058914463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82996c8a5fe9eed4e8ae394976b6b4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drumIndex: 1
+  drumKey: 115
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  highlightColor: {r: 0, g: 0.04796934, b: 1, a: 1}
+  hitColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+--- !u!1 &1131054989 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
+  m_PrefabInstance: {fileID: 1487955986}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1131054993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131054989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82996c8a5fe9eed4e8ae394976b6b4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drumIndex: 3
+  drumKey: 102
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  highlightColor: {r: 0.5019608, g: 0, b: 0.3804929, a: 1}
+  hitColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &1207690225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1478,16 +1536,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
+    - target: {fileID: -5568371526223589888, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       propertyPath: m_Name
       value: Drum_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
+      propertyPath: m_Name
+      value: Drum_F
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       propertyPath: m_TagString
       value: Drum
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8513859187771203891, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       insertIndex: -1
@@ -1496,9 +1559,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2026572344}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
+    - targetCorrespondingSourceObject: {fileID: -5568371526223589888, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2026572345}
+      addedObject: {fileID: 1131054993}
   m_SourcePrefab: {fileID: 100100000, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
 --- !u!4 &1487955987 stripped
 Transform:
@@ -1584,6 +1647,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545036894}
   m_CullTransparentMesh: 1
+--- !u!1 &1553556709 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
+  m_PrefabInstance: {fileID: 1835267931}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1553556713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553556709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82996c8a5fe9eed4e8ae394976b6b4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drumIndex: 0
+  drumKey: 97
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  highlightColor: {r: 1, g: 0, b: 0, a: 1}
+  hitColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &1576387282
 GameObject:
   m_ObjectHideFlags: 0
@@ -2138,16 +2223,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
+    - target: {fileID: -5568371526223589888, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       propertyPath: m_Name
       value: Drum_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
+      propertyPath: m_Name
+      value: Drum_A
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       propertyPath: m_TagString
       value: Drum
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8513859187771203891, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       insertIndex: -1
@@ -2156,9 +2246,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1835267933}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
+    - targetCorrespondingSourceObject: {fileID: -5568371526223589888, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1835267934}
+      addedObject: {fileID: 1553556713}
   m_SourcePrefab: {fileID: 100100000, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
 --- !u!4 &1835267932 stripped
 Transform:
@@ -2186,23 +2276,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.57, y: 2.82, z: 1.57}
   m_Center: {x: 0.57, y: 0.93, z: -0.01}
---- !u!114 &1835267934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1637511163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82996c8a5fe9eed4e8ae394976b6b4d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drumIndex: 0
-  drumKey: 97
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  highlightColor: {r: 1, g: 0, b: 0, a: 1}
-  hitColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &1841513155
 GameObject:
   m_ObjectHideFlags: 0
@@ -2622,16 +2695,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
+      propertyPath: m_Name
+      value: Drum_3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       propertyPath: m_Name
-      value: Drum_2
+      value: Drum_D
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       propertyPath: m_TagString
       value: Drum
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8513859187771203891, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       insertIndex: -1
@@ -2640,9 +2718,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1966465821}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
+    - targetCorrespondingSourceObject: {fileID: -5568371526223589888, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1966465822}
+      addedObject: {fileID: 629675411}
   m_SourcePrefab: {fileID: 100100000, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
 --- !u!4 &1966465820 stripped
 Transform:
@@ -2670,23 +2748,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.73, y: 2, z: 1.35}
   m_Center: {x: 0.02, y: 1.36, z: 0.04}
---- !u!114 &1966465822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977243319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82996c8a5fe9eed4e8ae394976b6b4d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drumIndex: 2
-  drumKey: 100
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  highlightColor: {r: 0, g: 1, b: 0, a: 1}
-  hitColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &2026572343 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
@@ -2713,23 +2774,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.62, y: 2.68, z: 1.19}
   m_Center: {x: 0.06, y: 1.03, z: 0.16}
---- !u!114 &2026572345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2026572343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82996c8a5fe9eed4e8ae394976b6b4d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drumIndex: 3
-  drumKey: 102
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  highlightColor: {r: 0.5019608, g: 0, b: 0.5019608, a: 1}
-  hitColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &2032951043 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 31a8a7c4438846841818bd3b6776ca4d, type: 3}
@@ -2756,23 +2800,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6, y: 2.74, z: 1.35}
   m_Center: {x: 0.04, y: 1.01, z: -0.03}
---- !u!114 &2032951045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032951043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82996c8a5fe9eed4e8ae394976b6b4d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drumIndex: 1
-  drumKey: 115
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
-  highlightColor: {r: 0, g: 0, b: 1, a: 1}
-  hitColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &2063671577
 GameObject:
   m_ObjectHideFlags: 0
