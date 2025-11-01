@@ -25,6 +25,13 @@ public class RhythmGameManager : MonoBehaviour
     private int combo = 0;
     private int maxCombo = 0;
 
+    [Header("판정 통계")]
+    private int perfectCount = 0;
+    private int greatCount = 0;
+    private int goodCount = 0;
+    private int missCount = 0;
+
+
     [Header("점수 설정")]
     public int perfectScore = 100;
     public int greatScore = 70;
@@ -169,15 +176,30 @@ public class RhythmGameManager : MonoBehaviour
         if (judgment == "Miss")
         {
             combo = 0;
+            missCount++;
             ShowJudgment("Miss");
         }
         else
         {
             // 점수 추가
             int points = 0;
-            if (judgment == "Perfect") points = perfectScore;
-            else if (judgment == "Great") points = greatScore;
-            else if (judgment == "Good") points = goodScore;
+            if (judgment == "Perfect")
+            {
+                points = perfectScore;
+                perfectCount++;
+            }
+
+            else if (judgment == "Great")
+            {
+                points = greatScore;
+                greatCount++;
+            }
+
+            else if (judgment == "Good")
+            {
+                points = goodScore;
+                goodCount++;
+            }
 
             // 콤보 보너스
             combo++;
@@ -244,6 +266,21 @@ public class RhythmGameManager : MonoBehaviour
     {
         gameStarted = false;
         Debug.Log($"🎉 게임 종료! 최종 점수: {score}, 최대 콤보: {maxCombo}");
+
+        if(ResultScreenManager.Instance != null)
+        {
+            GameResult result = new GameResult
+            {
+                finalScore = score,
+                maxCombo = maxCombo,
+                perfectCount = perfectCount,
+                greatCount = greatCount,
+                goodCount = goodCount,
+                missCount = missCount
+            };
+
+            ResultScreenManager.Instance.ShowResult(result);
+        }
     }
     void GenerateDynamicChart(float bpm, float density, float duration)
     {
