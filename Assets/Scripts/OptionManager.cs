@@ -1,10 +1,10 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
 public class OptionManager : MonoBehaviour
 {
-    [Header("³­ÀÌµµ ¼±ÅÃ ¹öÆ°")]
+    [Header("ë‚œì´ë„ ì„ íƒ ë²„íŠ¼")]
     public Button difficultyEasyButton;
     public Button difficultyNormalButton;
     public Button difficultyHardButton;
@@ -17,29 +17,29 @@ public class OptionManager : MonoBehaviour
     public TMP_Dropdown qualityDropdown;
 
     [Header("Audio")]
-    public AudioSource audioSource; // Å×½ºÆ®¿ë (¼±ÅÃ)
+    public AudioSource audioSource; // í…ŒìŠ¤íŠ¸ìš© (ì„ íƒ)
 
     void Start()
     {
-        // ÀúÀåµÈ ¼³Á¤ ºÒ·¯¿À±â
+        // ì €ì¥ëœ ì„¤ì • ë¶ˆëŸ¬ì˜¤ê¸°
         LoadSettings();
 
-        // ½½¶óÀÌ´õ ÀÌº¥Æ® ¿¬°á
+        // ìŠ¬ë¼ì´ë” ì´ë²¤íŠ¸ ì—°ê²°
         if (volumeSlider != null)
         {
             volumeSlider.onValueChanged.AddListener(OnVolumeChanged);
         }
 
-        // µå·Ó´Ù¿î ÀÌº¥Æ® ¿¬°á
+        // ë“œë¡­ë‹¤ìš´ ì´ë²¤íŠ¸ ì—°ê²°
         if (qualityDropdown != null)
         {
             qualityDropdown.onValueChanged.AddListener(OnQualityChanged);
         }
 
-        // ÃÊ±â º¼·ı Ç¥½Ã
+        // ì´ˆê¸° ë³¼ë¥¨ í‘œì‹œ
         UpdateVolumeDisplay();
 
-        // ³­ÀÌµµ ¹öÆ° ÀÌº¥Æ® ¿¬°á
+        // ë‚œì´ë„ ë²„íŠ¼ ì´ë²¤íŠ¸ ì—°ê²°
         if (difficultyEasyButton != null)
             difficultyEasyButton.onClick.AddListener(() => SetDifficulty(DifficultySettings.Difficulty.Easy));
 
@@ -49,7 +49,7 @@ public class OptionManager : MonoBehaviour
         if (difficultyHardButton != null)
             difficultyHardButton.onClick.AddListener(() => SetDifficulty(DifficultySettings.Difficulty.Hard));
 
-        // ÀúÀåµÈ ³­ÀÌµµ ºÒ·¯¿À±â
+        // ì €ì¥ëœ ë‚œì´ë„ ë¶ˆëŸ¬ì˜¤ê¸°
         if (DifficultySettings.Instance != null)
         {
             DifficultySettings.Instance.LoadSavedDifficulty();
@@ -57,21 +57,56 @@ public class OptionManager : MonoBehaviour
         }
     }
 
-    // º¼·ı º¯°æ
+    public void SetEasyDifficulty()
+    {
+        Debug.Log("ğŸ¯ ì‰¬ì›€ ë²„íŠ¼ í´ë¦­ë¨!");
+
+        if (DifficultySettings.Instance != null)
+        {
+            DifficultySettings.Instance.SetDifficulty(DifficultySettings.Difficulty.Easy);
+            UpdateDifficultyText();
+        }
+    }
+
+    public void SetNormalDifficulty()
+    {
+        Debug.Log("ğŸ¯ ë³´í†µ ë²„íŠ¼ í´ë¦­ë¨!");
+
+        if (DifficultySettings.Instance != null)
+        {
+            DifficultySettings.Instance.SetDifficulty(DifficultySettings.Difficulty.Normal);
+            UpdateDifficultyText();
+        }
+    }
+
+    public void SetHardDifficulty()
+    {
+        Debug.Log("ğŸ¯ ì–´ë ¤ì›€ ë²„íŠ¼ í´ë¦­ë¨!");
+
+        if (DifficultySettings.Instance != null)
+        {
+            DifficultySettings.Instance.SetDifficulty(DifficultySettings.Difficulty.Hard);
+            UpdateDifficultyText();
+        }
+    }
+
+
+
+    // ë³¼ë¥¨ ë³€ê²½
     public void OnVolumeChanged(float value)
     {
-        // Àü¿ª º¼·ı ¼³Á¤
+        // ì „ì—­ ë³¼ë¥¨ ì„¤ì •
         AudioListener.volume = value;
 
-        // Ç¥½Ã ¾÷µ¥ÀÌÆ®
+        // í‘œì‹œ ì—…ë°ì´íŠ¸
         UpdateVolumeDisplay();
 
-        // ÀúÀå
+        // ì €ì¥
         PlayerPrefs.SetFloat("MasterVolume", value);
         PlayerPrefs.Save();
     }
 
-    // º¼·ı Ç¥½Ã ¾÷µ¥ÀÌÆ®
+    // ë³¼ë¥¨ í‘œì‹œ ì—…ë°ì´íŠ¸
     void UpdateVolumeDisplay()
     {
         if (volumeValue != null && volumeSlider != null)
@@ -81,19 +116,19 @@ public class OptionManager : MonoBehaviour
         }
     }
 
-    // ±×·¡ÇÈ Ç°Áú º¯°æ
+    // ê·¸ë˜í”½ í’ˆì§ˆ ë³€ê²½
     public void OnQualityChanged(int index)
     {
         QualitySettings.SetQualityLevel(index);
 
-        // ÀúÀå
+        // ì €ì¥
         PlayerPrefs.SetInt("QualityLevel", index);
         PlayerPrefs.Save();
 
-        Debug.Log("±×·¡ÇÈ Ç°Áú º¯°æ: " + index);
+        Debug.Log("ê·¸ë˜í”½ í’ˆì§ˆ ë³€ê²½: " + index);
     }
 
-    // ¿É¼Ç ÆĞ³Î ¿­±â
+    // ì˜µì…˜ íŒ¨ë„ ì—´ê¸°
     public void OpenOptions()
     {
         if (optionPanel != null)
@@ -102,7 +137,7 @@ public class OptionManager : MonoBehaviour
         }
     }
 
-    // ¿É¼Ç ÆĞ³Î ´İ±â
+    // ì˜µì…˜ íŒ¨ë„ ë‹«ê¸°
     public void CloseOptions()
     {
         if (optionPanel != null)
@@ -111,10 +146,10 @@ public class OptionManager : MonoBehaviour
         }
     }
 
-    // ¼³Á¤ ºÒ·¯¿À±â
+    // ì„¤ì • ë¶ˆëŸ¬ì˜¤ê¸°
     void LoadSettings()
     {
-        // º¼·ı ºÒ·¯¿À±â
+        // ë³¼ë¥¨ ë¶ˆëŸ¬ì˜¤ê¸°
         float savedVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
         if (volumeSlider != null)
         {
@@ -122,7 +157,7 @@ public class OptionManager : MonoBehaviour
         }
         AudioListener.volume = savedVolume;
 
-        // ±×·¡ÇÈ Ç°Áú ºÒ·¯¿À±â
+        // ê·¸ë˜í”½ í’ˆì§ˆ ë¶ˆëŸ¬ì˜¤ê¸°
         int savedQuality = PlayerPrefs.GetInt("QualityLevel", 2);
         if (qualityDropdown != null)
         {
@@ -134,13 +169,13 @@ public class OptionManager : MonoBehaviour
     {
         if (AudioListener.volume > 0)
         {
-            // À½¼Ò°Å
+            // ìŒì†Œê±°
             PlayerPrefs.SetFloat("TempVolume", volumeSlider.value);
             volumeSlider.value = 0;
         }
         else
         {
-            // À½¼Ò°Å ÇØÁ¦
+            // ìŒì†Œê±° í•´ì œ
             float tempVolume = PlayerPrefs.GetFloat("TempVolume", 1f);
             volumeSlider.value = tempVolume;
         }
@@ -158,7 +193,7 @@ public class OptionManager : MonoBehaviour
     {
         if (currentDifficultyText != null && DifficultySettings.Instance != null)
         {
-            currentDifficultyText.text = $"ÇöÀç: {DifficultySettings.Instance.GetDifficultyName()}";
+            currentDifficultyText.text = $"í˜„ì¬: {DifficultySettings.Instance.GetDifficultyName()}";
         }
     }
 }

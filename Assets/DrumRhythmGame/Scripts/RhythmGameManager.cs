@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System;
 
 public class RhythmGameManager : MonoBehaviour
 {
@@ -60,13 +61,13 @@ public class RhythmGameManager : MonoBehaviour
         if(DifficultySettings.Instance != null)
         {
             float bpm = DifficultySettings.Instance.GetBPM();
-            float desity = DifficultySettings.Instance.GetDensity();
+            float density = DifficultySettings.Instance.GetDensity();
             float duration = DifficultySettings.Instance.GetHighlightDuration();
 
             Debug.Log($"🎯 난이도: {DifficultySettings.Instance.currentDifficulty}");
-           // Debug.Log($"📊 BPM: {bpm}, Density: {density}, Duration: {duration}");
+            Debug.Log($"📊 BPM: {bpm}, Density: {density}, Duration: {duration}");
 
-           // GenerateDynamicChart(bpm, density, duration);
+            GenerateDynamicChart(bpm, density, duration);
         }
 
         else
