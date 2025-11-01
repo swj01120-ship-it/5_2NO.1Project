@@ -440,7 +440,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 152545652}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1447108006}
+        m_TargetAssemblyTypeName: ResultScreenManager, Assembly-CSharp
+        m_MethodName: GoToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &152545652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1837,7 +1849,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 930157944}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1447108006}
+        m_TargetAssemblyTypeName: ResultScreenManager, Assembly-CSharp
+        m_MethodName: RetryGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &930157944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2434,6 +2458,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423324009}
   m_CullTransparentMesh: 1
+--- !u!1 &1447108005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1447108007}
+  - component: {fileID: 1447108006}
+  m_Layer: 0
+  m_Name: ResultScreenManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1447108006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447108005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4456159c25ffb4d9a0ce03ff76b6b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resultPanel: {fileID: 608027043}
+  scoreText: {fileID: 354235593}
+  comboText: {fileID: 525848369}
+  accuracyText: {fileID: 1650302746}
+  gradeText: {fileID: 186233787}
+  perfectText: {fileID: 1055133636}
+  greatText: {fileID: 16873516}
+  goodText: {fileID: 896078809}
+  missText: {fileID: 1249034982}
+  retryButton: {fileID: 930157943}
+  mainMenuButton: {fileID: 152545651}
+--- !u!4 &1447108007
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447108005}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1487955986
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3953,3 +4032,4 @@ SceneRoots:
   - {fileID: 261367970}
   - {fileID: 1680577849}
   - {fileID: 895351480}
+  - {fileID: 1447108007}
