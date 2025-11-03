@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class RhythmGameManager : MonoBehaviour
 {
@@ -178,6 +179,11 @@ public class RhythmGameManager : MonoBehaviour
             combo = 0;
             missCount++;
             ShowJudgment("Miss");
+
+            if (ScreenEffects.Instance != null)
+            {
+                ScreenEffects.Instance.Flash(Color.red, 0.3f);
+            }
         }
         else
         {
@@ -187,18 +193,34 @@ public class RhythmGameManager : MonoBehaviour
             {
                 points = perfectScore;
                 perfectCount++;
+
+                if (ScreenEffects.Instance != null)
+                {
+                    ScreenEffects.Instance.Flash(Color.yellow, 0.4f);
+                    ScreenEffects.Instance.CameraShake(0.15f, 0.15f);
+                }
             }
 
             else if (judgment == "Great")
             {
                 points = greatScore;
                 greatCount++;
+
+                if (ScreenEffects.Instance != null)
+                {
+                    ScreenEffects.Instance.Flash(Color.green, 0.3f);
+                }
             }
 
             else if (judgment == "Good")
             {
                 points = goodScore;
                 goodCount++;
+
+                if (ScreenEffects.Instance != null)
+                {
+                    ScreenEffects.Instance.Flash(Color.cyan, 0.2f);
+                }
             }
 
             // 콤보 보너스
@@ -256,10 +278,52 @@ public class RhythmGameManager : MonoBehaviour
         if (comboText != null)
         {
             if (combo > 0)
+            {
                 comboText.text = $"Combo: {combo}";
+
+                // ✅ 콤보 증가 시 애니메이션
+                StartCoroutine(ComboScaleAnimation());
+            }
+
+            
             else
+            {
                 comboText.text = "";
+            }
         }
+    }
+    IEnumerator ComboScaleAnimation()
+    {
+        if (comboText == null) yield break;
+
+        // 원래 스케일 저장
+        Vector3 originalScale = comboText.transform.localScale;
+        Vector3 targetScale = originalScale * 1.3f;
+
+        // 커지기
+        float elapsed = 0f;
+        float duration = 0.1f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+            comboText.transform.localScale = Vector3.Lerp(originalScale, targetScale, t);
+            yield return null;
+        }
+
+        // 작아지기
+        elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+            comboText.transform.localScale = Vector3.Lerp(targetScale, originalScale, t);
+            yield return null;
+        }
+
+        comboText.transform.localScale = originalScale;
     }
 
     void EndGame()

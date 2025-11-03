@@ -139,6 +139,39 @@ public class DrumController : MonoBehaviour
         }
 
         StartCoroutine(HitFlash());
+
+        // ✅ 드럼 펀치 애니메이션
+        StartCoroutine(DrumPunchAnimation());
+    }
+    System.Collections.IEnumerator DrumPunchAnimation()
+    {
+        Vector3 originalScale = transform.localScale;
+        Vector3 punchScale = originalScale * 1.2f;
+
+        // 커지기
+        float elapsed = 0f;
+        float duration = 0.1f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+            transform.localScale = Vector3.Lerp(originalScale, punchScale, t);
+            yield return null;
+        }
+
+        // 작아지기
+        elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+            transform.localScale = Vector3.Lerp(punchScale, originalScale, t);
+            yield return null;
+        }
+
+        transform.localScale = originalScale;
     }
 
     System.Collections.IEnumerator HitFlash()
