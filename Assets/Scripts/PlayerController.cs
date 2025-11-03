@@ -71,7 +71,7 @@ public class FirstPersonController : MonoBehaviour
         // 카메라를 플레이어 위치로 동기화
         SyncCameraToPlayer();
 
-        // VR 모드가 아닐 때만 마우스 시점 제어
+        // 마우스 시점 제어
         if (canMove)
         {
             HandleMouseLook();
@@ -130,31 +130,53 @@ public class FirstPersonController : MonoBehaviour
         if (cameraRig != null)
         {
             // VRControllers(카메라)를 플레이어 위치로 이동
-            // 단, VR 헤드셋의 로컬 회전/위치는 유지
             cameraRig.position = transform.position + cameraOffset;
 
-            // 플레이어의 Y축 회전만 카메라에 적용 (좌우 회전)
-            Vector3 currentRotation = cameraRig.eulerAngles;
-            cameraRig.rotation = Quaternion.Euler(currentRotation.x, transform.eulerAngles.y, currentRotation.z);
+            // 플레이어의 Y축 회전만 카메라에 적용 (좌우 회전만)
+            // Z축 회전은 항상 0으로 유지 (기울어짐 방지)
+            cameraRig.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
         }
     }
 
     void HandleMouseLook()
     {
         if (!canMove) return;
-        if (cameraTransform == null) return;
 
         // 마우스 입력
         float mouseX = Input.GetAxis("Mouse X") * lookSpeedX;
         float mouseY = Input.GetAxis("Mouse Y") * lookSpeedY;
 
-        // 좌우 회전 (플레이어)
+        // 키보드 Q/E로 좌우 회전 (옵션)
+        if (Input.GetKey(KeyCode.Q))
+        {
+            mouseX -= lookSpeedX * 30f * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.E))
+        {
+            mouseX += lookSpeedX * 30f * Time.deltaTime;
+        }
+
+        // 좌우 회전 (플레이어 회전)
         transform.Rotate(0, mouseX, 0);
 
-        // 상하 회전 (카메라)
-        rotationX -= mouseY;
-        rotationX = Mathf.Clamp(rotationX, -lookLimitY, lookLimitY);
-        cameraTransform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+        // 상하 회전 (카메라 회전)
+        if (cameraTransform != null)
+        {
+            rotationX -= mouseY;
+            rotationX = Mathf.Clamp(rotationX, -lookLimitY, lookLimitY);
+
+            // VR 모드: VRControllers 전체를 상하로 회전
+            if (useVRCamera && cameraRig != null)
+            {
+                Vector3 currentRot = cameraRig.localEulerAngles;
+                cameraRig.localRotation = Quaternion.Euler(rotationX, currentRot.y, currentRot.z);
+            }
+            // 일반 모드: 카메라만 회전
+            else
+            {
+                cameraTransform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+            }
+        }
     }
 
     void HandleCursor()
