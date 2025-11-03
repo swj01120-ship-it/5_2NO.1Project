@@ -1,231 +1,192 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class PlayerController : MonoBehaviour
+public class FirstPersonController : MonoBehaviour
 {
     [Header("이동 설정")]
-    [SerializeField] private float walkSpeed = 5f;
-    [SerializeField] private float runSpeed = 8f;
-    [SerializeField] private float jumpHeight = 2f;
-    [SerializeField] private float gravity = -20f;
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float sprintSpeed = 8f;
+    [SerializeField] private float jumpForce = 8f;
+    [SerializeField] private float gravity = 20f;
 
-    [Header("카메라 설정 (1인칭)")]
-    [SerializeField] private Camera playerCamera;
-    [SerializeField] private float mouseSensitivity = 2f;
-    [SerializeField] private float cameraMaxAngle = 80f;
-    [SerializeField] private float cameraHeight = 0.8f;
+    [Header("마우스 감도")]
+    [SerializeField] private float lookSpeedX = 2f;
+    [SerializeField] private float lookSpeedY = 2f;
+    [SerializeField] private float lookLimitY = 80f;
 
-    [Header("지면 체크")]
-    [SerializeField] private float groundCheckDistance = 0.2f;
-    [SerializeField] private LayerMask groundMask;
+    [Header("카메라 설정")]
+    [SerializeField] private Transform cameraRig; // VRControllers 또는 카메라 부모
+    [SerializeField] private Transform cameraTransform;
+    [SerializeField] private bool useVRCamera = true;
+    [SerializeField] private Vector3 cameraOffset = new Vector3(0, 0.6f, 0);
 
-    [Header("UI 상호작용")]
-    [SerializeField] private bool enableUIInteraction = true;
+    private CharacterController characterController;
+    private Vector3 moveDirection = Vector3.zero;
+    private float rotationX = 0;
+    private bool canMove = true;
 
-    [Header("헤드 밥 (걸을 때 카메라 흔들림)")]
-    [SerializeField] private bool enableHeadBob = true;
-    [SerializeField] private float bobFrequency = 2f;
-    [SerializeField] private float bobAmplitude = 0.05f;
-
-    private CharacterController controller;
-    private Vector3 velocity;
-    private bool isGrounded;
-    private float xRotation = 0f;
-    private bool cursorLocked = true;
-
-    // 헤드 밥 변수
-    private float bobTimer = 0f;
-    private Vector3 cameraStartPosition;
-
-    private void Awake()
+    void Start()
     {
-        controller = GetComponent<CharacterController>();
-        LockCursor();
-    }
+        characterController = GetComponent<CharacterController>();
 
-    private void Start()
-    {
-        // 카메라 설정
-        if (playerCamera == null)
+        // 카메라 자동 찾기
+        if (cameraTransform == null || cameraRig == null)
         {
-            playerCamera = Camera.main;
+            // VR 카메라 찾기
+            GameObject vrControllers = GameObject.Find("VRControllers");
+            if (vrControllers != null && useVRCamera)
+            {
+                cameraRig = vrControllers.transform;
+                cameraTransform = vrControllers.GetComponentInChildren<Camera>()?.transform;
+                Debug.Log("VR 카메라 시스템 감지됨!");
+            }
+            else
+            {
+                // 일반 카메라
+                Camera mainCam = Camera.main;
+                if (mainCam != null)
+                {
+                    cameraTransform = mainCam.transform;
+                    cameraRig = cameraTransform;
+                    Debug.Log("일반 카메라 사용");
+                }
+            }
         }
 
-        // 카메라를 플레이어의 자식으로 만들고 1인칭 위치로 설정
-        if (playerCamera != null)
+        // 초기 카메라 위치 설정
+        if (cameraRig != null)
         {
-            playerCamera.transform.SetParent(transform);
-            playerCamera.transform.localPosition = new Vector3(0, cameraHeight, 0);
-            playerCamera.transform.localRotation = Quaternion.identity;
-            cameraStartPosition = playerCamera.transform.localPosition;
+            cameraRig.position = transform.position + cameraOffset;
         }
+
+        // 마우스 커서 잠금
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
-    private void Update()
+    void Update()
     {
-        HandleGroundCheck();
         HandleMovement();
 
-        // UI와 상호작용할 때는 마우스 시점 비활성화
-        if (cursorLocked)
+        // 카메라를 플레이어 위치로 동기화
+        SyncCameraToPlayer();
+
+        // VR 모드가 아닐 때만 마우스 시점 제어
+        if (canMove)
         {
             HandleMouseLook();
         }
 
-        HandleHeadBob();
-        HandleCursorToggle();
+        HandleCursor();
     }
 
-    // 지면 체크 (개선된 버전)
-    private void HandleGroundCheck()
+    void HandleMovement()
     {
-        // CharacterController의 isGrounded 사용
-        isGrounded = controller.isGrounded;
+        // 앞뒤좌우 입력
+        float moveX = Input.GetAxis("Horizontal");
+        float moveZ = Input.GetAxis("Vertical");
 
-        // 추가 체크: 발 아래 레이캐스트
-        Ray ray = new Ray(transform.position + Vector3.up * 0.1f, Vector3.down);
-        if (Physics.Raycast(ray, 0.3f))
+        // 디버그: 입력 확인
+        if (moveX != 0 || moveZ != 0)
         {
-            isGrounded = true;
+            Debug.Log($"입력 감지! X: {moveX}, Z: {moveZ}");
         }
 
-        // 바닥에 닿았을 때 y 속도 리셋
-        if (isGrounded && velocity.y < 0)
+        // 이동 방향 계산 (플레이어 기준)
+        Vector3 forward = transform.TransformDirection(Vector3.forward);
+        Vector3 right = transform.TransformDirection(Vector3.right);
+
+        // 달리기 체크
+        bool isSprinting = Input.GetKey(KeyCode.LeftShift);
+        float currentSpeed = isSprinting ? sprintSpeed : moveSpeed;
+
+        float moveY = moveDirection.y;
+        moveDirection = (forward * moveZ + right * moveX) * currentSpeed;
+
+        // 점프
+        if (Input.GetButton("Jump") && characterController.isGrounded)
         {
-            velocity.y = -2f;
-        }
-
-        // 디버그 로그 (테스트용)
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log($"점프 시도! isGrounded: {isGrounded}, Velocity.y: {velocity.y}");
-        }
-    }
-
-    // 이동 처리
-    private void HandleMovement()
-    {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        // 플레이어가 바라보는 방향 기준으로 이동
-        Vector3 move = transform.right * horizontal + transform.forward * vertical;
-
-        // 달리기
-        bool isRunning = Input.GetKey(KeyCode.LeftShift);
-        float currentSpeed = isRunning ? runSpeed : walkSpeed;
-
-        controller.Move(move * currentSpeed * Time.deltaTime);
-
-        // 점프 (스페이스바 또는 Jump 버튼)
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            moveDirection.y = jumpForce;
             Debug.Log("점프!");
-        }
-
-        // 중력 적용
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
-    }
-
-    // 1인칭 마우스 시점
-    private void HandleMouseLook()
-    {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
-
-        // 상하 시점 (카메라만 회전)
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -cameraMaxAngle, cameraMaxAngle);
-
-        if (playerCamera != null)
-        {
-            playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        }
-
-        // 좌우 시점 (플레이어 전체 회전)
-        transform.Rotate(Vector3.up * mouseX);
-    }
-
-    // 헤드 밥 (걸을 때 카메라 자연스러운 흔들림)
-    private void HandleHeadBob()
-    {
-        if (!enableHeadBob || playerCamera == null) return;
-
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        // 움직이고 있고 지면에 있을 때만
-        if (isGrounded && (Mathf.Abs(horizontal) > 0.1f || Mathf.Abs(vertical) > 0.1f))
-        {
-            bobTimer += Time.deltaTime * bobFrequency;
-
-            // 사인파를 이용한 상하 움직임
-            float bobOffset = Mathf.Sin(bobTimer) * bobAmplitude;
-
-            playerCamera.transform.localPosition = new Vector3(
-                cameraStartPosition.x,
-                cameraStartPosition.y + bobOffset,
-                cameraStartPosition.z
-            );
         }
         else
         {
-            // 멈추면 원래 위치로 부드럽게 돌아감
-            bobTimer = 0f;
-            playerCamera.transform.localPosition = Vector3.Lerp(
-                playerCamera.transform.localPosition,
-                cameraStartPosition,
-                Time.deltaTime * 5f
-            );
+            moveDirection.y = moveY;
+        }
+
+        // 중력 적용
+        if (!characterController.isGrounded)
+        {
+            moveDirection.y -= gravity * Time.deltaTime;
+        }
+
+        // 캐릭터 이동
+        characterController.Move(moveDirection * Time.deltaTime);
+    }
+
+    // 카메라를 플레이어 위치에 동기화
+    void SyncCameraToPlayer()
+    {
+        if (cameraRig != null)
+        {
+            // VRControllers(카메라)를 플레이어 위치로 이동
+            // 단, VR 헤드셋의 로컬 회전/위치는 유지
+            cameraRig.position = transform.position + cameraOffset;
+
+            // 플레이어의 Y축 회전만 카메라에 적용 (좌우 회전)
+            Vector3 currentRotation = cameraRig.eulerAngles;
+            cameraRig.rotation = Quaternion.Euler(currentRotation.x, transform.eulerAngles.y, currentRotation.z);
         }
     }
 
-    // ESC 키로 커서 토글 (UI 클릭 가능하게)
-    private void HandleCursorToggle()
+    void HandleMouseLook()
     {
+        if (!canMove) return;
+        if (cameraTransform == null) return;
+
+        // 마우스 입력
+        float mouseX = Input.GetAxis("Mouse X") * lookSpeedX;
+        float mouseY = Input.GetAxis("Mouse Y") * lookSpeedY;
+
+        // 좌우 회전 (플레이어)
+        transform.Rotate(0, mouseX, 0);
+
+        // 상하 회전 (카메라)
+        rotationX -= mouseY;
+        rotationX = Mathf.Clamp(rotationX, -lookLimitY, lookLimitY);
+        cameraTransform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+    }
+
+    void HandleCursor()
+    {
+        // ESC로 커서 토글
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (cursorLocked)
+            if (Cursor.lockState == CursorLockMode.Locked)
             {
-                UnlockCursor();
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                canMove = false;
             }
             else
             {
-                LockCursor();
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                canMove = true;
             }
         }
 
-        // 마우스 왼쪽 클릭으로도 다시 잠금 (UI 클릭 후 게임으로 돌아갈 때)
-        if (!cursorLocked && Input.GetMouseButtonDown(0))
+        // 화면 클릭으로 다시 잠금
+        if (Cursor.visible && Input.GetMouseButtonDown(0))
         {
-            // UI를 클릭하지 않았을 때만 커서 잠금
-            if (enableUIInteraction && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+            // UI 위가 아닐 때만
+            if (UnityEngine.EventSystems.EventSystem.current != null &&
+                !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
             {
-                LockCursor();
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                canMove = true;
             }
         }
-    }
-
-    private void LockCursor()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        cursorLocked = true;
-    }
-
-    private void UnlockCursor()
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        cursorLocked = false;
-    }
-
-    // 디버깅용 기즈모
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = isGrounded ? Color.green : Color.red;
-        Gizmos.DrawWireSphere(transform.position, groundCheckDistance);
     }
 }
