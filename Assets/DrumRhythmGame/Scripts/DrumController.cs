@@ -24,6 +24,9 @@ public class DrumController : MonoBehaviour
     private float greatWindow;  // 초기값 제거
     private float goodWindow;     // 초기값 제거
 
+    [Header("효과")]
+    public ParticleSystem hitParticle;
+
     void Start()
     {
         drumRenderer = GetComponent<Renderer>();
@@ -130,6 +133,11 @@ public class DrumController : MonoBehaviour
 
     void ShowHitEffect()
     {
+        if (hitParticle != null)
+        {
+            hitParticle.Play();
+        }
+
         StartCoroutine(HitFlash());
     }
 
