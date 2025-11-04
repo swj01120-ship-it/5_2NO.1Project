@@ -116,7 +116,7 @@ public class TutorialManager : MonoBehaviour
             new TutorialStep
             {
                 npcName = "호랭도령",
-                dialogue = "환영합니다! 사물놀이의 세계에 오신 것을 환영합니다.\nEnter 키를 눌러 계속 진행하세요.",
+                dialogue = "반갑습니다! 사물버스 마을에 오신 것을 환영합니다.\nEnter 키를 눌러 계속 진행하세요.",
                 taskType = TaskType.None
             },
             new TutorialStep
