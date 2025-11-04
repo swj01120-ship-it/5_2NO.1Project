@@ -15,6 +15,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private GameObject continueButton;
     [SerializeField] private GameObject taskPanel;
     [SerializeField] private Text taskText;
+    [SerializeField] private GameObject interactionPrompt; // "E를 눌러 대화하기"
 
     [Header("플레이어")]
     [SerializeField] private Transform playerTransform;
@@ -27,6 +28,9 @@ public class TutorialManager : MonoBehaviour
     private bool isTyping = false;
     private bool taskCompleted = false;
     private string currentFullText = "";
+    private bool tutorialStarted = false; // 튜토리얼 시작 여부
+    private bool isNearNPC = false; // NPC 근처에 있는지
+
 
     // 이동 체크용
     private bool hasMovedForward = false;
@@ -66,18 +70,28 @@ public class TutorialManager : MonoBehaviour
         // UI 초기화
         if (dialoguePanel != null) dialoguePanel.SetActive(false);
         if (taskPanel != null) taskPanel.SetActive(false);
+        if(interactionPrompt != null) interactionPrompt.SetActive(false);
 
-        // 첫 단계 시작
-        StartCoroutine(StartTutorialAfterDelay(1f));
     }
 
     void Update()
     {
-        // 현재 단계의 태스크 체크
+        // NPC와의 거리 체크
+        CheckDistanceToNPC();
+
+        // 튜토리얼 시작 전: E 키로 시작
+        if (!tutorialStarted && isNearNPC && Input.GetKeyDown(KeyCode.E))
+        {
+            StartTutorial();
+        }
+
+        // 튜토리얼 진행 중에만 나머지 로직 실행
+        if (!tutorialStarted) return;
+
         CheckCurrentTask();
 
-        // Space 키로 대화 진행
-        if (Input.GetKeyDown(KeyCode.Space) && !isTyping)
+        // **Enter 키로만 대화 진행** (KeyCode.Return = Enter)
+        if (Input.GetKeyDown(KeyCode.Return) && !isTyping)
         {
             if (taskCompleted || tutorialSteps[currentStep].taskType == TaskType.None)
             {
@@ -85,8 +99,8 @@ public class TutorialManager : MonoBehaviour
             }
         }
 
-        // 타이핑 중일 때 Space로 스킵
-        if (Input.GetKeyDown(KeyCode.Space) && isTyping)
+        // **타이핑 중일 때 Enter로 스킵**
+        if (Input.GetKeyDown(KeyCode.Return) && isTyping)
         {
             StopAllCoroutines();
             dialogueText.text = currentFullText;
@@ -102,7 +116,7 @@ public class TutorialManager : MonoBehaviour
             new TutorialStep
             {
                 npcName = "호랭도령",
-                dialogue = "환영합니다! 사물놀이의 세계에 오신 것을 환영합니다!\\nEnter 키를 눌러 계속 진행하세요.
+                dialogue = "환영합니다! 사물놀이의 세계에 오신 것을 환영합니다.\nEnter 키를 눌러 계속 진행하세요.",
                 taskType = TaskType.None
             },
             new TutorialStep
@@ -119,16 +133,28 @@ public class TutorialManager : MonoBehaviour
                 taskType = TaskType.Jump,
                 taskDescription = "Space 키를 눌러 점프해보세요"
             },
+            //new TutorialStep
+            //{
+                //npcName = "호랭도령",
+               // dialogue = "완벽합니다! VR 컨트롤러 사용법을 알려드리겠습니다.",
+               // taskType = TaskType.None
+           // },
+           // new TutorialStep
+            //{
+               // npcName = "호랭도령",
+               // dialogue = "VR 컨트롤러에서 나오는 레이저를 이용해\n물체를 가리키고 스틱을 잡을 수 있습니다.",
+               // taskType = TaskType.None
+           // },
             new TutorialStep
             {
                 npcName = "호랭도령",
-                dialogue = "완벽합니다! 이제 사물놀이의 핵심인 북 치는 법을 알려드리겠습니다.",
+                dialogue = "이제 사물놀이의 핵심인 북 치는 법을 알려드리겠습니다.",
                 taskType = TaskType.None
             },
             new TutorialStep
             {
                 npcName = "호랭도령",
-                dialogue = "게임이 시작되면 북이 빛나기 시작합니다.\n빛나는 북을 키보드 A,S,D,F키로 치면 됩니다!",
+                dialogue = "게임이 시작되면 북이 빛나기 시작합니다.\n빛나는 북을 키보드 A,S,D,F 키로 타이밍 맞춰서 치면 됩니다!",
                 taskType = TaskType.None
             },
             new TutorialStep
@@ -164,11 +190,32 @@ public class TutorialManager : MonoBehaviour
         };
     }
 
-    IEnumerator StartTutorialAfterDelay(float delay)
+
+    void CheckDistanceToNPC()
     {
-        yield return new WaitForSeconds(delay);
+        if (npcTransform == null || playerTransform == null) return;
+
+        float distance = Vector3.Distance(playerTransform.position, npcTransform.position);
+
+        if (distance <= interactionDistance && !tutorialStarted)
+        {
+            isNearNPC = true;
+            if (interactionPrompt != null) interactionPrompt.SetActive(true);
+        }
+        else
+        {
+            isNearNPC = false;
+            if (interactionPrompt != null && !tutorialStarted) interactionPrompt.SetActive(false);
+        }
+    }
+
+    void StartTutorial()
+    {
+        tutorialStarted = true;
+        if (interactionPrompt != null) interactionPrompt.SetActive(false);
         ShowDialogue();
     }
+
 
     void ShowDialogue()
     {
@@ -239,6 +286,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case TaskType.Jump:
+                // **점프는 Space만 체크 (Enter와 분리됨)**
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     hasJumped = true;
@@ -246,8 +294,8 @@ public class TutorialManager : MonoBehaviour
                 }
                 break;
 
-                case TaskType.ClickDrum:
-                //나중에 북 클릭 시스템과 연동
+            case TaskType.ClickDrum:
+                // 나중에 북 클릭 시스템과 연동
                 break;
         }
     }
