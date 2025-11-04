@@ -918,7 +918,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 780, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371928707
 MonoBehaviour:
@@ -1056,7 +1056,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drumIndex: 0
-  drumKey: 97
+  drumKey: 102
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 1, g: 0, b: 0, a: 1}
   hitColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
@@ -1217,7 +1217,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4839ef749c0dbc84f8ec83663681aa64, type: 2}
     - target: {fileID: 919132149155446097, guid: 241452c793ff24f47af292bdc1f23815, type: 3}
       propertyPath: m_Name
-      value: Drum_A
+      value: Drum_F
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 241452c793ff24f47af292bdc1f23815, type: 3}
       propertyPath: m_IsActive
@@ -1406,7 +1406,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8ab1583ee8d857740919f154cfcecd71, type: 2}
     - target: {fileID: 919132149155446097, guid: 241452c793ff24f47af292bdc1f23815, type: 3}
       propertyPath: m_Name
-      value: Drum_F
+      value: Drum_L
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 241452c793ff24f47af292bdc1f23815, type: 3}
       propertyPath: m_IsActive
@@ -1498,7 +1498,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4150457839638154e82433e194e25ecd, type: 2}
     - target: {fileID: 919132149155446097, guid: 241452c793ff24f47af292bdc1f23815, type: 3}
       propertyPath: m_Name
-      value: Drum_S
+      value: Drum_G
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 241452c793ff24f47af292bdc1f23815, type: 3}
       propertyPath: m_IsActive
@@ -1546,7 +1546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drumIndex: 1
-  drumKey: 115
+  drumKey: 103
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 1, g: 0, b: 0, a: 1}
   hitColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
@@ -1972,7 +1972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1399036777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2006,7 +2006,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'tjdrhd: 0/8'
+  m_Text: "\uC131\uACF5: 0/8"
 --- !u!222 &1399036778
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2223,7 +2223,7 @@ MonoBehaviour:
   - {fileID: 240459986}
   - {fileID: 1121115304}
   tutorialBPM: 80
-  requiredSuccessfulHits: 12
+  requiredSuccessfulHits: 8
   progressText: {fileID: 1399036777}
 --- !u!4 &1488274880
 Transform:
@@ -2837,7 +2837,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3d69394748da1654eb70abc642f7e523, type: 2}
     - target: {fileID: 919132149155446097, guid: 241452c793ff24f47af292bdc1f23815, type: 3}
       propertyPath: m_Name
-      value: Drum_D
+      value: Drum_k
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 241452c793ff24f47af292bdc1f23815, type: 3}
       propertyPath: m_IsActive
@@ -3173,7 +3173,7 @@ MonoBehaviour:
   typingSpeed: 0.05
   gameSceneName: GameScene
   sceneTransitionDelay: 2
-  rhythmManager: {fileID: 0}
+  rhythmManager: {fileID: 1488274879}
   drumObjects:
   - {fileID: 262000255}
   - {fileID: 1630833676}

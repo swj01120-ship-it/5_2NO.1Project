@@ -81,12 +81,30 @@ public class TutorialRhythmManager : MonoBehaviour
                 break;
             }
         }
+        // 패턴이 끝났지만 아직 목표 달성 안 했으면 패턴 반복
+        if (currentBeatIndex >= tutorialBeats.Count && successfulHits < requiredSuccessfulHits)
+        {
+            Debug.Log("🔄 패턴 반복! 계속 연습하세요!");
+            RestartPattern();
+        }
 
         // 목표 달성 체크
         if (successfulHits >= requiredSuccessfulHits && isPlaying)
         {
             CompleteTutorialRhythm();
         }
+    }
+
+    // 패턴 재시작 (시간만 리셋)
+    void RestartPattern()
+    {
+        currentBeatIndex = 0;
+        gameStartTime = Time.time;
+
+        // 새 패턴 생성 (시간 다시 설정)
+        GenerateSimplePattern();
+
+        Debug.Log($"✅ 패턴 재시작! 현재 성공: {successfulHits}/{requiredSuccessfulHits}");
     }
 
     IEnumerator UnhighlightAfterDuration(int drumIndex, float duration)
@@ -98,6 +116,13 @@ public class TutorialRhythmManager : MonoBehaviour
     // 튜토리얼 리듬 시작
     public void StartTutorialRhythm()
     {
+        // 이미 시작했으면 무시
+        if (isPlaying)
+        {
+            Debug.LogWarning("⚠️ 리듬 게임이 이미 진행 중입니다!");
+            return;
+        }
+
         Debug.Log("🎮 튜토리얼 리듬 게임 시작!");
 
         // 간단한 패턴 생성
@@ -109,6 +134,12 @@ public class TutorialRhythmManager : MonoBehaviour
         successfulHits = 0;
 
         UpdateProgressUI();
+    }
+
+    // 현재 플레이 중인지 확인
+    public bool IsPlaying()
+    {
+        return isPlaying;
     }
 
     // 간단하고 쉬운 패턴 생성
@@ -166,7 +197,7 @@ public class TutorialRhythmManager : MonoBehaviour
         // TutorialManager에 완료 알림
         if (tutorialManager != null)
         {
-           // tutorialManager.OnDrumTutorialComplete();
+            tutorialManager.OnDrumTutorialComplete();
         }
 
         // 모든 드럼 강조 해제

@@ -85,6 +85,20 @@ public class TutorialManager : MonoBehaviour
         if (rhythmManager == null)
         {
             rhythmManager = FindObjectOfType<TutorialRhythmManager>();
+
+            if (rhythmManager != null)
+            {
+                Debug.Log("✅ TutorialRhythmManager 자동 찾기 성공!");
+            }
+            else
+            {
+                Debug.LogError("❌ TutorialRhythmManager를 찾을 수 없습니다!");
+                Debug.LogError("❌ Hierarchy에 TutorialRhythmManager 오브젝트가 있는지 확인하세요!");
+            }
+        }
+        else
+        {
+            Debug.Log("✅ TutorialRhythmManager가 이미 연결되어 있습니다!");
         }
 
         // 북 오브젝트들 비활성화
@@ -113,6 +127,13 @@ public class TutorialManager : MonoBehaviour
 
         // 현재 단계의 태스크 체크
         CheckCurrentTask();
+
+        // **리듬 연습 단계에서는 Enter 키 처리 안 함**
+        if (currentStep < tutorialSteps.Length && tutorialSteps[currentStep].taskType == TaskType.RhythmPractice)
+        {
+            // 리듬 연습 완료 시에만 자동 진행
+            return;
+        }
 
         // **Enter 키로만 대화 진행** (KeyCode.Return = Enter)
         if (Input.GetKeyDown(KeyCode.Return) && !isTyping)
@@ -172,13 +193,14 @@ public class TutorialManager : MonoBehaviour
             new TutorialStep
             {
                 npcName = "호랭도령",
-                dialogue = "짠~! 옆에 보시면 북이 생겼어요, 이제 사물놀이의 핵심인 북 치는 법을 알려드리겠습니다.",
+                dialogue = "짠~! 옆에 보시면 북이 생겼어요, 북을 연주해 볼까요~?.\\n북이 빛나면 타이밍에 맞춰서 F, G, K, L 키를 눌러주세요.\",",
                 taskType =TaskType.RhythmPractice,
+                taskDescription = "Enter키를 누르면 시작됩니다. 8개 이상 성공시 다음 단계로 넘어갑니다!"
             },
             new TutorialStep
             {
                 npcName = "호랭도령",
-                dialogue = "게임이 시작되면 북이 빛나기 시작합니다.\n빛나는 북을 키보드 A,S,D,F 키로 타이밍 맞춰서 치면 됩니다!",
+                dialogue = "실력이 예사롭지 않으십니다! 이어서 점수 올리는 방법을 알려드리겠습니다",
                 taskType = TaskType.None
             },
             new TutorialStep
@@ -239,6 +261,7 @@ public class TutorialManager : MonoBehaviour
         if (interactionPrompt != null) interactionPrompt.SetActive(false);
         ShowDialogue();
     }
+
     void ShowDialogue()
     {
         if (currentStep >= tutorialSteps.Length) return;
@@ -261,10 +284,10 @@ public class TutorialManager : MonoBehaviour
             if (taskText != null) taskText.text = step.taskDescription;
             taskCompleted = false;
 
-            // 리듬 연습 태스크면 북 활성화 및 시작
+            // 리듬 연습 태스크면 드럼만 보여주고 대기 (게임 시작 안 함!)
             if (step.taskType == TaskType.RhythmPractice)
             {
-                Debug.Log("🥁 리듬 연습 시작! 드럼 활성화 중...");
+                Debug.Log("🥁 리듬 연습 단계! 드럼 활성화 중... (게임은 아직 시작 안 함)");
                 Debug.Log($"🔍 drumObjects 배열 크기: {drumObjects.Length}");
 
                 // 북 오브젝트 활성화
@@ -273,27 +296,17 @@ public class TutorialManager : MonoBehaviour
                     if (drumObjects[i] != null)
                     {
                         drumObjects[i].SetActive(true);
-                        Debug.Log($"✅ Drum {i} 활성화: {drumObjects[i].name}");
+                        Debug.Log($"✅ Drum {i} 활성화 성공: {drumObjects[i].name}");
                     }
                     else
                     {
-                        Debug.LogError($"❌ Drum {i}이(가) 연결되지 않았습니다!");
+                        Debug.LogError($"❌ Drum {i}이(가) NULL입니다! Inspector에서 연결하세요!");
                     }
                 }
-                Debug.Log($"🔍 활성화 완료! 총 {drumObjects.Length}개 처리");
 
-                // 리듬 게임 시작
-                if (rhythmManager != null)
-                {
-                    Debug.Log("✅ TutorialRhythmManager 발견! StartTutorialRhythm() 호출...");
-                    rhythmPracticeComplete = false;
-                    rhythmManager.StartTutorialRhythm();
-                }
-                else
-                {
-                    Debug.LogError("❌ TutorialRhythmManager가 연결되지 않았습니다!");
-                    Debug.LogError("❌ Inspector에서 Rhythm Manager 필드를 확인하세요!");
-                }
+                Debug.Log("⏸️ 드럼이 활성화되었습니다. Enter 키를 눌러 연습을 시작하세요!");
+
+                // ❌ 여기서 게임 시작 안 함! Enter 키 대기
             }
         }
         else
@@ -354,7 +367,22 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case TaskType.RhythmPractice:
-                // 리듬 연습은 TutorialRhythmManager에서 처리
+                // **Enter 키로 리듬 연습 시작**
+                if (Input.GetKeyDown(KeyCode.Return) && !rhythmPracticeComplete && rhythmManager != null)
+                {
+                    Debug.Log("🎮 Enter 키 입력! 리듬 연습 시작!");
+
+                    // 태스크 텍스트 변경
+                    if (taskText != null)
+                    {
+                        taskText.text = "빛나는 북을 타이밍에 맞춰 쳐보세요!";
+                    }
+
+                    // 리듬 게임 시작
+                    rhythmManager.StartTutorialRhythm();
+                }
+
+                // 리듬 연습 완료 체크
                 if (rhythmPracticeComplete)
                 {
                     CompleteTask();
@@ -381,6 +409,21 @@ public class TutorialManager : MonoBehaviour
                 drumObjects[i].SetActive(false);
             }
         }
+
+        // 자동으로 다음 단계로 진행
+        Debug.Log("➡️ 다음 단계로 자동 진행...");
+
+        // 잠깐 대기 후 다음 단계
+        StartCoroutine(AutoNextStepAfterRhythm());
+    }
+
+    System.Collections.IEnumerator AutoNextStepAfterRhythm()
+    {
+        // 1초 대기 (완료 메시지 볼 시간)
+        yield return new WaitForSeconds(1f);
+
+        // 다음 단계로
+        NextStep();
     }
 
     // 북을 쳤을 때 외부에서 호출하는 함수 (이제 사용 안 함)
