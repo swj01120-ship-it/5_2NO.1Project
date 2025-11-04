@@ -93,7 +93,18 @@ public class DrumController : MonoBehaviour
         {
             // 강조되지 않았을 때 타격 = Miss
             Debug.Log($"❌ Miss! (Drum {drumIndex}) - 강조되지 않았을 때 침");
-            RhythmGameManager.Instance.OnDrumHit("Miss", drumIndex);
+
+            // ✅ 게임 매니저 체크 추가
+            if (RhythmGameManager.Instance != null)
+            {
+                RhythmGameManager.Instance.OnDrumHit("Miss", drumIndex);
+            }
+            else if (TutorialRhythmManager.Instance != null)
+            {
+                TutorialRhythmManager.Instance.OnTutorialDrumHit("Miss", drumIndex);
+            }
+
+
             ShowHitEffect();
             return;
         }
@@ -123,8 +134,15 @@ public class DrumController : MonoBehaviour
             Debug.Log($"❌ Miss! (Drum {drumIndex}, {timeDifference:F3}초 차이 - 너무 늦음)");
         }
 
-        // 게임 매니저에 알림
-        RhythmGameManager.Instance.OnDrumHit(judgment, drumIndex);
+        // ✅ 게임 매니저 체크 추가
+        if (RhythmGameManager.Instance != null)
+        {
+            RhythmGameManager.Instance.OnDrumHit(judgment, drumIndex);
+        }
+        else if (TutorialRhythmManager.Instance != null)
+        {
+            TutorialRhythmManager.Instance.OnTutorialDrumHit(judgment, drumIndex);
+        }
 
         // 시각 효과
         ShowHitEffect();

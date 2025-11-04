@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class TutorialManager : MonoBehaviour
@@ -24,6 +25,14 @@ public class TutorialManager : MonoBehaviour
     [Header("타이핑 효과")]
     [SerializeField] private float typingSpeed = 0.05f;
 
+    [Header("씬 전환")]
+    [SerializeField] private string gameSceneName = "GameScene";
+    [SerializeField] private float sceneTransitionDelay = 2f;
+
+    [Header("북(드럼) 연습")]
+    [SerializeField] private TutorialRhythmManager rhythmManager; // 리듬 매니저
+    [SerializeField] private GameObject[] drumObjects = new GameObject[4]; // 4개의 북
+
     private int currentStep = 0;
     private bool isTyping = false;
     private bool taskCompleted = false;
@@ -31,13 +40,13 @@ public class TutorialManager : MonoBehaviour
     private bool tutorialStarted = false; // 튜토리얼 시작 여부
     private bool isNearNPC = false; // NPC 근처에 있는지
 
-
     // 이동 체크용
     private bool hasMovedForward = false;
     private bool hasMovedBackward = false;
     private bool hasMovedLeft = false;
     private bool hasMovedRight = false;
     private bool hasJumped = false;
+    private bool rhythmPracticeComplete = false; // 리듬 연습 완료 여부
 
     // 튜토리얼 단계별 내용
     private TutorialStep[] tutorialSteps;
@@ -70,8 +79,22 @@ public class TutorialManager : MonoBehaviour
         // UI 초기화
         if (dialoguePanel != null) dialoguePanel.SetActive(false);
         if (taskPanel != null) taskPanel.SetActive(false);
-        if(interactionPrompt != null) interactionPrompt.SetActive(false);
+        if (interactionPrompt != null) interactionPrompt.SetActive(false);
 
+        // 리듬 매니저 자동 찾기
+        if (rhythmManager == null)
+        {
+            rhythmManager = FindObjectOfType<TutorialRhythmManager>();
+        }
+
+        // 북 오브젝트들 비활성화
+        for (int i = 0; i < drumObjects.Length; i++)
+        {
+            if (drumObjects[i] != null)
+            {
+                drumObjects[i].SetActive(false);
+            }
+        }
     }
 
     void Update()
@@ -88,6 +111,7 @@ public class TutorialManager : MonoBehaviour
         // 튜토리얼 진행 중에만 나머지 로직 실행
         if (!tutorialStarted) return;
 
+        // 현재 단계의 태스크 체크
         CheckCurrentTask();
 
         // **Enter 키로만 대화 진행** (KeyCode.Return = Enter)
@@ -148,8 +172,8 @@ public class TutorialManager : MonoBehaviour
             new TutorialStep
             {
                 npcName = "호랭도령",
-                dialogue = "이제 사물놀이의 핵심인 북 치는 법을 알려드리겠습니다.",
-                taskType = TaskType.None
+                dialogue = "짠~! 옆에 보시면 북이 생겼어요, 이제 사물놀이의 핵심인 북 치는 법을 알려드리겠습니다.",
+                taskType =TaskType.RhythmPractice,
             },
             new TutorialStep
             {
@@ -215,13 +239,13 @@ public class TutorialManager : MonoBehaviour
         if (interactionPrompt != null) interactionPrompt.SetActive(false);
         ShowDialogue();
     }
-
-
     void ShowDialogue()
     {
         if (currentStep >= tutorialSteps.Length) return;
 
         TutorialStep step = tutorialSteps[currentStep];
+
+        Debug.Log($"📢 ShowDialogue 호출! 현재 단계: {currentStep}, TaskType: {step.taskType}");
 
         // 대화창 표시
         if (dialoguePanel != null) dialoguePanel.SetActive(true);
@@ -236,6 +260,41 @@ public class TutorialManager : MonoBehaviour
             if (taskPanel != null) taskPanel.SetActive(true);
             if (taskText != null) taskText.text = step.taskDescription;
             taskCompleted = false;
+
+            // 리듬 연습 태스크면 북 활성화 및 시작
+            if (step.taskType == TaskType.RhythmPractice)
+            {
+                Debug.Log("🥁 리듬 연습 시작! 드럼 활성화 중...");
+                Debug.Log($"🔍 drumObjects 배열 크기: {drumObjects.Length}");
+
+                // 북 오브젝트 활성화
+                for (int i = 0; i < drumObjects.Length; i++)
+                {
+                    if (drumObjects[i] != null)
+                    {
+                        drumObjects[i].SetActive(true);
+                        Debug.Log($"✅ Drum {i} 활성화: {drumObjects[i].name}");
+                    }
+                    else
+                    {
+                        Debug.LogError($"❌ Drum {i}이(가) 연결되지 않았습니다!");
+                    }
+                }
+                Debug.Log($"🔍 활성화 완료! 총 {drumObjects.Length}개 처리");
+
+                // 리듬 게임 시작
+                if (rhythmManager != null)
+                {
+                    Debug.Log("✅ TutorialRhythmManager 발견! StartTutorialRhythm() 호출...");
+                    rhythmPracticeComplete = false;
+                    rhythmManager.StartTutorialRhythm();
+                }
+                else
+                {
+                    Debug.LogError("❌ TutorialRhythmManager가 연결되지 않았습니다!");
+                    Debug.LogError("❌ Inspector에서 Rhythm Manager 필드를 확인하세요!");
+                }
+            }
         }
         else
         {
@@ -294,10 +353,40 @@ public class TutorialManager : MonoBehaviour
                 }
                 break;
 
+            case TaskType.RhythmPractice:
+                // 리듬 연습은 TutorialRhythmManager에서 처리
+                if (rhythmPracticeComplete)
+                {
+                    CompleteTask();
+                }
+                break;
+
             case TaskType.ClickDrum:
-                // 나중에 북 클릭 시스템과 연동
+                // 사용 안 함 (RhythmPractice로 대체)
                 break;
         }
+    }
+
+    // 리듬 튜토리얼 완료 시 호출 (TutorialRhythmManager에서)
+    public void OnDrumTutorialComplete()
+    {
+        rhythmPracticeComplete = true;
+        Debug.Log("✅ 리듬 튜토리얼 완료!");
+
+        // 북 비활성화
+        for (int i = 0; i < drumObjects.Length; i++)
+        {
+            if (drumObjects[i] != null)
+            {
+                drumObjects[i].SetActive(false);
+            }
+        }
+    }
+
+    // 북을 쳤을 때 외부에서 호출하는 함수 (이제 사용 안 함)
+    public void OnDrumHit()
+    {
+        // 이전 단순 북 치기 - 더 이상 사용 안 함
     }
 
     void CompleteTask()
@@ -333,8 +422,19 @@ public class TutorialManager : MonoBehaviour
         if (dialoguePanel != null) dialoguePanel.SetActive(false);
         if (taskPanel != null) taskPanel.SetActive(false);
 
-        Debug.Log("튜토리얼 완료!");
-        // 여기에 게임 씬으로 전환하는 코드 추가 가능
+        Debug.Log("튜토리얼 완료! 게임 씬으로 전환합니다...");
+
+        // 게임 씬으로 전환
+        StartCoroutine(TransitionToGameScene());
+    }
+
+    IEnumerator TransitionToGameScene()
+    {
+        // 전환 전 딜레이
+        yield return new WaitForSeconds(sceneTransitionDelay);
+
+        // 씬 전환
+        SceneManager.LoadScene(gameSceneName);
     }
 
     // 에디터에서 거리 시각화
@@ -365,5 +465,6 @@ public enum TaskType
     None,
     Move,
     Jump,
-    ClickDrum
+    RhythmPractice, // 리듬 연습 (새로 추가)
+    ClickDrum // 사용 안 함
 }
