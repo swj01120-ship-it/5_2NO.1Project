@@ -197,7 +197,7 @@ public class TutorialRhythmManager : MonoBehaviour
         // TutorialManager에 완료 알림
         if (tutorialManager != null)
         {
-            tutorialManager.OnDrumTutorialComplete();
+           // tutorialManager.OnDrumTutorialComplete();
         }
 
         // 모든 드럼 강조 해제
