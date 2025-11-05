@@ -33,11 +33,11 @@ public class GameResult
         get
         {
             float accuracy = Accuracy;
-            if (accuracy >= 95f) return "S";
-            if (accuracy >= 90f) return "A";
-            if (accuracy >= 80f) return "B";
-            if (accuracy >= 70f) return "C";
-            if (accuracy >= 60f) return "D";
+            if (accuracy >= 75f) return "S";
+            if (accuracy >= 60f) return "A";
+            if (accuracy >= 50f) return "B";
+            if (accuracy >= 40f) return "C";
+            if (accuracy >= 30f) return "D";
             return "F";
         }
     }

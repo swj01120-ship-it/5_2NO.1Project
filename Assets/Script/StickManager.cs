@@ -10,9 +10,9 @@ public class StickManager : MonoBehaviour
     [Tooltip("동시 입력으로 인정할 시간 간격 (초)")]
     public float inputBufferTime = 0.05f;  // 50ms
 
-    // 각 스틱의 현재 위치 (0=F, 1=G, 2=K, 3=L)
-    private int leftStickPosition = 0;   // 왼손은 F에서 시작
-    private int rightStickPosition = 3;  // 오른손은 G에서 시작
+    // 각 스틱의 현재 위치 (0=f, 1=g, 2=k, 3=l)
+    private int leftStickPosition = 0;   // 왼손은 f에서 시작
+    private int rightStickPosition = 3;  // 오른손은 l에서 시작
 
     // 입력 버퍼
     private Dictionary<int, float> inputBuffer = new Dictionary<int, float>();
@@ -23,10 +23,10 @@ public class StickManager : MonoBehaviour
         float currentTime = Time.time;
 
         // 현재 프레임에서 새로 입력된 키 확인
-        if (Input.GetKeyDown(KeyCode.A)) inputBuffer[0] = currentTime;
-        if (Input.GetKeyDown(KeyCode.S)) inputBuffer[1] = currentTime;
-        if (Input.GetKeyDown(KeyCode.D)) inputBuffer[2] = currentTime;
-        if (Input.GetKeyDown(KeyCode.F)) inputBuffer[3] = currentTime;
+        if (Input.GetKeyDown(KeyCode.F)) inputBuffer[0] = currentTime;  // 이전 A 위치 → F 키
+        if (Input.GetKeyDown(KeyCode.G)) inputBuffer[1] = currentTime;  // 이전 S 위치 → G 키
+        if (Input.GetKeyDown(KeyCode.K)) inputBuffer[2] = currentTime;  // 이전 D 위치 → K 키
+        if (Input.GetKeyDown(KeyCode.L)) inputBuffer[3] = currentTime;  // 이전 F 위치 → L 키
 
         // 버퍼에 있는 입력 중 유효한 것들 수집
         List<int> validInputs = new List<int>();
@@ -133,7 +133,7 @@ public class StickManager : MonoBehaviour
         }
         else
         {
-            // 거리가 같으면 드럼 위치로 결정 (A,S는 왼손, D,F는 오른손)
+            // 거리가 같으면 드럼 위치로 결정 (f,g는 왼손, k,l는 오른손)
             if (drumIndex <= 1)
             {
                 HitDrumWithStick(left_stick, drumIndex, true);
@@ -194,11 +194,11 @@ public class StickManager : MonoBehaviour
     {
         switch (drumIndex)
         {
-            case 0: return "A";
-            case 1: return "S";
-            case 2: return "D";
-            case 3: return "F";
-            default: return "A";
+            case 0: return "f";
+            case 1: return "g";
+            case 2: return "k";
+            case 3: return "l";
+            default: return "f";
         }
     }
 }
