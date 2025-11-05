@@ -10,9 +10,9 @@ public class StickManager : MonoBehaviour
     [Tooltip("동시 입력으로 인정할 시간 간격 (초)")]
     public float inputBufferTime = 0.05f;  // 50ms
 
-    // 각 스틱의 현재 위치 (0=A, 1=S, 2=D, 3=F)
-    private int leftStickPosition = 0;   // 왼손은 A에서 시작
-    private int rightStickPosition = 3;  // 오른손은 F에서 시작
+    // 각 스틱의 현재 위치 (0=F, 1=G, 2=K, 3=L)
+    private int leftStickPosition = 0;   // 왼손은 F에서 시작
+    private int rightStickPosition = 3;  // 오른손은 G에서 시작
 
     // 입력 버퍼
     private Dictionary<int, float> inputBuffer = new Dictionary<int, float>();

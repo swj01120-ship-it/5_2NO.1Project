@@ -113,26 +113,68 @@ public class DrumController : MonoBehaviour
     // 북 타격 처리
     void HitDrum()
     {
-        //사운드 먼저 재생
+        // 🔊 사운드 먼저 재생
         PlayDrumSound();
 
-        string judgment = "Miss";
-        float timeDifference = Mathf.Abs(Time.time - highlightStartTime);
-
-        if (isHighlighted)
+        if (!isHighlighted)
         {
-            if (timeDifference <= perfectWindow)
-                judgment = "Perfect";
-            else if (timeDifference <= greatWindow)
-                judgment = "Great";
-            else if (timeDifference <= goodWindow)
-                judgment = "Good";
+            Debug.Log($"❌ Miss! (Drum {drumIndex}) - 강조되지 않았을 때 침");
+
+            // ✅ null 체크 추가!
+            if (RhythmGameManager.Instance != null)
+            {
+                RhythmGameManager.Instance.OnDrumHit("Miss", drumIndex);
+            }
+            else if (TutorialRhythmManager.Instance != null)
+            {
+                TutorialRhythmManager.Instance.OnTutorialDrumHit("Miss", drumIndex);
+            }
+            else
+            {
+                Debug.LogWarning("⚠️ 게임 매니저를 찾을 수 없습니다!");
+            }
+
+            ShowHitEffect();
+            return;
         }
 
-        RhythmGameManager.Instance.OnDrumHit(judgment, drumIndex);
+        // 타이밍 계산
+        float timeDifference = Mathf.Abs(Time.time - highlightStartTime);
+
+        string judgment;
+        if (timeDifference <= perfectWindow)
+        {
+            judgment = "Perfect";
+        }
+        else if (timeDifference <= greatWindow)
+        {
+            judgment = "Great";
+        }
+        else if (timeDifference <= goodWindow)
+        {
+            judgment = "Good";
+        }
+        else
+        {
+            judgment = "Miss";
+        }
+
+        // ✅ 여기도 null 체크!
+        if (RhythmGameManager.Instance != null)
+        {
+            RhythmGameManager.Instance.OnDrumHit(judgment, drumIndex);
+        }
+        else if (TutorialRhythmManager.Instance != null)
+        {
+            TutorialRhythmManager.Instance.OnTutorialDrumHit(judgment, drumIndex);
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ 게임 매니저를 찾을 수 없습니다!");
+        }
+
         ShowHitEffect();
         UnHighlight();
-        return;
     }
 
     void PlayDrumSound()

@@ -151,7 +151,7 @@ public class TutorialRhythmManager : MonoBehaviour
         float currentTime = 1f; // 1초부터 시작
 
         // 패턴: 0 -> 1 -> 2 -> 3 -> 0 -> 1 -> 2 -> 3 (순차적으로 반복)
-        for (int i = 0; i < 12; i++) // 12개 비트 (여유있게)
+        for (int i = 0; i < 8; i++) // 12개 비트 (여유있게)
         {
             int drumIndex = i % 4; // 0, 1, 2, 3 순서 반복
             tutorialBeats.Add(new SimpleBeat(currentTime, drumIndex));
@@ -164,7 +164,12 @@ public class TutorialRhythmManager : MonoBehaviour
     // 북을 쳤을 때 호출 (DrumController에서)
     public void OnTutorialDrumHit(string judgment, int drumIndex)
     {
-        if (!isPlaying) return;
+        if (!isPlaying)
+        {
+            Debug.LogWarning("⚠️ 리듬 게임이 플레이 중이 아닙니다!");
+            return;
+        }
+        Debug.Log($"🥁 드럼 타격! 판정: {judgment}, 드럼: {drumIndex}");
 
         if (judgment == "Miss")
         {
@@ -177,8 +182,16 @@ public class TutorialRhythmManager : MonoBehaviour
             Debug.Log($"✅ 성공! ({successfulHits}/{requiredSuccessfulHits})");
 
             UpdateProgressUI();
+
+            // ✨ 목표 달성 체크 추가!
+            if (successfulHits >= requiredSuccessfulHits)
+            {
+                Debug.Log("🎉 목표 달성! CompleteTutorialRhythm() 호출!");
+                CompleteTutorialRhythm();
+            }
         }
     }
+    
 
     void UpdateProgressUI()
     {
@@ -197,7 +210,7 @@ public class TutorialRhythmManager : MonoBehaviour
         // TutorialManager에 완료 알림
         if (tutorialManager != null)
         {
-           // tutorialManager.OnDrumTutorialComplete();
+           tutorialManager.OnDrumTutorialComplete();
         }
 
         // 모든 드럼 강조 해제
