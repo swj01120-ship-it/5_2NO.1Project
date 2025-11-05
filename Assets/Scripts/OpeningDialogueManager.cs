@@ -108,17 +108,17 @@ public class OpeningDialogueManager : MonoBehaviour
             new DialogueLine
             {
                 npcName = "호랭도령",
-                text = "여기가 그 유명한 사물마을 이라는 곳인가?"
+                text = "자네가 이번에 새롭게 탑승하게 될 친구인가?"
             },
             new DialogueLine
             {
                 npcName = "호랭도령",
-                text = "나를 애타게 찾는 사람이 있다고 하던데..."
+                text = "오래 기다렸네...버스에 탑승하기 전 몇 가지 알려주겠네!"
             },
             new DialogueLine
             {
                 npcName = "호랭도령",
-                text = "혹시 자네인가..?"
+                text = "자..준비가 되었으면 Enter 키를 눌러보게나"
             }
         };
     }
