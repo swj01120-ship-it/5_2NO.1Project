@@ -7,6 +7,7 @@ TagManager:
   - Note
   - Drum
   - Floor
+  - Ground
   layers:
   - Default
   - TransparentFX

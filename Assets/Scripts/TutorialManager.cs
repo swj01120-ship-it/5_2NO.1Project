@@ -45,7 +45,7 @@ public class TutorialManager : MonoBehaviour
     private bool hasMovedBackward = false;
     private bool hasMovedLeft = false;
     private bool hasMovedRight = false;
-    private bool hasJumped = false;
+    //private bool hasJumped = false;
     private bool rhythmPracticeComplete = false; // 리듬 연습 완료 여부
 
     // 튜토리얼 단계별 내용
@@ -361,7 +361,7 @@ public class TutorialManager : MonoBehaviour
                 // **점프는 Space만 체크 (Enter와 분리됨)**
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    hasJumped = true;
+                   // hasJumped = true;
                     CompleteTask();
                 }
                 break;
