@@ -1640,6 +1640,9 @@ MonoBehaviour:
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 0, g: 1, b: 0, a: 1}
   hitColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  drumSound: {fileID: 0}
+  volume: 1
+  pitch: 1
   hitParticle: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
@@ -2383,7 +2386,7 @@ Transform:
   m_GameObject: {fileID: 945069585}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 4.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2578,6 +2581,9 @@ MonoBehaviour:
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 0, g: 0.04796934, b: 1, a: 1}
   hitColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  drumSound: {fileID: 0}
+  volume: 1
+  pitch: 1
   hitParticle: {fileID: 0}
 --- !u!1 &1131054989 stripped
 GameObject:
@@ -2601,6 +2607,9 @@ MonoBehaviour:
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 0.5019608, g: 0, b: 0.3804929, a: 1}
   hitColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  drumSound: {fileID: 0}
+  volume: 1
+  pitch: 1
   hitParticle: {fileID: 0}
 --- !u!1 &1207690225
 GameObject:
@@ -3201,6 +3210,9 @@ MonoBehaviour:
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   highlightColor: {r: 1, g: 0, b: 0, a: 1}
   hitColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  drumSound: {fileID: 0}
+  volume: 1
+  pitch: 1
   hitParticle: {fileID: 0}
 --- !u!1 &1576387282
 GameObject:

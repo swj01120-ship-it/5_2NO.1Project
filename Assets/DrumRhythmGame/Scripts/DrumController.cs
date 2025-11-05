@@ -13,9 +13,17 @@ public class DrumController : MonoBehaviour
     public Color highlightColor = Color.red;
     public Color hitColor = Color.yellow;
 
+    [Header("사운드 설정")]
+    public AudioClip drumSound; // 드럼 타격 소리
+    [Range(0f, 1f)]
+    public float volume = 1f;
+    [Range(0.5f, 2f)]
+    public float pitch = 1f;
+
     [Header("컴포넌트")]
     private Renderer drumRenderer;
     private Material drumMaterial;
+    private AudioSource audioSource;
 
     [Header("타이밍")]
     private bool isHighlighted = false;
@@ -43,6 +51,20 @@ public class DrumController : MonoBehaviour
 
         SetColor(normalColor);
 
+        // AudioSource 설정
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        // AudioSource 초기 설정
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 0f; // 2D 사운드
+        audioSource.volume = volume;
+        audioSource.pitch = pitch;
+
+        //난이도 설정
         if (DifficultySettings.Instance != null)
         {
             DifficultySettings.Instance.GetJudgmentWindows(out perfectWindow, out greatWindow, out goodWindow);
@@ -89,6 +111,9 @@ public class DrumController : MonoBehaviour
     // 북 타격 처리
     void HitDrum()
     {
+        // 🔊 사운드 먼저 재생 (타이밍 정확도를 위해)
+        PlayDrumSound();
+
         if (!isHighlighted)
         {
             // 강조되지 않았을 때 타격 = Miss
@@ -149,6 +174,24 @@ public class DrumController : MonoBehaviour
         UnHighlight();
     }
 
+    void PlayDrumSound()
+    {
+        if (audioSource != null && drumSound != null)
+        {
+            audioSource.volume = volume;
+            audioSource.pitch = pitch;
+            audioSource.PlayOneShot(drumSound);
+
+            Debug.Log($"🔊 Drum {drumIndex} 사운드 재생!");
+        }
+        else
+        {
+            if (drumSound == null)
+            {
+                Debug.LogWarning($"⚠️ Drum {drumIndex}: 사운드가 연결되지 않았습니다!");
+            }
+        }
+    }
     void ShowHitEffect()
     {
         if (hitParticle != null)
