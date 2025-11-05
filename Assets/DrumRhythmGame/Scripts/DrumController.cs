@@ -5,23 +5,32 @@ using UnityEngine;
 public class DrumController : MonoBehaviour
 {
     [Header("드럼 설정")]
-    public int drumIndex;
-    public KeyCode drumKey;
+    public int drumIndex; // 0, 1, 2, 3
+    public KeyCode drumKey; // A, S, D, F
 
     [Header("색상 설정")]
     public Color normalColor = Color.white;
     public Color highlightColor = Color.red;
     public Color hitColor = Color.yellow;
 
+    [Header("사운드 설정")]
+    public AudioClip drumSound; // 드럼 타격 소리
+    [Range(0f, 1f)]
+    public float volume = 1f;
+    [Range(0.5f, 2f)]
+    public float pitch = 1f;
+
+    [Header("컴포넌트")]
     private Renderer drumRenderer;
     private Material drumMaterial;
+    private AudioSource audioSource;
 
     private bool isHighlighted = false;
     private float highlightStartTime;
 
     [Header("판정 윈도우 (초 단위)")]
-    public float perfectWindow = 0.03f;
-    public float greatWindow = 0.12f;
+    public float perfectWindow = 0.07f;
+    public float greatWindow = 0.5f;
     public float goodWindow = 1.2f;
 
     [Header("효과")]
@@ -33,7 +42,12 @@ public class DrumController : MonoBehaviour
     {
         drumRenderer = GetComponent<Renderer>();
         if (drumRenderer == null)
-            drumRenderer = GetComponentInChildren<Renderer>();
+        {
+            Debug.LogError($"❌ Drum {drumIndex}: Renderer가 없습니다! 3D 오브젝트에 부착하세요.");
+            return;
+        }
+
+        drumRenderer = GetComponentInChildren<Renderer>();
 
         if (drumRenderer == null)
         {
@@ -45,30 +59,50 @@ public class DrumController : MonoBehaviour
         drumRenderer.material = drumMaterial;
         SetColor(normalColor);
 
+        // AudioSource 설정
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        // AudioSource 초기 설정
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 0f; // 2D 사운드
+        audioSource.volume = volume;
+        audioSource.pitch = pitch;
+
         originalScale = transform.localScale;
 
+        //난이도 설정
         if (DifficultySettings.Instance != null)
         {
             DifficultySettings.Instance.GetJudgmentWindows(out perfectWindow, out greatWindow, out goodWindow);
+            Debug.Log($"✅ Drum {drumIndex} 초기화! (Perfect: {perfectWindow}s, Great: {greatWindow}s, Good: {goodWindow}s)");
         }
     }
 
     void Update()
     {
+            //키 입력 감지
         if (Input.GetKeyDown(drumKey))
         {
             HitDrum();
         }
     }
 
+    //북을 강조 표시(리듬 타이밍에 호출)
     public void Highlight()
     {
         isHighlighted = true;
         highlightStartTime = Time.time;
         SetColor(highlightColor);
+
+        Debug.Log($"🥁 Drum {drumIndex} 강조됨! (키: {drumKey})");
         ResetScale();
     }
 
+    //강조 해제
     public void UnHighlight()
     {
         isHighlighted = false;
@@ -76,8 +110,12 @@ public class DrumController : MonoBehaviour
         ResetScale();
     }
 
+    // 북 타격 처리
     void HitDrum()
     {
+        //사운드 먼저 재생
+        PlayDrumSound();
+
         string judgment = "Miss";
         float timeDifference = Mathf.Abs(Time.time - highlightStartTime);
 
@@ -94,6 +132,26 @@ public class DrumController : MonoBehaviour
         RhythmGameManager.Instance.OnDrumHit(judgment, drumIndex);
         ShowHitEffect();
         UnHighlight();
+        return;
+    }
+
+    void PlayDrumSound()
+    {
+        if (audioSource != null && drumSound != null)
+        {
+            audioSource.volume = volume;
+            audioSource.pitch = pitch;
+            audioSource.PlayOneShot(drumSound);
+
+            Debug.Log($"🔊 Drum {drumIndex} 사운드 재생!");
+        }
+        else
+        {
+            if (drumSound == null)
+            {
+                Debug.LogWarning($"⚠️ Drum {drumIndex}: 사운드가 연결되지 않았습니다!");
+            }
+        }
     }
 
     void ShowHitEffect()

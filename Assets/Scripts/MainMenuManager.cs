@@ -1,55 +1,124 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using UnityEngine.EventSystems; // â† ìƒˆë¡œ ì¶”ê°€
 public class MainMenuManager : MonoBehaviour
 {
+    // âœ¨ ìƒˆë¡œ ì¶”ê°€: ì‚¬ìš´ë“œ ì„¤ì •
+    [Header("Sound Settings")]
+    [SerializeField] private AudioClip buttonClickSound;
+    [SerializeField] private AudioClip buttonHoverSound;
+    [Range(0f, 1f)]
+    [SerializeField] private float clickVolume = 1f;
+    [Range(0f, 1f)]
+    [SerializeField] private float hoverVolume = 0.5f;
 
+    private AudioSource audioSource; // â† ìƒˆë¡œ ì¶”ê°€
 
-    // °ÔÀÓ ½ÃÀÛ ¹öÆ°
+    // âœ¨ ìƒˆë¡œ ì¶”ê°€: Awake í•¨ìˆ˜
+    private void Awake()
+    {
+        // AudioSource ì»´í¬ë„ŒíŠ¸ ê°€ì ¸ì˜¤ê¸° ë˜ëŠ” ì¶”ê°€
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        // AudioSource ê¸°ë³¸ ì„¤ì •
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 0f; // 2D ì‚¬ìš´ë“œ
+    }
+
+    // ê²Œì„ ì‹œì‘ ë²„íŠ¼
 
 
     public void OnStartGame()
     {
-        Debug.Log("°ÔÀÓ ½ÃÀÛ ¹öÆ° Å¬¸¯!");
+        PlayClickSound(); // â† ìƒˆë¡œ ì¶”ê°€
+        Debug.Log("ê²Œì„ ì‹œì‘ ë²„íŠ¼ í´ë¦­!");
 
-        // ·Îµù ¾ÀÀ» ÅëÇØ °ÔÀÓ ¾ÀÀ¸·Î ÀÌµ¿
+        // ë¡œë”© ì”¬ì„ í†µí•´ ê²Œì„ ì”¬ìœ¼ë¡œ ì´ë™
         LoadingSceneManager.nextScene = "GameScene";
         SceneManager.LoadScene("LoadingScene");
     }
 
-    // ¿É¼Ç ¹öÆ°
+    // ì˜µì…˜ ë²„íŠ¼
     public void OnOption()
     {
-        Debug.Log("¿É¼Ç ¹öÆ° Å¬¸¯!");
+        PlayClickSound(); // â† ìƒˆë¡œ ì¶”ê°€
+        Debug.Log("ì˜µì…˜ ë²„íŠ¼ í´ë¦­!");
 
-        // ³ªÁß¿¡ ¿É¼Ç È­¸é ¿­±â
+        // ë‚˜ì¤‘ì— ì˜µì…˜ í™”ë©´ ì—´ê¸°
     }
   
-    // Æ©Åä¸®¾ó ¹öÆ°
+    // íŠœí† ë¦¬ì–¼ ë²„íŠ¼
     public void OnTutorial()
     {
-        Debug.Log("Æ©Åä¸®¾ó ¹öÆ° Å¬¸¯!");
+        PlayClickSound(); // â† ìƒˆë¡œ ì¶”ê°€
+        Debug.Log("íŠœí† ë¦¬ì–¼ ë²„íŠ¼ í´ë¦­!");
 
-        // ³ªÁß¿¡ Æ©Åä¸®¾ó ¾ÀÀ¸·Î ÀÌµ¿
-        // SceneManager.LoadScene("TutorialScene");
         
-        // ·Îµù È­¸éÀ» ÅëÇØ Æ©Åä¸®¾ó ¾ÀÀ¸·Î ÀÌµ¿
+        // ë¡œë”© í™”ë©´ì„ í†µí•´ íŠœí† ë¦¬ì–¼ ì”¬ìœ¼ë¡œ ì´ë™
         LoadingSceneManager.nextScene = "TutorialScene";
         SceneManager.LoadScene("LoadingScene");
     }
 
-    // °ÔÀÓ Á¾·á ¹öÆ°
+    // ê²Œì„ ì¢…ë£Œ ë²„íŠ¼
     public void OnQuitGame()
     {
-        Debug.Log("°ÔÀÓ Á¾·á ¹öÆ° Å¬¸¯!");
+        PlayClickSound(); // â† ìƒˆë¡œ ì¶”ê°€
+        Debug.Log("ê²Œì„ ì¢…ë£Œ ë²„íŠ¼ í´ë¦­!");
 
-        // Unity ¿¡µğÅÍ¿¡¼­´Â Á¤Áö
+        // Unity ì—ë””í„°ì—ì„œëŠ” ì •ì§€
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-            // ½ÇÁ¦ ºôµå¿¡¼­´Â Á¾·á
+            // ì‹¤ì œ ë¹Œë“œì—ì„œëŠ” ì¢…ë£Œ
             Application.Quit();
 #endif
     }
+    // âœ¨ ìƒˆë¡œ ì¶”ê°€: í´ë¦­ ì‚¬ìš´ë“œ ì¬ìƒ
+    private void PlayClickSound()
+    {
+        if (audioSource != null && buttonClickSound != null)
+        {
+            audioSource.PlayOneShot(buttonClickSound, clickVolume);
+            Debug.Log("ğŸ”Š ë²„íŠ¼ í´ë¦­ ì‚¬ìš´ë“œ ì¬ìƒ!");
+        }
+        else
+        {
+            if (buttonClickSound == null)
+            {
+                Debug.LogWarning("âš ï¸ ë²„íŠ¼ í´ë¦­ ì‚¬ìš´ë“œê°€ ì—°ê²°ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤!");
+            }
+        }
+    }
+
+    // âœ¨ ìƒˆë¡œ ì¶”ê°€: í˜¸ë²„ ì‚¬ìš´ë“œ ì¬ìƒ
+    private void PlayHoverSound()
+    {
+        if (audioSource != null && buttonHoverSound != null)
+        {
+            audioSource.PlayOneShot(buttonHoverSound, hoverVolume);
+        }
+    }
+
+    // âœ¨ ìƒˆë¡œ ì¶”ê°€: ë²„íŠ¼ì— í˜¸ë²„ ì‚¬ìš´ë“œ ì¶”ê°€ (ì™¸ë¶€ì—ì„œ í˜¸ì¶œ ê°€ëŠ¥)
+    public void SetupButtonSound(Button button)
+    {
+        if (button == null || buttonHoverSound == null) return;
+
+        EventTrigger trigger = button.gameObject.GetComponent<EventTrigger>();
+        if (trigger == null)
+        {
+            trigger = button.gameObject.AddComponent<EventTrigger>();
+        }
+
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerEnter;
+        entry.callback.AddListener((data) => { PlayHoverSound(); });
+        trigger.triggers.Add(entry);
+    }
+   
 }

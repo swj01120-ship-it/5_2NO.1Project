@@ -46,10 +46,10 @@ public class RhythmGameManager : MonoBehaviour
     public int missScore = 0;
 
     [Header("판정 범위 (초 단위)")]
-    public float perfectRange = 0.045f;
-    public float greatRange = 0.17f;
-    public float goodRange = 1.0f;
-    public float missRange = 1.5f;
+    public float perfectRange = 0.07f;
+    public float greatRange = 0.5f;
+    public float goodRange = 1.2f;
+    public float missRange = 1.7f;
 
     private List<BeatNote> remainingBeats;
     private int currentBeatIndex = 0;
