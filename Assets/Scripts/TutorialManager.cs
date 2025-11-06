@@ -161,20 +161,20 @@ public class TutorialManager : MonoBehaviour
             new TutorialStep
             {
                 npcName = "호랭도령",
-                dialogue = "반갑습니다! 사물버스 마을에 오신 것을 환영합니다.\nEnter 키를 눌러 계속 진행하세요.",
+                dialogue = "어서오시게! 사물버스 마을에 오신 것을 환영한다네.\nEnter 키를 눌러 계속 진행합니다.",
                 taskType = TaskType.None
             },
             new TutorialStep
             {
                 npcName = "호랭도령",
-                dialogue = "먼저 기본적인 움직임을 배워봅시다.\nW, A, S, D 키로 앞, 뒤, 좌, 우로 이동할 수 있습니다.",
+                dialogue = "먼저 기본적인 움직임을 알려주겠네.\nW, A, S, D 키로 앞, 뒤, 좌, 우로 이동할 수 있습니다.",
                 taskType = TaskType.Move,
                 taskDescription = "W, A, S, D 키로 모든 방향으로 이동해보세요"
             },
             new TutorialStep
             {
                 npcName = "호랭도령",
-                dialogue = "잘하셨습니다! 이제 점프를 배워볼까요?\nSpace 키를 눌러 점프할 수 있습니다.",
+                dialogue = "잘하는구만! 이제 점프를 해보겠나?\nSpace 키를 눌러 점프할 수 있습니다.",
                 taskType = TaskType.Jump,
                 taskDescription = "Space 키를 눌러 점프해보세요"
             },
@@ -193,44 +193,44 @@ public class TutorialManager : MonoBehaviour
             new TutorialStep
             {
                 npcName = "호랭도령",
-                dialogue = "짠~! 옆에 보시면 북이 생겼어요, 북을 연주해 볼까요~?.\\n북이 빛나면 타이밍에 맞춰서 F, G, K, L 키를 눌러주세요.\",",
+                dialogue = "이제 주변을 둘러보게~ 허허...어서 북 앞으로 이동해 보게나!\n'북이 빛나면 타이밍에 맞춰서 F, G, K, L 키를 눌러주세요.'",
                 taskType =TaskType.RhythmPractice,
                 taskDescription = "Enter키를 누르면 시작됩니다. 8개 이상 성공시 다음 단계로 넘어갑니다!"
             },
             new TutorialStep
             {
                 npcName = "호랭도령",
-                dialogue = "실력이 예사롭지 않으십니다! 이어서 점수 올리는 방법을 알려드리겠습니다",
+                dialogue = "실력이 예사롭지 않구만! 이 정도 실력이면 같이 버스에 타도 되겠어",
                 taskType = TaskType.None
             },
             new TutorialStep
             {
                 npcName = "호랭도령",
-                dialogue = "콤보 시스템: 연속으로 정확하게 북을 치면 콤보가 올라갑니다!\n콤보가 높을수록 더 높은 점수를 얻을 수 있습니다.",
+                dialogue = "콤보 시스템: 연속으로 정확하게 북을 치면 콤보가 올라간다네!\n'콤보가 높을수록 더 높은 점수를 얻을 수 있습니다.'",
                 taskType = TaskType.None
             },
             new TutorialStep
             {
                 npcName = "호랭도령",
-                dialogue = "스코어 시스템: 정확한 타이밍에 칠수록 높은 점수를 얻습니다.\nPerfect > Great > Good > Miss 순으로 점수가 다릅니다.",
+                dialogue = "스코어 시스템: 정확한 타이밍에 칠수록 높은 점수를 얻을 수 있다네.\n'Perfect > Great > Good > Miss 순으로 점수가 다릅니다.'",
                 taskType = TaskType.None
             },
             new TutorialStep
             {
                 npcName = "호랭도령",
-                dialogue = "랭킹 시스템: 최종 점수에 따라 S, A, B, C, D, F 등급이 매겨집니다.\nS등급을 목표로 열심히 연습하세요!",
+                dialogue = "랭킹 시스템: 최종 점수에 따라 S, A, B, C, D, F 등급이 매겨진다네.\n'S등급을 목표로 열심히 연습하세요!'",
                 taskType = TaskType.None
             },
             new TutorialStep
             {
                 npcName = "호랭도령",
-                dialogue = "게임이 끝나면 '다시 시작' 버튼으로 재도전하거나,\n'메인 화면' 버튼으로 돌아갈 수 있습니다.",
+                dialogue = "연주가 끝나고 아쉽다면 다시 시작, 혹은 버스를 내릴 수 있다네\n'게임이 끝난 후 '다시 시작' 버튼 혹은 '메인 화면' 버튼으로 돌아갈 수 있습니다.'",
                 taskType = TaskType.None
             },
             new TutorialStep
             {
                 npcName = "호랭도령",
-                dialogue = "튜토리얼이 끝났습니다! 이제 실전으로 가볼까요?\n행운을 빕니다!",
+                dialogue = "자! 이제 모든 준비가 끝났으니 Enter를 치고 나를 따라오게나~?\n행운을 빈다네!",
                 taskType = TaskType.None
             }
         };
