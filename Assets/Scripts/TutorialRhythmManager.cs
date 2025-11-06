@@ -53,7 +53,8 @@ public class TutorialRhythmManager : MonoBehaviour
             }
         }
 
-        UpdateProgressUI();
+        // ⭐ UI 초기에는 숨김
+        HideUI();
     }
 
     void Update()
@@ -84,6 +85,7 @@ public class TutorialRhythmManager : MonoBehaviour
                 break;
             }
         }
+
         // 패턴이 끝났지만 아직 목표 달성 안 했으면 패턴 반복
         if (currentBeatIndex >= tutorialBeats.Count && successfulHits < requiredSuccessfulHits)
         {
@@ -136,6 +138,8 @@ public class TutorialRhythmManager : MonoBehaviour
         currentBeatIndex = 0;
         successfulHits = 0;
 
+        // ⭐ UI 활성화 및 초기화
+        ShowUI();
         UpdateProgressUI();
     }
 
@@ -208,6 +212,7 @@ public class TutorialRhythmManager : MonoBehaviour
             Debug.LogWarning("⚠️ 리듬 게임이 플레이 중이 아닙니다!");
             return;
         }
+
         Debug.Log($"🥁 드럼 타격! 판정: {judgment}, 드럼: {drumIndex}");
 
         if (judgment == "Miss")
@@ -222,7 +227,7 @@ public class TutorialRhythmManager : MonoBehaviour
 
             UpdateProgressUI();
 
-            // ✨ 목표 달성 체크 추가!
+            // ✨ 목표 달성 체크
             if (successfulHits >= requiredSuccessfulHits)
             {
                 Debug.Log("🎉 목표 달성! CompleteTutorialRhythm() 호출!");
@@ -230,14 +235,16 @@ public class TutorialRhythmManager : MonoBehaviour
             }
         }
     }
-    
 
+    // 📊 UI 업데이트
     void UpdateProgressUI()
     {
+        // 진행 상황 텍스트 "성공: 5/8"
         if (progressText != null)
         {
             progressText.text = $"성공: {successfulHits}/{requiredSuccessfulHits}";
         }
+
         // 큰 숫자 표시 "5"
         if (countText != null)
         {
@@ -253,10 +260,13 @@ public class TutorialRhythmManager : MonoBehaviour
 
         Debug.Log("🎉 튜토리얼 리듬 완료!");
 
+        // ⭐ UI 숨기기
+        HideUI();
+
         // TutorialManager에 완료 알림
         if (tutorialManager != null)
         {
-           tutorialManager.OnDrumTutorialComplete();
+            tutorialManager.OnDrumTutorialComplete();
         }
 
         // 모든 드럼 강조 해제
@@ -271,10 +281,45 @@ public class TutorialRhythmManager : MonoBehaviour
     {
         isPlaying = false;
 
+        // ⭐ UI 숨기기
+        HideUI();
+
         // 모든 드럼 강조 해제
         for (int i = 0; i < drums.Length; i++)
         {
             drums[i].UnHighlight();
+        }
+    }
+
+    // ⭐ UI 보이기
+    void ShowUI()
+    {
+        if (progressText != null)
+        {
+            progressText.gameObject.SetActive(true);
+            Debug.Log("✅ Progress UI 활성화!");
+        }
+
+        if (countText != null)
+        {
+            countText.gameObject.SetActive(true);
+            Debug.Log("✅ Count UI 활성화!");
+        }
+    }
+
+    // ⭐ UI 숨기기
+    void HideUI()
+    {
+        if (progressText != null)
+        {
+            progressText.gameObject.SetActive(false);
+            Debug.Log("❌ Progress UI 비활성화!");
+        }
+
+        if (countText != null)
+        {
+            countText.gameObject.SetActive(false);
+            Debug.Log("❌ Count UI 비활성화!");
         }
     }
 }
