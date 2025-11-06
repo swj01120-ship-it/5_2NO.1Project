@@ -84,7 +84,12 @@ public class DrumController : MonoBehaviour
 
     void Update()
     {
-            //키 입력 감지
+        // GameObject가 비활성화 상태면 아무것도 안 함
+        if (!gameObject.activeInHierarchy)
+        {
+            return;
+        }
+        //키 입력 감지
         if (Input.GetKeyDown(drumKey))
         {
             HitDrum();
@@ -198,6 +203,11 @@ public class DrumController : MonoBehaviour
 
     void ShowHitEffect()
     {
+        if (!gameObject.activeInHierarchy)
+        {
+            return;
+        }
+
         if (hitParticle != null)
         {
             hitParticle.Play();
@@ -247,5 +257,16 @@ public class DrumController : MonoBehaviour
     void ResetScale()
     {
         transform.localScale = originalScale;
+    }
+    void OnDisable()
+    {
+        // 이 GameObject의 모든 Coroutine 중지
+        StopAllCoroutines();
+
+        // 색상 초기화
+        if (drumMaterial != null)
+        {
+            drumMaterial.color = normalColor;
+        }
     }
 }

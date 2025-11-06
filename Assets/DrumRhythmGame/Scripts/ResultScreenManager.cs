@@ -100,6 +100,16 @@ public class ResultScreenManager : MonoBehaviour
         Debug.Log($"   정확도: {result.Accuracy:F2}%");
         Debug.Log($"   등급: {result.Grade}");
         Debug.Log($"   Perfect: {result.perfectCount}, Great: {result.greatCount}, Good: {result.goodCount}, Miss: {result.missCount}");
+
+        // 결과 UI 표시
+        resultPanel.SetActive(true);
+
+        // 커서 활성화
+        CursorManager cursorManager = FindObjectOfType<CursorManager>();
+        if (cursorManager != null)
+        {
+            cursorManager.ShowCursor();
+        }
     }
 
     public void RetryGame()

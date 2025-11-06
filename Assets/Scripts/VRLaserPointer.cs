@@ -1,37 +1,49 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class VRLaserPointer : MonoBehaviour
 {
     [Header("Laser Settings")]
-    public float maxDistance = 10f;              // ·¹ÀÌÀú ÃÖ´ë °Å¸®
-    public LineRenderer laserLine;               // ·¹ÀÌÀú ¼±
-    public Transform laserOrigin;                // ·¹ÀÌÀú ½ÃÀÛÁ¡
+    public float maxDistance = 10f;              // ë ˆì´ì € ìµœëŒ€ ê±°ë¦¬
+    public LineRenderer laserLine;               // ë ˆì´ì € ì„ 
+    public Transform laserOrigin;                // ë ˆì´ì € ì‹œì‘ì 
 
     [Header("Colors")]
-    public Color normalColor = Color.cyan;       // ±âº» »ö»ó
-    public Color hoverColor = Color.yellow;      // ¹öÆ° À§ »ö»ó
-    public Color clickColor = Color.green;       // Å¬¸¯ ½Ã »ö»ó
+    public Color normalColor = Color.cyan;       // ê¸°ë³¸ ìƒ‰ìƒ
+    public Color hoverColor = Color.yellow;      // ë²„íŠ¼ ìœ„ ìƒ‰ìƒ
+    public Color clickColor = Color.green;       // í´ë¦­ ì‹œ ìƒ‰ìƒ
 
     [Header("Input")]
-    public KeyCode clickButton = KeyCode.Mouse0; // Å¬¸¯ ¹öÆ° (¸¶¿ì½º ÁÂÅ¬¸¯)
-                                                 // VR ÄÁÆ®·Ñ·¯ ¿¬°á ½Ã: OVRInput.Button.PrimaryIndexTrigger µîÀ¸·Î º¯°æ
+    public KeyCode clickButton = KeyCode.Mouse0; // í´ë¦­ ë²„íŠ¼ (ë§ˆìš°ìŠ¤ ì¢Œí´ë¦­)
+                                                 // VR ì»¨íŠ¸ë¡¤ëŸ¬ ì—°ê²° ì‹œ: OVRInput.Button.PrimaryIndexTrigger ë“±ìœ¼ë¡œ ë³€ê²½
 
-    private GameObject currentTarget;            // ÇöÀç Æ÷ÀÎÅÍ°¡ °¡¸®Å°´Â UI
+    [Header("Debug")]
+    [SerializeField] private bool showDebugLogs = true; // ë””ë²„ê·¸ ë¡œê·¸ í‘œì‹œ
+
+    private GameObject currentTarget;            // í˜„ì¬ í¬ì¸í„°ê°€ ê°€ë¦¬í‚¤ëŠ” UI
+    private Slider currentSlider;                // í˜„ì¬ ë“œë˜ê·¸ ì¤‘ì¸ ìŠ¬ë¼ì´ë”
+    private bool isDragging = false;             // ë“œë˜ê·¸ ì¤‘ì¸ì§€ ì—¬ë¶€
+    private RaycastHit currentHit;               // í˜„ì¬ hit ì •ë³´
 
     void Start()
     {
-        // LineRenderer ÀÚµ¿ »ı¼º
+        // LineRenderer ìë™ ìƒì„±
         if (laserLine == null)
         {
             laserLine = gameObject.AddComponent<LineRenderer>();
             SetupLineRenderer();
         }
 
-        // ·¹ÀÌÀú ½ÃÀÛÁ¡ÀÌ ¾øÀ¸¸é ÀÚ±â ÀÚ½Å
+        // ë ˆì´ì € ì‹œì‘ì ì´ ì—†ìœ¼ë©´ ìê¸° ìì‹ 
         if (laserOrigin == null)
         {
             laserOrigin = transform;
+        }
+
+        if (showDebugLogs)
+        {
+            Debug.Log("âœ… VRLaserPointer ì´ˆê¸°í™” ì™„ë£Œ");
         }
     }
 
@@ -40,27 +52,21 @@ public class VRLaserPointer : MonoBehaviour
         laserLine.startWidth = 0.01f;
         laserLine.endWidth = 0.01f;
 
-        // Material ¼³Á¤ °³¼±
+        // Material ì„¤ì • ê°œì„ 
         Material lineMaterial = new Material(Shader.Find("Sprites/Default"));
         lineMaterial.color = normalColor;
         laserLine.material = lineMaterial;
 
-        // »ö»ó ¼³Á¤
+        // ìƒ‰ìƒ ì„¤ì •
         laserLine.startColor = normalColor;
         laserLine.endColor = normalColor;
 
-        // Æ÷Áö¼Ç °³¼ö
+        // í¬ì§€ì…˜ ê°œìˆ˜
         laserLine.positionCount = 2;
 
-        // Ãß°¡ ¼³Á¤ (Game ºä¿¡¼­ º¸ÀÌ°Ô)
+        // ì¶”ê°€ ì„¤ì • (Game ë·°ì—ì„œ ë³´ì´ê²Œ)
         laserLine.useWorldSpace = true;
-        laserLine.sortingOrder = 1000; // ´Ù¸¥ UI À§¿¡ Ç¥½Ã
-
-        
-        //laserLine.material = new Material(Shader.Find("Sprites/Default"));
-        //laserLine.startColor = normalColor;
-        //laserLine.endColor = normalColor;
-        //laserLine.positionCount = 2;
+        laserLine.sortingOrder = 1000; // ë‹¤ë¥¸ UI ìœ„ì— í‘œì‹œ
     }
 
     void Update()
@@ -76,22 +82,34 @@ public class VRLaserPointer : MonoBehaviour
 
         Vector3 endPosition;
 
-        // ·¹ÀÌÄ³½ºÆ®·Î Ãæµ¹ °¨Áö
+        // ë ˆì´ìºìŠ¤íŠ¸ë¡œ ì¶©ëŒ ê°ì§€
         if (Physics.Raycast(ray, out hit, maxDistance))
         {
             endPosition = hit.point;
             currentTarget = hit.collider.gameObject;
+            currentHit = hit; // hit ì •ë³´ ì €ì¥
 
-            // UI ¹öÆ° À§¿¡ ÀÖ´ÂÁö È®ÀÎ
+            // UI ë²„íŠ¼ ìœ„ì— ìˆëŠ”ì§€ í™•ì¸
             if (IsUIElement(hit.collider.gameObject))
             {
-                laserLine.startColor = hoverColor;
-                laserLine.endColor = hoverColor;
+                laserLine.startColor = isDragging ? clickColor : hoverColor;
+                laserLine.endColor = isDragging ? clickColor : hoverColor;
+
+                if (showDebugLogs && currentTarget != currentSlider?.gameObject)
+                {
+                    Debug.Log($"ğŸ¯ UI í˜¸ë²„: {currentTarget.name}");
+                }
             }
             else
             {
                 laserLine.startColor = normalColor;
                 laserLine.endColor = normalColor;
+            }
+
+            // ë“œë˜ê·¸ ì¤‘ì´ë©´ ìŠ¬ë¼ì´ë” ê°’ ì—…ë°ì´íŠ¸
+            if (isDragging && currentSlider != null)
+            {
+                UpdateSliderValue(hit);
             }
         }
         else
@@ -102,39 +120,136 @@ public class VRLaserPointer : MonoBehaviour
             laserLine.endColor = normalColor;
         }
 
-        // ·¹ÀÌÀú ¼± ±×¸®±â
+        // ë ˆì´ì € ì„  ê·¸ë¦¬ê¸°
         laserLine.SetPosition(0, laserOrigin.position);
         laserLine.SetPosition(1, endPosition);
     }
 
     void HandleInput()
     {
-        // Å¬¸¯ °¨Áö
+        // í´ë¦­ ì‹œì‘
         if (Input.GetKeyDown(clickButton))
         {
             if (currentTarget != null)
             {
-                // Å¬¸¯ È¿°ú
+                // í´ë¦­ íš¨ê³¼
                 laserLine.startColor = clickColor;
                 laserLine.endColor = clickColor;
 
-                // UI ¹öÆ° Å¬¸¯ Ã³¸®
-                ExecuteEvents.Execute(currentTarget, new PointerEventData(EventSystem.current), ExecuteEvents.pointerClickHandler);
+                // ìŠ¬ë¼ì´ë”ì¸ì§€ í™•ì¸
+                Slider slider = currentTarget.GetComponent<Slider>();
+                if (slider == null)
+                {
+                    // ìŠ¬ë¼ì´ë”ê°€ ì•„ë‹ˆë©´ ë¶€ëª¨ì—ì„œ ì°¾ê¸°
+                    slider = currentTarget.GetComponentInParent<Slider>();
+                }
 
-                Debug.Log("Å¬¸¯: " + currentTarget.name);
+                if (slider != null)
+                {
+                    // ìŠ¬ë¼ì´ë” ë“œë˜ê·¸ ì‹œì‘
+                    currentSlider = slider;
+                    isDragging = true;
+                    UpdateSliderValue(currentHit);
+
+                    if (showDebugLogs)
+                    {
+                        Debug.Log($"ğŸšï¸ ìŠ¬ë¼ì´ë” ë“œë˜ê·¸ ì‹œì‘: {slider.gameObject.name}");
+                    }
+                }
+                else
+                {
+                    // ì¼ë°˜ ë²„íŠ¼ í´ë¦­ ì²˜ë¦¬
+                    ExecuteEvents.Execute(currentTarget, new PointerEventData(EventSystem.current), ExecuteEvents.pointerClickHandler);
+
+                    if (showDebugLogs)
+                    {
+                        Debug.Log($"ğŸ–±ï¸ í´ë¦­: {currentTarget.name}");
+                    }
+                }
             }
         }
 
-        // ¹öÆ°À» ¶¼¸é »ö»ó º¹¿ø
+        // í´ë¦­ ìœ ì§€ ì¤‘
+        if (Input.GetKey(clickButton))
+        {
+            if (isDragging && currentSlider != null && currentTarget != null)
+            {
+                // UpdateLaser()ì—ì„œ ì´ë¯¸ ì²˜ë¦¬ë˜ê³  ìˆìŒ
+            }
+        }
+
+        // í´ë¦­ í•´ì œ
         if (Input.GetKeyUp(clickButton))
         {
+            if (isDragging)
+            {
+                if (showDebugLogs)
+                {
+                    Debug.Log($"ğŸšï¸ ìŠ¬ë¼ì´ë” ë“œë˜ê·¸ ì¢…ë£Œ: {currentSlider?.value:F2}");
+                }
+
+                isDragging = false;
+                currentSlider = null;
+            }
+
+            // ìƒ‰ìƒ ë³µì›
             UpdateLaser();
+        }
+    }
+
+    void UpdateSliderValue(RaycastHit hit)
+    {
+        if (currentSlider == null) return;
+
+        // World ì¢Œí‘œë¥¼ ìŠ¬ë¼ì´ë”ì˜ ë¡œì»¬ ì¢Œí‘œë¡œ ë³€í™˜
+        Transform sliderTransform = currentSlider.transform;
+        Vector3 localPoint = sliderTransform.InverseTransformPoint(hit.point);
+
+        // ìŠ¬ë¼ì´ë” RectTransform ê°€ì ¸ì˜¤ê¸°
+        RectTransform rectTransform = currentSlider.GetComponent<RectTransform>();
+        if (rectTransform == null) return;
+
+        float normalizedValue = 0f;
+
+        // ìŠ¬ë¼ì´ë” ë°©í–¥ì— ë”°ë¼ ê°’ ê³„ì‚°
+        if (currentSlider.direction == Slider.Direction.LeftToRight ||
+            currentSlider.direction == Slider.Direction.RightToLeft)
+        {
+            // ê°€ë¡œ ìŠ¬ë¼ì´ë”
+            float width = rectTransform.rect.width * sliderTransform.localScale.x;
+            normalizedValue = Mathf.Clamp01((localPoint.x + width / 2f) / width);
+
+            if (currentSlider.direction == Slider.Direction.RightToLeft)
+            {
+                normalizedValue = 1f - normalizedValue;
+            }
+        }
+        else
+        {
+            // ì„¸ë¡œ ìŠ¬ë¼ì´ë”
+            float height = rectTransform.rect.height * sliderTransform.localScale.y;
+            normalizedValue = Mathf.Clamp01((localPoint.y + height / 2f) / height);
+
+            if (currentSlider.direction == Slider.Direction.TopToBottom)
+            {
+                normalizedValue = 1f - normalizedValue;
+            }
+        }
+
+        // ìŠ¬ë¼ì´ë” ê°’ ì„¤ì •
+        float newValue = Mathf.Lerp(currentSlider.minValue, currentSlider.maxValue, normalizedValue);
+        currentSlider.value = newValue;
+
+        if (showDebugLogs)
+        {
+            Debug.Log($"ğŸšï¸ ìŠ¬ë¼ì´ë” ê°’: {currentSlider.value:F2}");
         }
     }
 
     bool IsUIElement(GameObject obj)
     {
-        // UI ¿ä¼ÒÀÎÁö È®ÀÎ
-        return obj.GetComponent<UnityEngine.UI.Selectable>() != null;
+        // UI ìš”ì†Œì¸ì§€ í™•ì¸ (Selectable ë˜ëŠ” Slider)
+        return obj.GetComponent<UnityEngine.UI.Selectable>() != null ||
+               obj.GetComponentInParent<UnityEngine.UI.Selectable>() != null;
     }
 }

@@ -17,30 +17,31 @@ public class DifficultySettings : MonoBehaviour
     [Header("현재 선택된 난이도")]
     public Difficulty currentDifficulty = Difficulty.Normal;
 
-    [Header("난이도별 설정 (128 BPM 기준)")]
-    // Easy 설정 (초보자용)
-    public float easyBPM = 96f;          // 128의 75%
-    public float easyDensity = 0.5f;     // 노트 절반
-    public float easyPerfectWindow = 0.2f;
-    public float easyGreatWindow = 0.35f;
-    public float easyGoodWindow = 0.5f;
-    public float easyHighlightDuration = 0.8f;
+    [Header("난이도별 설정 (전체 하향 조정)")]
 
-    // Normal 설정 (적당함)
-    public float normalBPM = 112f;       // 128의 87.5%
-    public float normalDensity = 0.7f;   // 노트 70%
-    public float normalPerfectWindow = 0.15f;
-    public float normalGreatWindow = 0.25f;
-    public float normalGoodWindow = 0.35f;
-    public float normalHighlightDuration = 0.6f;
+    // Easy 설정 (초보자용 - 매우 느림)
+    public float easyBPM = 80f;          // 96 → 80 (더 느리게)
+    public float easyDensity = 0.4f;     // 0.5 → 0.4 (노트 40%)
+    public float easyPerfectWindow = 0.25f;  // 0.2 → 0.25 (더 여유롭게)
+    public float easyGreatWindow = 0.4f;     // 0.35 → 0.4
+    public float easyGoodWindow = 0.6f;      // 0.5 → 0.6
+    public float easyHighlightDuration = 1.0f; // 0.8 → 1.0 (더 길게 표시)
 
-    // Hard 설정 (원곡 속도)
-    public float hardBPM = 128f;         // 원곡 BPM
-    public float hardDensity = 1.0f;     // 노트 100%
-    public float hardPerfectWindow = 0.1f;
-    public float hardGreatWindow = 0.15f;
-    public float hardGoodWindow = 0.2f;
-    public float hardHighlightDuration = 0.4f;
+    // Normal 설정 (적당함 - 편안한 속도)
+    public float normalBPM = 95f;        // 112 → 95 (17 감소)
+    public float normalDensity = 0.6f;   // 0.7 → 0.6 (노트 60%)
+    public float normalPerfectWindow = 0.18f;  // 0.15 → 0.18
+    public float normalGreatWindow = 0.3f;     // 0.25 → 0.3
+    public float normalGoodWindow = 0.45f;     // 0.35 → 0.45
+    public float normalHighlightDuration = 0.75f; // 0.6 → 0.75
+
+    // Hard 설정 (도전적 - 기존 Normal 수준)
+    public float hardBPM = 110f;         // 128 → 110 (18 감소)
+    public float hardDensity = 0.8f;     // 1.0 → 0.8 (노트 80%)
+    public float hardPerfectWindow = 0.12f;  // 0.1 → 0.12
+    public float hardGreatWindow = 0.2f;     // 0.15 → 0.2
+    public float hardGoodWindow = 0.3f;      // 0.2 → 0.3
+    public float hardHighlightDuration = 0.5f; // 0.4 → 0.5
 
     void Awake()
     {
@@ -65,13 +66,13 @@ public class DifficultySettings : MonoBehaviour
         switch (difficulty)
         {
             case Difficulty.Easy:
-                difficultyName = "쉬움 😊 (96 BPM)";
+                difficultyName = "쉬움 😊 (80 BPM - 여유로운 템포)";
                 break;
             case Difficulty.Normal:
-                difficultyName = "보통 🙂 (112 BPM)";
+                difficultyName = "보통 🙂 (95 BPM - 편안한 템포)";
                 break;
             case Difficulty.Hard:
-                difficultyName = "어려움 😰 (128 BPM - 원곡)";
+                difficultyName = "어려움 😰 (110 BPM - 도전적)";
                 break;
         }
 
@@ -144,6 +145,7 @@ public class DifficultySettings : MonoBehaviour
                 break;
         }
     }
+
 
     // 현재 난이도의 강조 지속 시간 가져오기
     public float GetHighlightDuration()

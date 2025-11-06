@@ -78,6 +78,7 @@ public class AudioManager : MonoBehaviour
         float dB = volume > 0.0001f ? 20f * Mathf.Log10(volume) : -80f;
         audioMixer.SetFloat("SFXVolume", dB);
 
+        Debug.Log($"🔊 SFX Volume 설정: {volume:F2} ({dB:F1}dB)");
         // UI 텍스트 업데이트
         if (sfxVolumeText != null)
         {

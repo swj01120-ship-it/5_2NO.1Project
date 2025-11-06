@@ -13,9 +13,12 @@ public class TutorialRhythmManager : MonoBehaviour
     [Header("튜토리얼 설정")]
     public float tutorialBPM = 80f; // 느린 BPM
     public int requiredSuccessfulHits = 8; // 성공해야 하는 횟수
+    [Range(0f, 1f)]
+    public float randomness = 0.8f; // 0: 완전 순차, 1: 완전 랜덤
 
     [Header("UI")]
-    public Text progressText;
+    public Text progressText; // "성공: 5/8" 표시용
+    public Text countText;    // 큰 숫자 "5" 표시용 (선택사항)
 
     [Header("게임 상태")]
     private bool isPlaying = false;
@@ -101,8 +104,8 @@ public class TutorialRhythmManager : MonoBehaviour
         currentBeatIndex = 0;
         gameStartTime = Time.time;
 
-        // 새 패턴 생성 (시간 다시 설정)
-        GenerateSimplePattern();
+        // 새 랜덤 패턴 생성
+        GenerateRandomPattern();
 
         Debug.Log($"✅ 패턴 재시작! 현재 성공: {successfulHits}/{requiredSuccessfulHits}");
     }
@@ -125,8 +128,8 @@ public class TutorialRhythmManager : MonoBehaviour
 
         Debug.Log("🎮 튜토리얼 리듬 게임 시작!");
 
-        // 간단한 패턴 생성
-        GenerateSimplePattern();
+        // 랜덤 패턴 생성
+        GenerateRandomPattern();
 
         isPlaying = true;
         gameStartTime = Time.time;
@@ -142,23 +145,59 @@ public class TutorialRhythmManager : MonoBehaviour
         return isPlaying;
     }
 
-    // 간단하고 쉬운 패턴 생성
-    void GenerateSimplePattern()
+    // 🎲 랜덤 리듬 패턴 생성
+    void GenerateRandomPattern()
     {
         tutorialBeats = new List<SimpleBeat>();
 
         float beatInterval = 60f / tutorialBPM;
         float currentTime = 1f; // 1초부터 시작
 
-        // 패턴: 0 -> 1 -> 2 -> 3 -> 0 -> 1 -> 2 -> 3 (순차적으로 반복)
-        for (int i = 0; i < 8; i++) // 12개 비트 (여유있게)
+        int lastDrumIndex = -1; // 이전 드럼 인덱스
+        int consecutiveCount = 0; // 연속 같은 드럼 카운트
+
+        // 8개 비트 생성
+        for (int i = 0; i < 8; i++)
         {
-            int drumIndex = i % 4; // 0, 1, 2, 3 순서 반복
+            int drumIndex;
+
+            // 랜덤 드럼 선택
+            if (Random.value < randomness)
+            {
+                // 랜덤 선택
+                drumIndex = Random.Range(0, 4);
+
+                // 같은 드럼이 3번 연속되지 않도록
+                if (drumIndex == lastDrumIndex)
+                {
+                    consecutiveCount++;
+                    if (consecutiveCount >= 2)
+                    {
+                        // 다른 드럼 선택
+                        drumIndex = (drumIndex + Random.Range(1, 4)) % 4;
+                        consecutiveCount = 0;
+                    }
+                }
+                else
+                {
+                    consecutiveCount = 0;
+                }
+            }
+            else
+            {
+                // 순차적 패턴 (초보자 친화적)
+                drumIndex = i % 4;
+            }
+
             tutorialBeats.Add(new SimpleBeat(currentTime, drumIndex));
             currentTime += beatInterval;
+
+            lastDrumIndex = drumIndex;
+
+            Debug.Log($"🎵 비트 {i}: 드럼 {drumIndex} @ {currentTime:F2}초");
         }
 
-        Debug.Log($"✅ 튜토리얼 패턴 생성 완료! 총 {tutorialBeats.Count}개의 비트");
+        Debug.Log($"✅ 랜덤 패턴 생성 완료! 총 {tutorialBeats.Count}개의 비트");
     }
 
     // 북을 쳤을 때 호출 (DrumController에서)
@@ -199,6 +238,13 @@ public class TutorialRhythmManager : MonoBehaviour
         {
             progressText.text = $"성공: {successfulHits}/{requiredSuccessfulHits}";
         }
+        // 큰 숫자 표시 "5"
+        if (countText != null)
+        {
+            countText.text = successfulHits.ToString();
+        }
+
+        Debug.Log($"📊 UI 업데이트: {successfulHits}/{requiredSuccessfulHits}");
     }
 
     void CompleteTutorialRhythm()
