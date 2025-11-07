@@ -27,7 +27,7 @@ public class MainMenuDialogueManager : MonoBehaviour
     // 대화 진행 상태
     private int currentStep = 0;
     private bool isTyping = false;
-    private bool[] stepCompleted = new bool[3]; // 3단계 완료 체크
+    private bool[] stepCompleted = new bool[4]; // 4단계 완료 체크
     private string currentFullText = "";
 
     // 대화 내용
@@ -99,9 +99,16 @@ public class MainMenuDialogueManager : MonoBehaviour
             new DialogueStep
             {
                 npcName = "호랭도령",
-                text = "마우스 방향이 가르키고 있는 레이저가 초록색으로 바뀌면 선택할 수 있네",
+                text = "마우스 방향이 가르키고 있는 레이저가 초록색으로 바뀌면 선택할 수 있네!",
                 checkCondition = CheckCondition_Step2
-            }
+            },
+            new DialogueStep
+            {
+                npcName = "호랭도령",
+                text = "우선 게임설정 버튼을 눌러 음악 소리를 변경해보게나, 다음은 게임방법 버튼을 눌러보시게나!",
+               // checkCondition = CheckCondition_Step3
+            }           
+         
         };
     }
 
