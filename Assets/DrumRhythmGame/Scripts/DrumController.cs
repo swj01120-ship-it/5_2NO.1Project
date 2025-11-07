@@ -36,6 +36,13 @@ public class DrumController : MonoBehaviour
     [Header("효과")]
     public ParticleSystem hitParticle;
 
+    [Header("튜토리얼 전용 프리팹 이펙트 (Instantiate용, 드럼 위 생성)")]
+    public GameObject tutorialHitEffectPrefab;
+
+    [Header("이펙트 Y 위치 보정값")]
+    public float effectYOffset = 0.6f;
+
+
     private Vector3 originalScale;
 
     void Start()
@@ -178,7 +185,13 @@ public class DrumController : MonoBehaviour
             Debug.LogWarning("⚠️ 게임 매니저를 찾을 수 없습니다!");
         }
 
-        ShowHitEffect();
+        // GOOD 이상 판정일 때만 이펙트 출력함
+        if (judgment == "Perfect" || judgment == "Great" || judgment == "Good")
+            ShowHitEffect(true);
+
+        else
+            ShowHitEffect(false);
+
         UnHighlight();
     }
 
@@ -201,16 +214,22 @@ public class DrumController : MonoBehaviour
         }
     }
 
-    void ShowHitEffect()
+    void ShowHitEffect(bool isGoodHit = true)
     {
         if (!gameObject.activeInHierarchy)
         {
             return;
         }
 
-        if (hitParticle != null)
+        if (hitParticle != null && isGoodHit)
         {
             hitParticle.Play();
+        }
+        if (tutorialHitEffectPrefab != null && isGoodHit)
+        {
+            Vector3 effectPos = transform.position + Vector3.up * effectYOffset;
+            Instantiate(tutorialHitEffectPrefab, effectPos, Quaternion.identity);
+            Debug.Log($"튜토리얼 이펙트 생성 위치: {effectPos}");
         }
         StartCoroutine(HitFlash());
         StartCoroutine(DrumPunchAnimation());
