@@ -1100,8 +1100,9 @@ MonoBehaviour:
   countdownText: {fileID: 1390991690}
   countdownTime: 3
   startText: Start!
-  countdownSound: {fileID: 0}
-  startSound: {fileID: 0}
+  resultSound: {fileID: 8300000, guid: bae1f36e06ec7ba46a799470f3c848be, type: 3}
+  countdownSound: {fileID: 8300000, guid: d3d5998c71ffceb43a3bae6a28c1fbd9, type: 3}
+  startSound: {fileID: 8300000, guid: c21b8380a9b21b0458792a11ed1a2780, type: 3}
 --- !u!4 &261367970
 Transform:
   m_ObjectHideFlags: 0
@@ -1184,7 +1185,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 37, y: 48}
+  m_AnchoredPosition: {x: 43, y: 48}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &325652510

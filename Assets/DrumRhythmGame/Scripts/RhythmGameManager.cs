@@ -66,6 +66,7 @@ public class RhythmGameManager : MonoBehaviour
     public TextMeshProUGUI countdownText; // Legacy는 Text countdownText;
     public float countdownTime = 3f; // 3, 2, 1
     public string startText = "Start!"; // 마지막에 표시할 텍스트
+    public AudioClip resultSound;  // 결과 패널 사운드
 
     //private bool isGameStarted = false;
     private bool isCountingDown = false;
@@ -367,6 +368,14 @@ public class RhythmGameManager : MonoBehaviour
     {
         gameStarted = false;
         Debug.Log($"게임 종료! 최종점수: {score}, 최대 콤보: {maxCombo}");
+
+        // 🔊 결과 사운드 재생
+        if (resultSound != null && musicSource != null)
+        {
+            musicSource.PlayOneShot(resultSound);
+            Debug.Log("🔊 결과 사운드 재생!");
+        }
+
         if (ResultScreenManager.Instance != null)
         {
             GameResult result = new GameResult
