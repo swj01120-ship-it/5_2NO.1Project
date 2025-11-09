@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class RhythmGameManager : MonoBehaviour
 {
@@ -61,6 +62,18 @@ public class RhythmGameManager : MonoBehaviour
     private int maxHighlightCount = 2;
     private HashSet<int> currentlyHighlighted = new HashSet<int>();
 
+    [Header("카운트다운 설정")]
+    public TextMeshProUGUI countdownText; // Legacy는 Text countdownText;
+    public float countdownTime = 3f; // 3, 2, 1
+    public string startText = "Start!"; // 마지막에 표시할 텍스트
+
+    //private bool isGameStarted = false;
+    private bool isCountingDown = false;
+
+    [Header("카운트다운 사운드")]
+    public AudioClip countdownSound;
+    public AudioClip startSound;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -79,19 +92,20 @@ public class RhythmGameManager : MonoBehaviour
         if (startPanel != null) startPanel.SetActive(true);
         scoreText.gameObject.SetActive(false); // 시작 전 스코어 텍스트 숨기기
         gameStarted = false;
-        isWaitingToStart = true;
+        //isWaitingToStart = true;
     }
 
     void Update()
     {
-        if (isWaitingToStart)
+        if (!gameStarted && !isCountingDown)
         {
             if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
             {
-                StartGame();
-                isWaitingToStart = false;
-                if (startPanel != null) startPanel.SetActive(false);
-                scoreText.gameObject.SetActive(true); // 게임 시작 시 스코어 텍스트 표시
+                StartCoroutine(StartGameWithCountdown());   
+                //StartGame();
+                //isWaitingToStart = false;
+                //if (startPanel != null) startPanel.SetActive(false);
+                //scoreText.gameObject.SetActive(true); // 게임 시작 시 스코어 텍스트 표시
             }
             return;
         }
@@ -122,6 +136,11 @@ public class RhythmGameManager : MonoBehaviour
         {
             EndGame();
         }
+        // 엔터키로 게임 시작 (카운트다운 포함)
+        //if (!isGameStarted && !isCountingDown && Input.GetKeyDown(KeyCode.Return))
+        
+            //StartCoroutine(StartGameWithCountdown());
+        
     }
 
     IEnumerator UnhighlightAfterDurationWithTracking(int drumIndex, float duration)
@@ -131,13 +150,65 @@ public class RhythmGameManager : MonoBehaviour
         currentlyHighlighted.Remove(drumIndex);
     }
 
+    // ✅ 카운트다운과 함께 게임 시작
+    IEnumerator StartGameWithCountdown()
+    {
+        isCountingDown = true;
+
+        // 카운트다운 텍스트 활성화
+        if (countdownText != null)
+        {
+            countdownText.gameObject.SetActive(true);
+        }
+
+        // 3, 2, 1 카운트다운
+        for (int i = (int)countdownTime; i > 0; i--)
+        {
+            countdownText.text = i.ToString();
+
+            if (countdownText != null && musicSource != null)
+            {
+                musicSource.PlayOneShot(countdownSound);   
+                Debug.Log($"⏰ 카운트다운: {i}");
+
+            }
+            yield return new WaitForSeconds(1f);
+        }
+
+        // "시작!" 표시
+        countdownText.text = startText;
+
+        if (startSound != null && musicSource != null)
+        {
+            musicSource.PlayOneShot(startSound);
+        }
+
+        // 카운트다운 텍스트 숨기기
+        if (countdownText != null)
+        {
+            countdownText.gameObject.SetActive(false);
+        }
+
+        // ✅ 실제 게임 시작
+        StartGame();
+
+        isCountingDown = false;
+    }
+
     void StartGame()
     {
         gameStarted = true;
         gameStartTime = Time.time;
         currentBeatIndex = 0;
+       
+        if(startPanel != null) startPanel.SetActive(false );
+        scoreText.gameObject.SetActive(true );
+
         if (musicSource != null)
+        {
             musicSource.Play();
+            Debug.Log("음악 시작!");
+        }
     }
 
     public void OnDrumHit(string judgment, int drumIndex)
