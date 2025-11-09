@@ -3,7 +3,22 @@ guid: 9659b1fcffec30f45aa32d0d7e45f9ca
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - beatChart: {instanceID: 0}
+  - musicSource: {instanceID: 0}
+  - startPanel: {instanceID: 0}
+  - scoreText: {instanceID: 0}
+  - comboText: {instanceID: 0}
+  - judgmentText: {instanceID: 0}
+  - perfectEffectPrefab: {instanceID: 0}
+  - greatEffectPrefab: {instanceID: 0}
+  - goodEffectPrefab: {instanceID: 0}
+  - missEffectPrefab: {instanceID: 0}
+  - comboEffectPrefab: {instanceID: 0}
+  - countdownText: {instanceID: 0}
+  - resultSound: {instanceID: 0}
+  - countdownSound: {instanceID: 0}
+  - startSound: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

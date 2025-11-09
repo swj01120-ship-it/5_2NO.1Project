@@ -83,6 +83,9 @@ public class RhythmGameManager : MonoBehaviour
 
     void Start()
     {
+        // ✅ 선택된 노래 로드
+        LoadSelectedSong();
+        
         if (beatChart == null)
         {
             Debug.LogError("Beat Chart가 연결되지 않았습니다!");
@@ -94,6 +97,37 @@ public class RhythmGameManager : MonoBehaviour
         scoreText.gameObject.SetActive(false); // 시작 전 스코어 텍스트 숨기기
         gameStarted = false;
         //isWaitingToStart = true;
+    }
+    // 2. 새로운 메서드 추가 - 선택된 노래 로드
+    void LoadSelectedSong()
+    {
+        // SongSelectionManager에서 선택된 노래 가져오기
+        if (SongSelectionManager.Instance != null)
+        {
+            SongData selectedSong = SongSelectionManager.Instance.GetSelectedSong();
+
+            if (selectedSong != null)
+            {
+                // 비트차트 설정
+                beatChart = selectedSong.beatChart;
+
+                // 음악 설정
+                if (musicSource != null && selectedSong.musicClip != null)
+                {
+                    musicSource.clip = selectedSong.musicClip;
+                }
+
+                Debug.Log($"✅ 노래 로드 완료: {selectedSong.songName} - {selectedSong.artist}");
+            }
+            else
+            {
+                Debug.LogWarning("⚠️ 선택된 노래가 없습니다. 기본 설정을 사용합니다.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ SongSelectionManager를 찾을 수 없습니다. 기본 설정을 사용합니다.");
+        }
     }
 
     void Update()

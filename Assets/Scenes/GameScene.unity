@@ -4796,6 +4796,54 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.73, y: 2, z: 1.35}
   m_Center: {x: 0.02, y: 1.36, z: 0.04}
+--- !u!1 &1999758190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1999758192}
+  - component: {fileID: 1999758191}
+  m_Layer: 0
+  m_Name: SongSelectionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1999758191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999758190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9cde66fe6499f74aad27e50b48da80e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedSong: {fileID: 11400000, guid: addf489d307e3ca4b970ca984f7572a0, type: 2}
+  availableSongs:
+  - {fileID: 11400000, guid: 83c5a1eeb915e634eb0059b8e1ff2880, type: 2}
+  - {fileID: 11400000, guid: addf489d307e3ca4b970ca984f7572a0, type: 2}
+--- !u!4 &1999758192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999758190}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2006276571
 GameObject:
   m_ObjectHideFlags: 0
@@ -5073,3 +5121,4 @@ SceneRoots:
   - {fileID: 1242334280}
   - {fileID: 567261380}
   - {fileID: 1366073846}
+  - {fileID: 1999758192}
