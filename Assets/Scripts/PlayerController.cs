@@ -147,13 +147,13 @@ public class PlayerController : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * lookSpeedY;
 
         // 키보드 Q/E로 좌우 회전 (옵션)
-        if (Input.GetKey(KeyCode.Q))
+        //if (Input.GetKey(KeyCode.Q))
         {
-            mouseX -= lookSpeedX * 30f * Time.deltaTime;
+            //mouseX -= lookSpeedX * 30f * Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.E))
+        //if (Input.GetKey(KeyCode.E))
         {
-            mouseX += lookSpeedX * 30f * Time.deltaTime;
+           // mouseX += lookSpeedX * 30f * Time.deltaTime;
         }
 
         // 좌우 회전 (플레이어 회전)

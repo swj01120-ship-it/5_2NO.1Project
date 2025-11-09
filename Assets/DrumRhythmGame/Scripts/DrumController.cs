@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DrumController : MonoBehaviour
@@ -41,6 +42,10 @@ public class DrumController : MonoBehaviour
 
     [Header("이펙트 Y 위치 보정값")]
     public float effectYOffset = 0.6f;
+
+    [Header("튜토리얼 키 표시")]
+    public TextMeshPro keyText; // Inspector에서 연결
+    public bool showKeyInTutorial = true; // 튜토리얼에서 키 표시 여부
 
 
     private Vector3 originalScale;
@@ -87,9 +92,23 @@ public class DrumController : MonoBehaviour
             DifficultySettings.Instance.GetJudgmentWindows(out perfectWindow, out greatWindow, out goodWindow);
             Debug.Log($"✅ Drum {drumIndex} 초기화! (Perfect: {perfectWindow}s, Great: {greatWindow}s, Good: {goodWindow}s)");
         }
-    }
 
-    void Update()
+        if (keyText == null)
+        {
+            keyText = GetComponentInChildren<TextMeshPro>();
+        }
+
+        // 튜토리얼 모드가 아니면 키 텍스트 숨기기
+        if (keyText != null)
+        {
+            // 튜토리얼 씬인지 체크
+            bool isTutorialScene = (TutorialRhythmManager.Instance != null);
+            keyText.gameObject.SetActive(isTutorialScene && showKeyInTutorial);
+        }
+    }
+  
+
+void Update()
     {
         // GameObject가 비활성화 상태면 아무것도 안 함
         if (!gameObject.activeInHierarchy)
@@ -288,4 +307,12 @@ public class DrumController : MonoBehaviour
             drumMaterial.color = normalColor;
         }
     }
+    public void ShowKeyText(bool show)
+    {
+        if (keyText != null)
+        {
+            keyText.gameObject.SetActive(show);
+        }
+    }
 }
+
