@@ -79,6 +79,13 @@ public class SongButton : MonoBehaviour
     // 노래 선택 버튼 클릭
     void OnSongButtonClicked()
     {
+        // 🔊 클릭 사운드 재생
+        AudioSource audioSource = GetComponent<AudioSource>();
+        if (audioSource != null && audioSource.clip != null)
+        {
+            audioSource.Play();
+        }
+
         if (songData == null)
         {
             Debug.LogError("❌ 노래 데이터가 없습니다!");

@@ -1107,7 +1107,21 @@ MonoBehaviour:
   greatScore: 70
   goodScore: 40
   missScore: 0
+  perfectRange: 0.07
+  greatRange: 0.5
+  goodRange: 1.2
+  missRange: 1.7
   endGameDelay: 0.5
+  countdownText: {fileID: 1390991690}
+  countdownTime: 3
+  startText: START!
+  countdownSound: {fileID: 8300000, guid: d3d5998c71ffceb43a3bae6a28c1fbd9, type: 3}
+  startSound: {fileID: 8300000, guid: c21b8380a9b21b0458792a11ed1a2780, type: 3}
+  resultSound: {fileID: 8300000, guid: bae1f36e06ec7ba46a799470f3c848be, type: 3}
+  resultPerfectSound: {fileID: 8300000, guid: bae1f36e06ec7ba46a799470f3c848be, type: 3}
+  resultGreatSound: {fileID: 8300000, guid: 9af27888321464342b96830e7c1fe036, type: 3}
+  resultGoodSound: {fileID: 8300000, guid: bc98cdee4ad7bbc4d917b59b6fca147f, type: 3}
+  resultFailSound: {fileID: 8300000, guid: 740f78c1e8ded5d4289d5e1e18268035, type: 3}
 --- !u!4 &261367970
 Transform:
   m_ObjectHideFlags: 0

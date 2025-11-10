@@ -26,7 +26,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private float typingSpeed = 0.05f;
 
     [Header("씬 전환")]
-    [SerializeField] private string gameSceneName = "GameScene";
+    [SerializeField] private string gameSceneName = "SongSelectionScene";
     [SerializeField] private float sceneTransitionDelay = 2f;
 
     [Header("북(드럼) 연습")]
@@ -468,10 +468,10 @@ public class TutorialManager : MonoBehaviour
         Debug.Log("튜토리얼 완료! 게임 씬으로 전환합니다...");
 
         // 게임 씬으로 전환
-        StartCoroutine(TransitionToGameScene());
+        StartCoroutine(TransitionToSongSelectionScene());
     }
 
-    IEnumerator TransitionToGameScene()
+    IEnumerator TransitionToSongSelectionScene()
     {
         // 전환 전 딜레이
         yield return new WaitForSeconds(sceneTransitionDelay);

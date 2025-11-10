@@ -38,8 +38,8 @@ public class MainMenuManager : MonoBehaviour
         PlayClickSound(); // ← 새로 추가
         Debug.Log("게임 시작 버튼 클릭!");
 
-        // 로딩 씬을 통해 게임 씬으로 이동
-        LoadingSceneManager.nextScene = "GameScene";
+        // 로딩 씬을 통해 노래 선택 씬으로 이동
+        LoadingSceneManager.nextScene = "SongSelectionScene";
         SceneManager.LoadScene("LoadingScene");
     }
 
