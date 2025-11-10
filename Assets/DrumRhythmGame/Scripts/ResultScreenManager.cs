@@ -29,6 +29,7 @@ public class ResultScreenManager : MonoBehaviour
 
     void Awake()
     {
+        // 싱글톤 패턴 적용
         if (Instance == null)
         {
             Instance = this;
@@ -41,11 +42,9 @@ public class ResultScreenManager : MonoBehaviour
 
     void Start()
     {
-        // 결과 화면 초기에는 숨기기
+        // 결과 화면 초기 숨김
         if (resultPanel != null)
-        {
             resultPanel.SetActive(false);
-        }
 
         // 버튼 이벤트 연결
         if (retryButton != null)
@@ -61,9 +60,7 @@ public class ResultScreenManager : MonoBehaviour
 
         // 결과 화면 표시
         if (resultPanel != null)
-        {
             resultPanel.SetActive(true);
-        }
 
         // 점수 표시
         if (scoreText != null)
@@ -101,14 +98,17 @@ public class ResultScreenManager : MonoBehaviour
         Debug.Log($"   등급: {result.Grade}");
         Debug.Log($"   Perfect: {result.perfectCount}, Great: {result.greatCount}, Good: {result.goodCount}, Miss: {result.missCount}");
 
-        // 결과 UI 표시
-        resultPanel.SetActive(true);
-
         // 커서 활성화
         CursorManager cursorManager = FindObjectOfType<CursorManager>();
         if (cursorManager != null)
         {
             cursorManager.ShowCursor();
+        }
+        else
+        {
+            // 커서가 없을 경우 기본 커서 표시
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 

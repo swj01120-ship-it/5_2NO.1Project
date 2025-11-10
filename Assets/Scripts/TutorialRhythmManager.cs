@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +19,12 @@ public class TutorialRhythmManager : MonoBehaviour
     [Header("UI")]
     public Text progressText; // "성공: 5/8" 표시용
     public Text countText;    // 큰 숫자 "5" 표시용 (선택사항)
+
+    // ⭐⭐⭐ 추가: 튜토리얼 이펙트 설정
+    [Header("튜토리얼 이펙트")]
+    public ParticleSystem tutorialHitParticle; // 히트 파티클
+    public GameObject tutorialHitEffectPrefab; // 튜토리얼 히트 이펙트 프리팹
+    public float effectYOffset = 0.6f; // 이펙트 높이 오프셋
 
     [Header("게임 상태")]
     private bool isPlaying = false;
@@ -204,7 +210,7 @@ public class TutorialRhythmManager : MonoBehaviour
         Debug.Log($"✅ 랜덤 패턴 생성 완료! 총 {tutorialBeats.Count}개의 비트");
     }
 
-    // 북을 쳤을 때 호출 (DrumController에서)
+    // ⭐⭐⭐ 수정된 부분: 북을 쳤을 때 호출 (DrumController에서)
     public void OnTutorialDrumHit(string judgment, int drumIndex)
     {
         if (!isPlaying)
@@ -225,6 +231,9 @@ public class TutorialRhythmManager : MonoBehaviour
             successfulHits++;
             Debug.Log($"✅ 성공! ({successfulHits}/{requiredSuccessfulHits})");
 
+            // ⭐ 성공 시 이펙트 재생 (매니저에서 직접 실행)
+            PlayTutorialHitEffect(drumIndex);
+
             UpdateProgressUI();
 
             // ✨ 목표 달성 체크
@@ -233,6 +242,86 @@ public class TutorialRhythmManager : MonoBehaviour
                 Debug.Log("🎉 목표 달성! CompleteTutorialRhythm() 호출!");
                 CompleteTutorialRhythm();
             }
+        }
+    }
+
+    // ⭐⭐⭐ 새로 추가: 튜토리얼 히트 이펙트 재생 (비활성화된 드럼도 처리 가능)
+    public void PlayTutorialHitEffect(int drumIndex)
+    {
+        if (drums[drumIndex] == null)
+        {
+            Debug.LogWarning($"⚠️ Drum {drumIndex}가 없습니다!");
+            return;
+        }
+
+        DrumController drum = drums[drumIndex];
+        Vector3 drumPosition = drum.transform.position;
+
+        // 1. 파티클 재생
+        if (tutorialHitParticle != null)
+        {
+            tutorialHitParticle.transform.position = drumPosition;
+            tutorialHitParticle.Play();
+            Debug.Log($"✨ 파티클 재생! Drum {drumIndex}");
+        }
+
+        // 2. 튜토리얼 이펙트 생성
+        if (tutorialHitEffectPrefab != null)
+        {
+            Vector3 effectPos = drumPosition + Vector3.up * effectYOffset;
+            GameObject effect = Instantiate(tutorialHitEffectPrefab, effectPos, Quaternion.identity);
+            Debug.Log($"✨ 튜토리얼 이펙트 생성! Drum {drumIndex}");
+            
+            // 이펙트 자동 삭제 (3초 후)
+            Destroy(effect, 3f);
+        }
+
+        // 3. 드럼 색상 플래시 (비활성화 상태에서도 작동)
+        drum.PlayHitFlash();
+
+        // 4. 드럼 펀치 애니메이션 (활성화 상태에서만)
+        if (drum.gameObject.activeInHierarchy)
+        {
+            StartCoroutine(DrumPunchAnimation(drumIndex));
+        }
+    }
+
+    // ⭐⭐⭐ 새로 추가: 드럼 펀치 애니메이션 (비활성화된 드럼은 건너뜀)
+    IEnumerator DrumPunchAnimation(int drumIndex)
+    {
+        if (drums[drumIndex] == null) yield break;
+
+        DrumController drum = drums[drumIndex];
+        
+        // 활성화되어 있을 때만 애니메이션
+        if (drum.gameObject.activeInHierarchy)
+        {
+            Vector3 originalScale = drum.transform.localScale;
+            float duration = 0.12f;
+            Vector3 punchScale = originalScale * 1.13f;
+            float elapsed = 0;
+
+            // 확대
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / duration;
+                drum.transform.localScale = Vector3.Lerp(originalScale, punchScale, t);
+                yield return null;
+            }
+
+            // 축소
+            elapsed = 0;
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float t = elapsed / duration;
+                drum.transform.localScale = Vector3.Lerp(punchScale, originalScale, t);
+                yield return null;
+            }
+
+            drum.transform.localScale = originalScale;
+            Debug.Log($"💥 Drum {drumIndex} 펀치 애니메이션 완료!");
         }
     }
 

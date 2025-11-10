@@ -30,17 +30,11 @@ MonoBehaviour:
   - time: 3.875
     drumIndex: 0
     duration: 0.4
-  - time: 3.875
-    drumIndex: 2
-    duration: 0.4
   - time: 4.8125
     drumIndex: 3
     duration: 0.4
   - time: 5.75
     drumIndex: 2
-    duration: 0.4
-  - time: 5.75
-    drumIndex: 1
     duration: 0.4
   - time: 5.75
     drumIndex: 1
@@ -56,9 +50,6 @@ MonoBehaviour:
     duration: 0.4
   - time: 8.5625
     drumIndex: 1
-    duration: 0.4
-  - time: 8.5625
-    drumIndex: 0
     duration: 0.4
   - time: 9.5
     drumIndex: 2
@@ -84,17 +75,11 @@ MonoBehaviour:
   - time: 13.25
     drumIndex: 2
     duration: 0.4
-  - time: 13.25
-    drumIndex: 3
-    duration: 0.4
   - time: 14.1875
     drumIndex: 2
     duration: 0.4
   - time: 14.1875
     drumIndex: 1
-    duration: 0.4
-  - time: 14.1875
-    drumIndex: 3
     duration: 0.4
   - time: 15.125
     drumIndex: 2
@@ -102,17 +87,11 @@ MonoBehaviour:
   - time: 15.125
     drumIndex: 1
     duration: 0.4
-  - time: 15.125
-    drumIndex: 2
-    duration: 0.4
   - time: 16.0625
     drumIndex: 1
     duration: 0.4
   - time: 16.0625
     drumIndex: 3
-    duration: 0.4
-  - time: 16.0625
-    drumIndex: 2
     duration: 0.4
   - time: 17
     drumIndex: 3
@@ -135,9 +114,6 @@ MonoBehaviour:
   - time: 19.8125
     drumIndex: 2
     duration: 0.4
-  - time: 19.8125
-    drumIndex: 0
-    duration: 0.4
   - time: 20.75
     drumIndex: 1
     duration: 0.4
@@ -147,9 +123,6 @@ MonoBehaviour:
   - time: 21.6875
     drumIndex: 2
     duration: 0.4
-  - time: 21.6875
-    drumIndex: 0
-    duration: 0.4
   - time: 22.625
     drumIndex: 3
     duration: 0.4
@@ -168,17 +141,11 @@ MonoBehaviour:
   - time: 24.5
     drumIndex: 1
     duration: 0.4
-  - time: 24.5
-    drumIndex: 2
-    duration: 0.4
   - time: 25.4375
     drumIndex: 2
     duration: 0.4
   - time: 25.4375
     drumIndex: 2
-    duration: 0.4
-  - time: 25.4375
-    drumIndex: 0
     duration: 0.4
   - time: 26.375
     drumIndex: 3
@@ -186,17 +153,11 @@ MonoBehaviour:
   - time: 26.375
     drumIndex: 1
     duration: 0.4
-  - time: 26.375
-    drumIndex: 3
-    duration: 0.4
   - time: 27.3125
     drumIndex: 3
     duration: 0.4
   - time: 27.3125
     drumIndex: 3
-    duration: 0.4
-  - time: 27.3125
-    drumIndex: 1
     duration: 0.4
   - time: 28.25
     drumIndex: 2
@@ -222,23 +183,14 @@ MonoBehaviour:
   - time: 31.0625
     drumIndex: 3
     duration: 0.4
-  - time: 31.0625
-    drumIndex: 2
-    duration: 0.4
   - time: 32
     drumIndex: 0
     duration: 0.4
   - time: 32
     drumIndex: 3
-    duration: 0.4
-  - time: 32
-    drumIndex: 2
     duration: 0.4
   - time: 32.9375
     drumIndex: 2
-    duration: 0.4
-  - time: 33.875
-    drumIndex: 1
     duration: 0.4
   - time: 33.875
     drumIndex: 1
@@ -260,9 +212,6 @@ MonoBehaviour:
     duration: 0.4
   - time: 37.625
     drumIndex: 3
-    duration: 0.4
-  - time: 37.625
-    drumIndex: 1
     duration: 0.4
   - time: 38.5625
     drumIndex: 2
@@ -291,9 +240,6 @@ MonoBehaviour:
   - time: 43.25
     drumIndex: 3
     duration: 0.4
-  - time: 43.25
-    drumIndex: 3
-    duration: 0.4
   - time: 44.1875
     drumIndex: 1
     duration: 0.4
@@ -309,9 +255,6 @@ MonoBehaviour:
   - time: 46.0625
     drumIndex: 1
     duration: 0.4
-  - time: 46.0625
-    drumIndex: 0
-    duration: 0.4
   - time: 47
     drumIndex: 3
     duration: 0.4
@@ -326,9 +269,6 @@ MonoBehaviour:
     duration: 0.4
   - time: 48.875
     drumIndex: 0
-    duration: 0.4
-  - time: 48.875
-    drumIndex: 1
     duration: 0.4
   - time: 48.875
     drumIndex: 1
@@ -351,9 +291,6 @@ MonoBehaviour:
   - time: 52.625
     drumIndex: 1
     duration: 0.4
-  - time: 52.625
-    drumIndex: 2
-    duration: 0.4
   - time: 53.5625
     drumIndex: 2
     duration: 0.4
@@ -372,17 +309,11 @@ MonoBehaviour:
   - time: 56.375
     drumIndex: 1
     duration: 0.4
-  - time: 56.375
-    drumIndex: 1
-    duration: 0.4
   - time: 57.3125
     drumIndex: 1
     duration: 0.4
   - time: 57.3125
     drumIndex: 0
-    duration: 0.4
-  - time: 57.3125
-    drumIndex: 2
     duration: 0.4
   - time: 58.25
     drumIndex: 0
@@ -414,9 +345,6 @@ MonoBehaviour:
   - time: 62.9375
     drumIndex: 1
     duration: 0.4
-  - time: 62.9375
-    drumIndex: 3
-    duration: 0.4
   - time: 63.875
     drumIndex: 1
     duration: 0.4
@@ -444,26 +372,17 @@ MonoBehaviour:
   - time: 68.5625
     drumIndex: 1
     duration: 0.4
-  - time: 68.5625
-    drumIndex: 3
-    duration: 0.4
   - time: 69.5
     drumIndex: 2
     duration: 0.4
   - time: 69.5
     drumIndex: 0
     duration: 0.4
-  - time: 69.5
-    drumIndex: 2
-    duration: 0.4
   - time: 70.4375
     drumIndex: 1
     duration: 0.4
   - time: 70.4375
     drumIndex: 1
-    duration: 0.4
-  - time: 70.4375
-    drumIndex: 2
     duration: 0.4
   - time: 71.375
     drumIndex: 2
@@ -482,9 +401,6 @@ MonoBehaviour:
     duration: 0.4
   - time: 73.25
     drumIndex: 3
-    duration: 0.4
-  - time: 73.25
-    drumIndex: 2
     duration: 0.4
   - time: 74.1875
     drumIndex: 3
@@ -516,9 +432,6 @@ MonoBehaviour:
   - time: 78.875
     drumIndex: 1
     duration: 0.4
-  - time: 78.875
-    drumIndex: 2
-    duration: 0.4
   - time: 79.8125
     drumIndex: 1
     duration: 0.4
@@ -528,14 +441,8 @@ MonoBehaviour:
   - time: 80.75
     drumIndex: 3
     duration: 0.4
-  - time: 80.75
-    drumIndex: 3
-    duration: 0.4
   - time: 81.6875
     drumIndex: 2
-    duration: 0.4
-  - time: 81.6875
-    drumIndex: 3
     duration: 0.4
   - time: 81.6875
     drumIndex: 3
@@ -585,9 +492,6 @@ MonoBehaviour:
   - time: 90.125
     drumIndex: 3
     duration: 0.4
-  - time: 90.125
-    drumIndex: 3
-    duration: 0.4
   - time: 91.0625
     drumIndex: 0
     duration: 0.4
@@ -601,49 +505,151 @@ MonoBehaviour:
     drumIndex: 2
     duration: 0.4
   - time: 92
-    drumIndex: 3
-    duration: 0.4
-  - time: 92.9375
-    drumIndex: 0
-    duration: 0.4
-  - time: 92.9375
-    drumIndex: 1
-    duration: 0.4
-  - time: 92.9375
     drumIndex: 2
     duration: 0.4
-  - time: 93.875
-    drumIndex: 1
-    duration: 0.4
-  - time: 93.875
+  - time: 92
     drumIndex: 2
     duration: 0.4
-  - time: 94.8125
-    drumIndex: 0
-    duration: 0.4
-  - time: 94.8125
-    drumIndex: 0
-    duration: 0.4
-  - time: 94.8125
-    drumIndex: 1
-    duration: 0.4
-  - time: 95.75
-    drumIndex: 1
-    duration: 0.4
-  - time: 95.75
-    drumIndex: 0
-    duration: 0.4
-  - time: 95.75
-    drumIndex: 1
-    duration: 0.4
-  - time: 96.6875
-    drumIndex: 1
-    duration: 0.4
-  - time: 97.625
-    drumIndex: 1
-    duration: 0.4
-  - time: 97.625
+  - time: 92
     drumIndex: 2
     duration: 0.4
-  songLength: 98
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  - time: 92
+    drumIndex: 2
+    duration: 0.4
+  musicClip: {fileID: 8300000, guid: 5e9d66e0c048ecc409ffdc8cf7460180, type: 3}
+  audioFileLength: 96.07837
+  actualMusicEndTime: 93
   noteDensity: 0.5
+  startTime: 2
+  numberOfDrums: 4
+  maxNotesAtOnce: 2
+  simultaneousWindow: 0.05
