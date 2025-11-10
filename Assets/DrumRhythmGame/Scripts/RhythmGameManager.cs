@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -62,6 +63,12 @@ public class RhythmGameManager : MonoBehaviour
     public int goodScore = 40;
     public int missScore = 0;
 
+    [Header("판정 범위 (초 단위)")]
+    public float perfectRange = 0.07f;
+    public float greatRange = 0.5f;
+    public float goodRange = 1.2f;
+    public float missRange = 1.7f;
+
     private bool gameStarted = false;
     private bool isWaitingToStart = true;
     private float gameStartTime;
@@ -75,6 +82,16 @@ public class RhythmGameManager : MonoBehaviour
     [Header("⭐ 게임 종료 설정")]
     [Tooltip("모든 노트가 사라진 후 결과 화면까지 대기 시간 (초)")]
     public float endGameDelay = 0.5f; // 2초 → 0.5초로 단축!
+
+    [Header("카운트다운 설정")]
+    public TextMeshProUGUI countdownText; // Legacy는 Text countdownText;
+    public float countdownTime = 3f; // 3, 2, 1
+    public string startText = "START!"; // 마지막에 표시할 텍스트
+    public AudioClip countdownSound; // 카운트다운 사운드 (3, 2, 1)
+    public AudioClip startSound; // 시작 사운드 (START!)
+    public AudioClip resultSound; // 결과 패널 사운드
+
+    private bool isCountingDown = false;
 
     void Awake()
     {
@@ -103,10 +120,10 @@ public class RhythmGameManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
             {
-                StartGame();
+                // ✅ 엔터키를 누르면 카운트다운 시작
+                StartCoroutine(StartGameWithCountdown());
                 isWaitingToStart = false;
-                if (startPanel != null) startPanel.SetActive(false);
-                if (scoreText != null) scoreText.gameObject.SetActive(true);
+                if (startPanel != null) startPanel.SetActive(false); // "엔터키를 누르면..." 문구 숨김
             }
             return;
         }
@@ -195,6 +212,60 @@ public class RhythmGameManager : MonoBehaviour
             StartCoroutine(EndGameAfterDelay());
         }
     }
+    // ✅ 카운트다운과 함께 게임 시작
+    IEnumerator StartGameWithCountdown()
+    {
+        isCountingDown = true;
+
+        // 카운트다운 텍스트 활성화
+        if (countdownText != null)
+        {
+            countdownText.gameObject.SetActive(true);
+        }
+
+        // 3, 2, 1 카운트다운
+        for (int i = (int)countdownTime; i > 0; i--)
+        {
+            if (countdownText != null)
+            {
+                countdownText.text = i.ToString();
+                Debug.Log($"⏰ 카운트다운: {i}");
+            }
+
+            // 🔊 카운트다운 사운드 재생 (띡!)
+            if (countdownSound != null && musicSource != null)
+            {
+                musicSource.PlayOneShot(countdownSound);
+            }
+
+            yield return new WaitForSeconds(1f);
+        }
+
+        // "START!" 표시
+        if (countdownText != null)
+        {
+            countdownText.text = startText;
+        }
+
+        // 🔊 시작 사운드 재생
+        if (startSound != null && musicSource != null)
+        {
+            musicSource.PlayOneShot(startSound);
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        // 카운트다운 텍스트 숨기기
+        if (countdownText != null)
+        {
+            countdownText.gameObject.SetActive(false);
+        }
+
+        // ✅ 실제 게임 시작
+        StartGame();
+
+        isCountingDown = false;
+    }
 
     void StartGame()
     {
@@ -203,7 +274,7 @@ public class RhythmGameManager : MonoBehaviour
         currentBeatIndex = 0;
         gameEnded = false;
         allNotesSpawned = false;
-        musicEndLogged = false; // ⭐ 초기화
+        musicEndLogged = false;
 
         // 점수 초기화
         score = 0;
@@ -222,9 +293,12 @@ public class RhythmGameManager : MonoBehaviour
 
         Debug.Log($"🎮 게임 시작! (오디오 보정: {audioLatencyMs}ms)");
 
+        // ✅ UI 표시 (여기로 이동)
+        if (scoreText != null) scoreText.gameObject.SetActive(true);
+
+        // ✅ 음악 재생 (카운트다운 후에 재생됨)
         if (musicSource != null)
         {
-            // ⭐ DSP 시간 기반 정확한 재생
             musicSource.Play();
         }
     }
