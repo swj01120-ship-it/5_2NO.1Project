@@ -91,6 +91,12 @@ public class RhythmGameManager : MonoBehaviour
     public AudioClip startSound; // 시작 사운드 (START!)
     public AudioClip resultSound; // 결과 패널 사운드
 
+    [Header("결과 사운드 설정")]
+    public AudioClip resultPerfectSound; // S 등급 사운드 (대성공!)
+    public AudioClip resultGreatSound;   // A, B 등급 사운드 (성공!)
+    public AudioClip resultGoodSound;    // C 등급 사운드 (보통)
+    public AudioClip resultFailSound;    // D 등급 이하 사운드 (실패...)
+
     private bool isCountingDown = false;
 
     void Awake()
@@ -441,29 +447,69 @@ public class RhythmGameManager : MonoBehaviour
         EndGame();
     }
 
-    public void EndGame()
+    void EndGame()
     {
-        if (!gameEnded) gameEnded = true;
         gameStarted = false;
-        if (musicSource != null && musicSource.isPlaying) musicSource.Stop();
 
-        Debug.Log($"🎮 게임 종료! 점수: {score}");
+        // 🔊 점수에 따른 결과 사운드 재생
+        AudioClip soundToPlay = GetResultSound();
+        if (soundToPlay != null && musicSource != null)
+        {
+            musicSource.PlayOneShot(soundToPlay);
+            Debug.Log("🔊 결과 사운드 재생!");
+        }
 
-        GameResult result = new GameResult();
-        result.finalScore = score;
-        result.maxCombo = maxCombo;
-        result.perfectCount = perfectCount;
-        result.greatCount = greatCount;
-        result.goodCount = goodCount;
-        result.missCount = missCount;
+        Debug.Log($"게임 종료! 최종점수: {score}, 최대 콤보: {maxCombo}");
 
         if (ResultScreenManager.Instance != null)
         {
+            GameResult result = new GameResult
+            {
+                finalScore = score,
+                maxCombo = maxCombo,
+                perfectCount = perfectCount,
+                greatCount = greatCount,
+                goodCount = goodCount,
+                missCount = missCount
+            };
             ResultScreenManager.Instance.ShowResult(result);
+        }
+    }
+
+    // 3. 점수에 따른 사운드 선택 메서드 추가
+    AudioClip GetResultSound()
+    {
+        // 총 노트 수 계산
+        int totalNotes = perfectCount + greatCount + goodCount + missCount;
+        if (totalNotes == 0) return resultFailSound;
+
+        // 정확도 계산
+        float accuracy = (float)(perfectCount + greatCount) / totalNotes * 100f;
+
+        // 등급별 사운드 선택
+        if (accuracy >= 95f && perfectCount > totalNotes * 0.7f)
+        {
+            // S 등급: 95% 이상 + Perfect가 70% 이상
+            Debug.Log("🏆 S등급 - Perfect 사운드 재생!");
+            return resultPerfectSound;
+        }
+        else if (accuracy >= 85f)
+        {
+            // A~B 등급: 85% 이상
+            Debug.Log("⭐ A~B등급 - Great 사운드 재생!");
+            return resultGreatSound;
+        }
+        else if (accuracy >= 70f)
+        {
+            // C 등급: 70% 이상
+            Debug.Log("👍 C등급 - Good 사운드 재생!");
+            return resultGoodSound;
         }
         else
         {
-            Debug.LogError("❌ ResultScreenManager 없음!");
+            // D 등급 이하: 70% 미만
+            Debug.Log("😢 D등급 - Fail 사운드 재생!");
+            return resultFailSound;
         }
     }
 }
