@@ -49,7 +49,7 @@ public class VRLaserPointer : MonoBehaviour
 
     void SetupLineRenderer()
     {
-        laserLine.startWidth = 0.01f;
+        laserLine.startWidth = 0.02f; // 굵게
         laserLine.endWidth = 0.01f;
 
         // Material 설정 개선
@@ -158,12 +158,33 @@ public class VRLaserPointer : MonoBehaviour
                 }
                 else
                 {
-                    // 일반 버튼 클릭 처리
-                    ExecuteEvents.Execute(currentTarget, new PointerEventData(EventSystem.current), ExecuteEvents.pointerClickHandler);
-
-                    if (showDebugLogs)
+                    // ✅ 일반 버튼 클릭 처리 개선
+                    // 먼저 Button 컴포넌트 직접 찾기
+                    Button button = currentTarget.GetComponent<Button>();
+                    if (button == null)
                     {
-                        Debug.Log($"🖱️ 클릭: {currentTarget.name}");
+                        button = currentTarget.GetComponentInParent<Button>();
+                    }
+
+                    if (button != null && button.interactable)
+                    {
+                        // Button.onClick 직접 호출
+                        button.onClick.Invoke();
+
+                        if (showDebugLogs)
+                        {
+                            Debug.Log($"✅ 버튼 클릭 성공: {button.gameObject.name}");
+                        }
+                    }
+                    else
+                    {
+                        // 버튼이 아니면 EventSystem 사용
+                        ExecuteEvents.Execute(currentTarget, new PointerEventData(EventSystem.current), ExecuteEvents.pointerClickHandler);
+
+                        if (showDebugLogs)
+                        {
+                            Debug.Log($"🖱️ 클릭: {currentTarget.name}");
+                        }
                     }
                 }
             }
@@ -253,3 +274,6 @@ public class VRLaserPointer : MonoBehaviour
                obj.GetComponentInParent<UnityEngine.UI.Selectable>() != null;
     }
 }
+
+
+
