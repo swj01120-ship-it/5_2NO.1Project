@@ -17,7 +17,7 @@ MonoBehaviour:
   coverImage: {fileID: 21300000, guid: f98ae17cf3c87474d9b0f9f9f6dc2804, type: 3}
   musicClip: {fileID: 8300000, guid: 35c1012cfed7ac248a6170da1389f106, type: 3}
   beatChart: {fileID: 11400000, guid: e0a88e392053e0841abd24dcbea78abe, type: 2}
-  difficulty: 1
-  difficultyText: Normal
+  difficulty: 3
+  difficultyText: Hard
   description: "\uB178\uB798 \uC124\uBA85"
   duration: 0

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abc703923329fd34186e837ce0a9efd2, type: 3}
   m_Name: "Song_\uB2E8\uC624\uC0AC\uBB3C"
   m_EditorClassIdentifier: 
-  songName: "\uB178\uB798 \uC81C\uBAA9"
-  artist: "\uC544\uD2F0\uC2A4\uD2B8"
-  coverImage: {fileID: 0}
-  musicClip: {fileID: 0}
+  songName: DanOSamul
+  artist: SamulVerse
+  coverImage: {fileID: 21300000, guid: 323c74030133a3b4896bf0901a4ceb3f, type: 3}
+  musicClip: {fileID: 8300000, guid: 0719cae9ac4269846bf77156417d0dad, type: 3}
   beatChart: {fileID: 0}
-  difficulty: 1
-  difficultyText: Normal
+  difficulty: 3
+  difficultyText: Hard
   description: "\uB178\uB798 \uC124\uBA85"
   duration: 0
