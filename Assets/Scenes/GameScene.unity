@@ -1167,20 +1167,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentDifficulty: 2
-  easyBPM: 80
-  easyDensity: 0.4
+  easyBPM: 96
+  easyDensity: 0.5
   easyPerfectWindow: 0.25
   easyGreatWindow: 0.4
   easyGoodWindow: 0.6
   easyHighlightDuration: 1
-  normalBPM: 95
-  normalDensity: 0.6
+  normalBPM: 112
+  normalDensity: 0.7
   normalPerfectWindow: 0.18
   normalGreatWindow: 0.3
   normalGoodWindow: 0.45
   normalHighlightDuration: 0.75
-  hardBPM: 110
-  hardDensity: 0.8
+  hardBPM: 128
+  hardDensity: 1
   hardPerfectWindow: 0.12
   hardGreatWindow: 0.2
   hardGoodWindow: 0.3

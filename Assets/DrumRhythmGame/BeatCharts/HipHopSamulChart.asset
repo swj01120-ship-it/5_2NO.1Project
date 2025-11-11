@@ -1,0 +1,655 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a61c5fc78b597fe47bb6b6ec4637f2f1, type: 3}
+  m_Name: HipHopSamulChart
+  m_EditorClassIdentifier: 
+  chartName: "\uD799\uD569\uC0AC\uBB3C"
+  bpm: 128
+  beats:
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  - time: 0
+    drumIndex: 0
+    duration: 0
+  musicClip: {fileID: 8300000, guid: 5e9d66e0c048ecc409ffdc8cf7460180, type: 3}
+  audioFileLength: 96.07837
+  actualMusicEndTime: 93
+  noteDensity: 0.5
+  startTime: 2
+  numberOfDrums: 4
+  maxNotesAtOnce: 2
+  simultaneousWindow: 0.05

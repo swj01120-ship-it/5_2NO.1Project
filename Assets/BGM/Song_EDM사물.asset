@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abc703923329fd34186e837ce0a9efd2, type: 3}
-  m_Name: "Song_\uD799\uD569\uC0AC\uBB3C"
+  m_Name: "Song_EDM\uC0AC\uBB3C"
   m_EditorClassIdentifier: 
-  songName: Samul_HipHop
+  songName: EDMSamul
   artist: Samulverse
-  coverImage: {fileID: 21300000, guid: d3481c8f8e04fd648b814d13b4c421f5, type: 3}
-  musicClip: {fileID: 8300000, guid: 2bf77b42111324a429ba18e8b03f3d4e, type: 3}
-  beatChart: {fileID: 11400000, guid: e750df843fe45df4aa7a7f57c9ad07a5, type: 2}
-  difficulty: 2
+  coverImage: {fileID: 21300000, guid: f98ae17cf3c87474d9b0f9f9f6dc2804, type: 3}
+  musicClip: {fileID: 8300000, guid: 35c1012cfed7ac248a6170da1389f106, type: 3}
+  beatChart: {fileID: 11400000, guid: e0a88e392053e0841abd24dcbea78abe, type: 2}
+  difficulty: 1
   difficultyText: Normal
   description: "\uB178\uB798 \uC124\uBA85"
   duration: 0
