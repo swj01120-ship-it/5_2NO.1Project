@@ -15,640 +15,919 @@ MonoBehaviour:
   chartName: "\uD799\uD569\uC0AC\uBB3C"
   bpm: 128
   beats:
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
-  - time: 0
-    drumIndex: 0
-    duration: 0
+  - time: 2
+    drumIndex: 1
+    duration: 0.6
+  - time: 2
+    drumIndex: 0
+    duration: 0.6
+  - time: 2.46875
+    drumIndex: 0
+    duration: 0.6
+  - time: 2.9375
+    drumIndex: 3
+    duration: 0.6
+  - time: 3.40625
+    drumIndex: 2
+    duration: 0.6
+  - time: 3.875
+    drumIndex: 1
+    duration: 0.6
+  - time: 4.34375
+    drumIndex: 2
+    duration: 0.6
+  - time: 4.8125
+    drumIndex: 3
+    duration: 0.6
+  - time: 4.8125
+    drumIndex: 2
+    duration: 0.6
+  - time: 5.28125
+    drumIndex: 0
+    duration: 0.6
+  - time: 5.28125
+    drumIndex: 2
+    duration: 0.6
+  - time: 5.75
+    drumIndex: 1
+    duration: 0.6
+  - time: 6.21875
+    drumIndex: 0
+    duration: 0.6
+  - time: 6.21875
+    drumIndex: 2
+    duration: 0.6
+  - time: 6.6875
+    drumIndex: 2
+    duration: 0.6
+  - time: 7.15625
+    drumIndex: 2
+    duration: 0.6
+  - time: 7.625
+    drumIndex: 0
+    duration: 0.6
+  - time: 8.09375
+    drumIndex: 3
+    duration: 0.6
+  - time: 8.5625
+    drumIndex: 1
+    duration: 0.6
+  - time: 8.5625
+    drumIndex: 2
+    duration: 0.6
+  - time: 9.03125
+    drumIndex: 3
+    duration: 0.6
+  - time: 9.03125
+    drumIndex: 2
+    duration: 0.6
+  - time: 9.5
+    drumIndex: 3
+    duration: 0.6
+  - time: 9.5
+    drumIndex: 1
+    duration: 0.6
+  - time: 9.96875
+    drumIndex: 1
+    duration: 0.6
+  - time: 10.4375
+    drumIndex: 1
+    duration: 0.6
+  - time: 10.4375
+    drumIndex: 3
+    duration: 0.6
+  - time: 10.90625
+    drumIndex: 3
+    duration: 0.6
+  - time: 10.90625
+    drumIndex: 1
+    duration: 0.6
+  - time: 11.375
+    drumIndex: 1
+    duration: 0.6
+  - time: 11.375
+    drumIndex: 0
+    duration: 0.6
+  - time: 11.84375
+    drumIndex: 2
+    duration: 0.6
+  - time: 12.3125
+    drumIndex: 0
+    duration: 0.6
+  - time: 12.3125
+    drumIndex: 2
+    duration: 0.6
+  - time: 12.78125
+    drumIndex: 3
+    duration: 0.6
+  - time: 12.78125
+    drumIndex: 1
+    duration: 0.6
+  - time: 13.25
+    drumIndex: 1
+    duration: 0.6
+  - time: 13.25
+    drumIndex: 0
+    duration: 0.6
+  - time: 13.71875
+    drumIndex: 3
+    duration: 0.6
+  - time: 14.1875
+    drumIndex: 3
+    duration: 0.6
+  - time: 14.65625
+    drumIndex: 1
+    duration: 0.6
+  - time: 15.125
+    drumIndex: 0
+    duration: 0.6
+  - time: 15.59375
+    drumIndex: 1
+    duration: 0.6
+  - time: 15.59375
+    drumIndex: 3
+    duration: 0.6
+  - time: 16.0625
+    drumIndex: 0
+    duration: 0.6
+  - time: 16.0625
+    drumIndex: 2
+    duration: 0.6
+  - time: 16.53125
+    drumIndex: 0
+    duration: 0.6
+  - time: 16.53125
+    drumIndex: 3
+    duration: 0.6
+  - time: 17
+    drumIndex: 1
+    duration: 0.6
+  - time: 17
+    drumIndex: 0
+    duration: 0.6
+  - time: 17.46875
+    drumIndex: 3
+    duration: 0.6
+  - time: 17.9375
+    drumIndex: 1
+    duration: 0.6
+  - time: 18.40625
+    drumIndex: 2
+    duration: 0.6
+  - time: 18.40625
+    drumIndex: 0
+    duration: 0.6
+  - time: 18.875
+    drumIndex: 0
+    duration: 0.6
+  - time: 19.34375
+    drumIndex: 1
+    duration: 0.6
+  - time: 19.34375
+    drumIndex: 3
+    duration: 0.6
+  - time: 19.8125
+    drumIndex: 0
+    duration: 0.6
+  - time: 20.28125
+    drumIndex: 2
+    duration: 0.6
+  - time: 20.28125
+    drumIndex: 3
+    duration: 0.6
+  - time: 20.75
+    drumIndex: 2
+    duration: 0.6
+  - time: 21.21875
+    drumIndex: 0
+    duration: 0.6
+  - time: 21.6875
+    drumIndex: 1
+    duration: 0.6
+  - time: 21.6875
+    drumIndex: 3
+    duration: 0.6
+  - time: 22.15625
+    drumIndex: 0
+    duration: 0.6
+  - time: 22.15625
+    drumIndex: 2
+    duration: 0.6
+  - time: 22.625
+    drumIndex: 3
+    duration: 0.6
+  - time: 22.625
+    drumIndex: 1
+    duration: 0.6
+  - time: 23.09375
+    drumIndex: 2
+    duration: 0.6
+  - time: 23.5625
+    drumIndex: 0
+    duration: 0.6
+  - time: 23.5625
+    drumIndex: 3
+    duration: 0.6
+  - time: 24.03125
+    drumIndex: 2
+    duration: 0.6
+  - time: 24.5
+    drumIndex: 3
+    duration: 0.6
+  - time: 24.96875
+    drumIndex: 0
+    duration: 0.6
+  - time: 25.4375
+    drumIndex: 3
+    duration: 0.6
+  - time: 25.90625
+    drumIndex: 0
+    duration: 0.6
+  - time: 26.375
+    drumIndex: 1
+    duration: 0.6
+  - time: 26.375
+    drumIndex: 3
+    duration: 0.6
+  - time: 26.84375
+    drumIndex: 3
+    duration: 0.6
+  - time: 26.84375
+    drumIndex: 0
+    duration: 0.6
+  - time: 27.3125
+    drumIndex: 0
+    duration: 0.6
+  - time: 27.3125
+    drumIndex: 3
+    duration: 0.6
+  - time: 27.78125
+    drumIndex: 2
+    duration: 0.6
+  - time: 28.25
+    drumIndex: 2
+    duration: 0.6
+  - time: 28.25
+    drumIndex: 3
+    duration: 0.6
+  - time: 28.71875
+    drumIndex: 0
+    duration: 0.6
+  - time: 28.71875
+    drumIndex: 3
+    duration: 0.6
+  - time: 29.1875
+    drumIndex: 2
+    duration: 0.6
+  - time: 29.65625
+    drumIndex: 2
+    duration: 0.6
+  - time: 29.65625
+    drumIndex: 1
+    duration: 0.6
+  - time: 30.125
+    drumIndex: 1
+    duration: 0.6
+  - time: 30.59375
+    drumIndex: 0
+    duration: 0.6
+  - time: 31.0625
+    drumIndex: 0
+    duration: 0.6
+  - time: 31.0625
+    drumIndex: 1
+    duration: 0.6
+  - time: 31.53125
+    drumIndex: 3
+    duration: 0.6
+  - time: 32
+    drumIndex: 1
+    duration: 0.6
+  - time: 32
+    drumIndex: 2
+    duration: 0.6
+  - time: 32.46875
+    drumIndex: 2
+    duration: 0.6
+  - time: 32.46875
+    drumIndex: 3
+    duration: 0.6
+  - time: 32.9375
+    drumIndex: 3
+    duration: 0.6
+  - time: 33.40625
+    drumIndex: 1
+    duration: 0.6
+  - time: 33.40625
+    drumIndex: 2
+    duration: 0.6
+  - time: 33.875
+    drumIndex: 3
+    duration: 0.6
+  - time: 33.875
+    drumIndex: 0
+    duration: 0.6
+  - time: 34.34375
+    drumIndex: 0
+    duration: 0.6
+  - time: 34.34375
+    drumIndex: 1
+    duration: 0.6
+  - time: 34.8125
+    drumIndex: 1
+    duration: 0.6
+  - time: 34.8125
+    drumIndex: 2
+    duration: 0.6
+  - time: 35.28125
+    drumIndex: 1
+    duration: 0.6
+  - time: 35.28125
+    drumIndex: 0
+    duration: 0.6
+  - time: 35.75
+    drumIndex: 1
+    duration: 0.6
+  - time: 35.75
+    drumIndex: 2
+    duration: 0.6
+  - time: 36.21875
+    drumIndex: 0
+    duration: 0.6
+  - time: 36.6875
+    drumIndex: 0
+    duration: 0.6
+  - time: 36.6875
+    drumIndex: 2
+    duration: 0.6
+  - time: 37.15625
+    drumIndex: 2
+    duration: 0.6
+  - time: 37.15625
+    drumIndex: 0
+    duration: 0.6
+  - time: 37.625
+    drumIndex: 1
+    duration: 0.6
+  - time: 37.625
+    drumIndex: 0
+    duration: 0.6
+  - time: 38.09375
+    drumIndex: 0
+    duration: 0.6
+  - time: 38.09375
+    drumIndex: 2
+    duration: 0.6
+  - time: 38.5625
+    drumIndex: 2
+    duration: 0.6
+  - time: 38.5625
+    drumIndex: 3
+    duration: 0.6
+  - time: 39.03125
+    drumIndex: 3
+    duration: 0.6
+  - time: 39.5
+    drumIndex: 0
+    duration: 0.6
+  - time: 39.5
+    drumIndex: 1
+    duration: 0.6
+  - time: 39.96875
+    drumIndex: 3
+    duration: 0.6
+  - time: 39.96875
+    drumIndex: 2
+    duration: 0.6
+  - time: 40.4375
+    drumIndex: 3
+    duration: 0.6
+  - time: 40.90625
+    drumIndex: 1
+    duration: 0.6
+  - time: 40.90625
+    drumIndex: 2
+    duration: 0.6
+  - time: 41.375
+    drumIndex: 3
+    duration: 0.6
+  - time: 41.84375
+    drumIndex: 1
+    duration: 0.6
+  - time: 42.3125
+    drumIndex: 3
+    duration: 0.6
+  - time: 42.78125
+    drumIndex: 2
+    duration: 0.6
+  - time: 42.78125
+    drumIndex: 0
+    duration: 0.6
+  - time: 43.25
+    drumIndex: 0
+    duration: 0.6
+  - time: 43.25
+    drumIndex: 2
+    duration: 0.6
+  - time: 43.71875
+    drumIndex: 2
+    duration: 0.6
+  - time: 43.71875
+    drumIndex: 0
+    duration: 0.6
+  - time: 44.1875
+    drumIndex: 2
+    duration: 0.6
+  - time: 44.65625
+    drumIndex: 3
+    duration: 0.6
+  - time: 44.65625
+    drumIndex: 0
+    duration: 0.6
+  - time: 45.125
+    drumIndex: 3
+    duration: 0.6
+  - time: 45.59375
+    drumIndex: 3
+    duration: 0.6
+  - time: 45.59375
+    drumIndex: 0
+    duration: 0.6
+  - time: 46.0625
+    drumIndex: 2
+    duration: 0.6
+  - time: 46.53125
+    drumIndex: 1
+    duration: 0.6
+  - time: 46.53125
+    drumIndex: 0
+    duration: 0.6
+  - time: 47
+    drumIndex: 2
+    duration: 0.6
+  - time: 47.46875
+    drumIndex: 3
+    duration: 0.6
+  - time: 47.46875
+    drumIndex: 0
+    duration: 0.6
+  - time: 47.9375
+    drumIndex: 2
+    duration: 0.6
+  - time: 48.40625
+    drumIndex: 0
+    duration: 0.6
+  - time: 48.40625
+    drumIndex: 2
+    duration: 0.6
+  - time: 48.875
+    drumIndex: 1
+    duration: 0.6
+  - time: 48.875
+    drumIndex: 0
+    duration: 0.6
+  - time: 49.34375
+    drumIndex: 2
+    duration: 0.6
+  - time: 49.8125
+    drumIndex: 2
+    duration: 0.6
+  - time: 49.8125
+    drumIndex: 3
+    duration: 0.6
+  - time: 50.28125
+    drumIndex: 1
+    duration: 0.6
+  - time: 50.28125
+    drumIndex: 2
+    duration: 0.6
+  - time: 50.75
+    drumIndex: 0
+    duration: 0.6
+  - time: 50.75
+    drumIndex: 1
+    duration: 0.6
+  - time: 51.21875
+    drumIndex: 0
+    duration: 0.6
+  - time: 51.6875
+    drumIndex: 2
+    duration: 0.6
+  - time: 52.15625
+    drumIndex: 0
+    duration: 0.6
+  - time: 52.625
+    drumIndex: 0
+    duration: 0.6
+  - time: 53.09375
+    drumIndex: 3
+    duration: 0.6
+  - time: 53.5625
+    drumIndex: 1
+    duration: 0.6
+  - time: 53.5625
+    drumIndex: 3
+    duration: 0.6
+  - time: 54.03125
+    drumIndex: 1
+    duration: 0.6
+  - time: 54.03125
+    drumIndex: 3
+    duration: 0.6
+  - time: 54.5
+    drumIndex: 3
+    duration: 0.6
+  - time: 54.5
+    drumIndex: 2
+    duration: 0.6
+  - time: 54.96875
+    drumIndex: 1
+    duration: 0.6
+  - time: 55.4375
+    drumIndex: 3
+    duration: 0.6
+  - time: 55.4375
+    drumIndex: 1
+    duration: 0.6
+  - time: 55.90625
+    drumIndex: 2
+    duration: 0.6
+  - time: 56.375
+    drumIndex: 2
+    duration: 0.6
+  - time: 56.84375
+    drumIndex: 3
+    duration: 0.6
+  - time: 56.84375
+    drumIndex: 1
+    duration: 0.6
+  - time: 57.3125
+    drumIndex: 2
+    duration: 0.6
+  - time: 57.78125
+    drumIndex: 2
+    duration: 0.6
+  - time: 57.78125
+    drumIndex: 0
+    duration: 0.6
+  - time: 58.25
+    drumIndex: 0
+    duration: 0.6
+  - time: 58.25
+    drumIndex: 3
+    duration: 0.6
+  - time: 58.71875
+    drumIndex: 0
+    duration: 0.6
+  - time: 58.71875
+    drumIndex: 2
+    duration: 0.6
+  - time: 59.1875
+    drumIndex: 1
+    duration: 0.6
+  - time: 59.65625
+    drumIndex: 1
+    duration: 0.6
+  - time: 60.125
+    drumIndex: 0
+    duration: 0.6
+  - time: 60.125
+    drumIndex: 2
+    duration: 0.6
+  - time: 60.59375
+    drumIndex: 2
+    duration: 0.6
+  - time: 60.59375
+    drumIndex: 3
+    duration: 0.6
+  - time: 61.0625
+    drumIndex: 2
+    duration: 0.6
+  - time: 61.53125
+    drumIndex: 1
+    duration: 0.6
+  - time: 61.53125
+    drumIndex: 0
+    duration: 0.6
+  - time: 62
+    drumIndex: 2
+    duration: 0.6
+  - time: 62
+    drumIndex: 1
+    duration: 0.6
+  - time: 62.46875
+    drumIndex: 3
+    duration: 0.6
+  - time: 62.46875
+    drumIndex: 0
+    duration: 0.6
+  - time: 62.9375
+    drumIndex: 1
+    duration: 0.6
+  - time: 63.40625
+    drumIndex: 2
+    duration: 0.6
+  - time: 63.40625
+    drumIndex: 0
+    duration: 0.6
+  - time: 63.875
+    drumIndex: 0
+    duration: 0.6
+  - time: 64.34375
+    drumIndex: 2
+    duration: 0.6
+  - time: 64.8125
+    drumIndex: 3
+    duration: 0.6
+  - time: 64.8125
+    drumIndex: 0
+    duration: 0.6
+  - time: 65.28125
+    drumIndex: 2
+    duration: 0.6
+  - time: 65.28125
+    drumIndex: 1
+    duration: 0.6
+  - time: 65.75
+    drumIndex: 2
+    duration: 0.6
+  - time: 66.21875
+    drumIndex: 1
+    duration: 0.6
+  - time: 66.21875
+    drumIndex: 0
+    duration: 0.6
+  - time: 66.6875
+    drumIndex: 1
+    duration: 0.6
+  - time: 67.15625
+    drumIndex: 0
+    duration: 0.6
+  - time: 67.15625
+    drumIndex: 3
+    duration: 0.6
+  - time: 67.625
+    drumIndex: 0
+    duration: 0.6
+  - time: 67.625
+    drumIndex: 3
+    duration: 0.6
+  - time: 68.09375
+    drumIndex: 1
+    duration: 0.6
+  - time: 68.09375
+    drumIndex: 2
+    duration: 0.6
+  - time: 68.5625
+    drumIndex: 1
+    duration: 0.6
+  - time: 69.03125
+    drumIndex: 0
+    duration: 0.6
+  - time: 69.5
+    drumIndex: 3
+    duration: 0.6
+  - time: 69.96875
+    drumIndex: 3
+    duration: 0.6
+  - time: 69.96875
+    drumIndex: 0
+    duration: 0.6
+  - time: 70.4375
+    drumIndex: 2
+    duration: 0.6
+  - time: 70.90625
+    drumIndex: 3
+    duration: 0.6
+  - time: 71.375
+    drumIndex: 2
+    duration: 0.6
+  - time: 71.84375
+    drumIndex: 3
+    duration: 0.6
+  - time: 72.3125
+    drumIndex: 2
+    duration: 0.6
+  - time: 72.3125
+    drumIndex: 3
+    duration: 0.6
+  - time: 72.78125
+    drumIndex: 1
+    duration: 0.6
+  - time: 72.78125
+    drumIndex: 3
+    duration: 0.6
+  - time: 73.25
+    drumIndex: 3
+    duration: 0.6
+  - time: 73.71875
+    drumIndex: 2
+    duration: 0.6
+  - time: 73.71875
+    drumIndex: 1
+    duration: 0.6
+  - time: 74.1875
+    drumIndex: 3
+    duration: 0.6
+  - time: 74.65625
+    drumIndex: 1
+    duration: 0.6
+  - time: 75.125
+    drumIndex: 1
+    duration: 0.6
+  - time: 75.59375
+    drumIndex: 2
+    duration: 0.6
+  - time: 75.59375
+    drumIndex: 0
+    duration: 0.6
+  - time: 76.0625
+    drumIndex: 1
+    duration: 0.6
+  - time: 76.53125
+    drumIndex: 3
+    duration: 0.6
+  - time: 77
+    drumIndex: 1
+    duration: 0.6
+  - time: 77
+    drumIndex: 2
+    duration: 0.6
+  - time: 77.46875
+    drumIndex: 0
+    duration: 0.6
+  - time: 77.9375
+    drumIndex: 3
+    duration: 0.6
+  - time: 78.40625
+    drumIndex: 2
+    duration: 0.6
+  - time: 78.875
+    drumIndex: 3
+    duration: 0.6
+  - time: 79.34375
+    drumIndex: 2
+    duration: 0.6
+  - time: 79.8125
+    drumIndex: 2
+    duration: 0.6
+  - time: 79.8125
+    drumIndex: 1
+    duration: 0.6
+  - time: 80.28125
+    drumIndex: 0
+    duration: 0.6
+  - time: 80.75
+    drumIndex: 0
+    duration: 0.6
+  - time: 80.75
+    drumIndex: 1
+    duration: 0.6
+  - time: 81.21875
+    drumIndex: 1
+    duration: 0.6
+  - time: 81.21875
+    drumIndex: 3
+    duration: 0.6
+  - time: 81.6875
+    drumIndex: 3
+    duration: 0.6
+  - time: 82.15625
+    drumIndex: 0
+    duration: 0.6
+  - time: 82.625
+    drumIndex: 3
+    duration: 0.6
+  - time: 83.09375
+    drumIndex: 2
+    duration: 0.6
+  - time: 83.5625
+    drumIndex: 3
+    duration: 0.6
+  - time: 84.03125
+    drumIndex: 0
+    duration: 0.6
+  - time: 84.03125
+    drumIndex: 1
+    duration: 0.6
+  - time: 84.5
+    drumIndex: 2
+    duration: 0.6
+  - time: 84.5
+    drumIndex: 1
+    duration: 0.6
+  - time: 84.96875
+    drumIndex: 1
+    duration: 0.6
+  - time: 84.96875
+    drumIndex: 2
+    duration: 0.6
+  - time: 85.4375
+    drumIndex: 1
+    duration: 0.6
+  - time: 85.90625
+    drumIndex: 2
+    duration: 0.6
+  - time: 86.375
+    drumIndex: 0
+    duration: 0.6
+  - time: 86.375
+    drumIndex: 1
+    duration: 0.6
+  - time: 86.84375
+    drumIndex: 1
+    duration: 0.6
+  - time: 86.84375
+    drumIndex: 3
+    duration: 0.6
+  - time: 87.3125
+    drumIndex: 3
+    duration: 0.6
+  - time: 87.78125
+    drumIndex: 0
+    duration: 0.6
+  - time: 88.25
+    drumIndex: 0
+    duration: 0.6
+  - time: 88.25
+    drumIndex: 2
+    duration: 0.6
+  - time: 88.71875
+    drumIndex: 2
+    duration: 0.6
+  - time: 88.71875
+    drumIndex: 0
+    duration: 0.6
+  - time: 89.1875
+    drumIndex: 0
+    duration: 0.6
+  - time: 89.1875
+    drumIndex: 2
+    duration: 0.6
+  - time: 89.65625
+    drumIndex: 2
+    duration: 0.6
+  - time: 89.65625
+    drumIndex: 1
+    duration: 0.6
+  - time: 90.125
+    drumIndex: 1
+    duration: 0.6
+  - time: 90.59375
+    drumIndex: 1
+    duration: 0.6
+  - time: 90.59375
+    drumIndex: 0
+    duration: 0.6
+  - time: 91.0625
+    drumIndex: 2
+    duration: 0.6
+  - time: 91.0625
+    drumIndex: 0
+    duration: 0.6
+  - time: 91.53125
+    drumIndex: 1
+    duration: 0.6
+  - time: 91.53125
+    drumIndex: 0
+    duration: 0.6
+  - time: 92
+    drumIndex: 3
+    duration: 0.6
+  - time: 92.46875
+    drumIndex: 3
+    duration: 0.6
+  - time: 92.9375
+    drumIndex: 0
+    duration: 0.6
+  - time: 92.9375
+    drumIndex: 3
+    duration: 0.6
+  - time: 93.40625
+    drumIndex: 0
+    duration: 0.6
+  - time: 93.875
+    drumIndex: 0
+    duration: 0.6
+  - time: 94.34375
+    drumIndex: 2
+    duration: 0.6
+  - time: 94.8125
+    drumIndex: 2
+    duration: 0.6
+  - time: 95.28125
+    drumIndex: 0
+    duration: 0.6
+  - time: 95.28125
+    drumIndex: 2
+    duration: 0.6
+  - time: 95.75
+    drumIndex: 0
+    duration: 0.6
   musicClip: {fileID: 8300000, guid: 5e9d66e0c048ecc409ffdc8cf7460180, type: 3}
   audioFileLength: 96.07837
-  actualMusicEndTime: 93
-  noteDensity: 0.5
+  actualMusicEndTime: 96.07837
+  noteDensity: 1
   startTime: 2
   numberOfDrums: 4
   maxNotesAtOnce: 2
