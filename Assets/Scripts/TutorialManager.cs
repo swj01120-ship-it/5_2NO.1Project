@@ -230,7 +230,7 @@ public class TutorialManager : MonoBehaviour
             new TutorialStep
             {
                 npcName = "호랭도령",
-                dialogue = "\"자! 이제 모든 준비가 끝났으니 Enter를 치고 나를 따라오게나~?\"\n'행운을 빈다네!'",
+                dialogue = "\"자! 이제 모든 준비가 끝났으니 Enter를 치고 나를 따라오게나~?\"\n행운을 빈다네!",
                 taskType = TaskType.None
             }
         };

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   songName: DokdoSamul
   artist: Samulverse
-  coverImage: {fileID: 21300000, guid: 78fe841f1d30d4543a642a669b63973b, type: 3}
+  coverImage: {fileID: 21300000, guid: 7c7f38d773877d74ebc57cb5844bcdd6, type: 3}
   musicClip: {fileID: 8300000, guid: b68dd6ddc5844364abeae972060922c5, type: 3}
   beatChart: {fileID: 11400000, guid: 1ed454a6c70a24743ace15c774a0c4f4, type: 2}
   difficulty: 2

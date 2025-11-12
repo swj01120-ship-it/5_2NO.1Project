@@ -5,7 +5,7 @@ using UnityEngine;
 public class VRMouseLook : MonoBehaviour
 {
     [Header("Mouse Look Settings")]
-    public float mouseSensitivity = 100f;       // 마우스 민감도
+    public float mouseSensitivity = 40f;       // 마우스 민감도
     public Transform playerBody;                // 플레이어 몸통 (Y축 회전용)
 
     private float xRotation = 0f;               // 상하 회전 값
@@ -25,7 +25,7 @@ public class VRMouseLook : MonoBehaviour
 
         // 상하 회전 (카메라)
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f); // 90도 제한
+        xRotation = Mathf.Clamp(xRotation, -25f, 3f); // 90도 제한
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
