@@ -1362,7 +1362,7 @@ MonoBehaviour:
   hitParticle: {fileID: 0}
   tutorialHitEffectPrefab: {fileID: 4924508274929071776, guid: 3874ba2e8c108f344b161cb71f920352, type: 3}
   effectYOffset: 0.6
-  isTutorialMode: 0
+  isTutorialMode: 1
 --- !u!1 &325652508
 GameObject:
   m_ObjectHideFlags: 0
@@ -2234,7 +2234,7 @@ MonoBehaviour:
   hitParticle: {fileID: 0}
   tutorialHitEffectPrefab: {fileID: 4924508274929071776, guid: 3874ba2e8c108f344b161cb71f920352, type: 3}
   effectYOffset: 0.6
-  isTutorialMode: 0
+  isTutorialMode: 1
 --- !u!1 &608027043
 GameObject:
   m_ObjectHideFlags: 0
@@ -3660,7 +3660,7 @@ MonoBehaviour:
   hitParticle: {fileID: 0}
   tutorialHitEffectPrefab: {fileID: 4924508274929071776, guid: 3874ba2e8c108f344b161cb71f920352, type: 3}
   effectYOffset: 0.6
-  isTutorialMode: 0
+  isTutorialMode: 1
 --- !u!82 &1347466127
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4830,7 +4830,7 @@ MonoBehaviour:
   hitParticle: {fileID: 0}
   tutorialHitEffectPrefab: {fileID: 4924508274929071776, guid: 3874ba2e8c108f344b161cb71f920352, type: 3}
   effectYOffset: 0.6
-  isTutorialMode: 0
+  isTutorialMode: 1
 --- !u!1 &1680577845
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,7 +25,7 @@ public class VRMouseLook : MonoBehaviour
 
         // 상하 회전 (카메라)
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -25f, 3f); // 90도 제한
+        xRotation = Mathf.Clamp(xRotation, -90f, 3f); // 90도 제한
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
