@@ -26,7 +26,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private float typingSpeed = 0.05f;
 
     [Header("씬 전환")]
-    [SerializeField] private string gameSceneName = "SongSelectionScene";
+    [SerializeField] private string SongSelectionSceneName = "SongSelectionScene";
     [SerializeField] private float sceneTransitionDelay = 2f;
 
     [Header("북(드럼) 연습")]
@@ -477,7 +477,7 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(sceneTransitionDelay);
 
         // 씬 전환
-        SceneManager.LoadScene(gameSceneName);
+        SceneManager.LoadScene(SongSelectionSceneName);
     }
 
     // 에디터에서 거리 시각화
