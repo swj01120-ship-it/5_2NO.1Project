@@ -85,6 +85,9 @@ public class DrumController : MonoBehaviour
 
     void Update()
     {
+        // ⭐ 일시정지 중에는 입력 무시
+        if (Time.timeScale == 0f) return;
+
         if (Input.GetKeyDown(drumKey))
             HitDrum();
     }

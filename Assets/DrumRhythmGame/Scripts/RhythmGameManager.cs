@@ -97,6 +97,8 @@ public class RhythmGameManager : MonoBehaviour
     public AudioClip resultGoodSound;    // C 등급 사운드 (보통)
     public AudioClip resultFailSound;    // D 등급 이하 사운드 (실패...)
 
+
+
     private bool isCountingDown = false;
 
     void Awake()
@@ -550,5 +552,37 @@ public class RhythmGameManager : MonoBehaviour
             Debug.Log("😢 D등급 - Fail 사운드 재생!");
             return resultFailSound;
         }
+    }
+    public void PauseBGM()
+    {
+        if (musicSource != null && musicSource.isPlaying)
+        {
+            musicSource.Pause();
+            Debug.Log("⏸️ BGM 일시정지");
+        }
+    }
+
+    public void ResumeBGM()
+    {
+        if (musicSource != null)
+        {
+            musicSource.UnPause();
+            Debug.Log("▶️ BGM 재개");
+        }
+    }
+
+    public void StopBGM()
+    {
+        if (musicSource != null)
+        {
+            musicSource.Stop();
+            Debug.Log("⏹️ BGM 정지");
+        }
+    }
+
+    // 게임이 시작되었는지 확인
+    public bool IsGameStarted()
+    {
+        return gameStarted && !isWaitingToStart && !isCountingDown;
     }
 }
