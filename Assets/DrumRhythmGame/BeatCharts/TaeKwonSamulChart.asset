@@ -13,616 +13,877 @@ MonoBehaviour:
   m_Name: TaeKwonSamulChart
   m_EditorClassIdentifier: 
   chartName: "\uD0DC\uAD8C\uC0AC\uBB3C"
-  bpm: 84
+  bpm: 116
   beats:
   - time: 2
-    drumIndex: 3
-    duration: 0.6
-  - time: 2.7142859
-    drumIndex: 3
-    duration: 0.6
-  - time: 2.7142859
     drumIndex: 1
     duration: 0.6
-  - time: 3.4285717
-    drumIndex: 2
-    duration: 0.6
-  - time: 4.1428576
-    drumIndex: 1
-    duration: 0.6
-  - time: 4.8571434
-    drumIndex: 2
-    duration: 0.6
-  - time: 5.5714293
-    drumIndex: 1
-    duration: 0.6
-  - time: 6.285715
-    drumIndex: 3
-    duration: 0.6
-  - time: 7.000001
-    drumIndex: 2
-    duration: 0.6
-  - time: 7.000001
+  - time: 2
     drumIndex: 0
     duration: 0.6
-  - time: 7.714287
-    drumIndex: 1
-    duration: 0.6
-  - time: 8.428573
+  - time: 2.5172415
     drumIndex: 0
     duration: 0.6
-  - time: 9.1428585
-    drumIndex: 2
-    duration: 0.6
-  - time: 9.857144
+  - time: 2.5172415
     drumIndex: 1
     duration: 0.6
-  - time: 9.857144
-    drumIndex: 2
-    duration: 0.6
-  - time: 10.57143
-    drumIndex: 1
-    duration: 0.6
-  - time: 11.285716
-    drumIndex: 2
-    duration: 0.6
-  - time: 11.285716
-    drumIndex: 1
-    duration: 0.6
-  - time: 12.000002
-    drumIndex: 3
-    duration: 0.6
-  - time: 12.000002
+  - time: 3.034483
     drumIndex: 0
     duration: 0.6
-  - time: 12.714288
+  - time: 3.5517244
     drumIndex: 3
     duration: 0.6
-  - time: 13.428574
-    drumIndex: 3
-    duration: 0.6
-  - time: 14.142859
-    drumIndex: 2
-    duration: 0.6
-  - time: 14.142859
-    drumIndex: 3
-    duration: 0.6
-  - time: 14.857145
-    drumIndex: 2
-    duration: 0.6
-  - time: 14.857145
+  - time: 3.5517244
     drumIndex: 1
     duration: 0.6
-  - time: 15.571431
-    drumIndex: 1
+  - time: 4.068966
+    drumIndex: 3
     duration: 0.6
-  - time: 15.571431
+  - time: 4.5862074
     drumIndex: 2
     duration: 0.6
-  - time: 16.285717
+  - time: 5.103449
+    drumIndex: 1
+    duration: 0.6
+  - time: 5.103449
+    drumIndex: 0
+    duration: 0.6
+  - time: 5.6206903
+    drumIndex: 0
+    duration: 0.6
+  - time: 6.137932
+    drumIndex: 2
+    duration: 0.6
+  - time: 6.6551733
     drumIndex: 3
+    duration: 0.6
+  - time: 7.172415
+    drumIndex: 0
+    duration: 0.6
+  - time: 7.6896563
+    drumIndex: 2
+    duration: 0.6
+  - time: 8.206898
+    drumIndex: 0
+    duration: 0.6
+  - time: 8.206898
+    drumIndex: 3
+    duration: 0.6
+  - time: 8.724139
+    drumIndex: 3
+    duration: 0.6
+  - time: 9.241381
+    drumIndex: 2
+    duration: 0.6
+  - time: 9.758622
+    drumIndex: 0
+    duration: 0.6
+  - time: 10.275864
+    drumIndex: 1
+    duration: 0.6
+  - time: 10.793105
+    drumIndex: 3
+    duration: 0.6
+  - time: 11.310347
+    drumIndex: 1
+    duration: 0.6
+  - time: 11.310347
+    drumIndex: 2
+    duration: 0.6
+  - time: 11.827588
+    drumIndex: 2
+    duration: 0.6
+  - time: 11.827588
+    drumIndex: 3
+    duration: 0.6
+  - time: 12.34483
+    drumIndex: 3
+    duration: 0.6
+  - time: 12.862071
+    drumIndex: 0
+    duration: 0.6
+  - time: 12.862071
+    drumIndex: 3
+    duration: 0.6
+  - time: 13.3793125
+    drumIndex: 2
+    duration: 0.6
+  - time: 13.3793125
+    drumIndex: 3
+    duration: 0.6
+  - time: 13.896554
+    drumIndex: 1
+    duration: 0.6
+  - time: 14.413795
+    drumIndex: 3
+    duration: 0.6
+  - time: 14.931037
+    drumIndex: 3
+    duration: 0.6
+  - time: 14.931037
+    drumIndex: 2
+    duration: 0.6
+  - time: 15.448278
+    drumIndex: 1
+    duration: 0.6
+  - time: 15.96552
+    drumIndex: 0
+    duration: 0.6
+  - time: 15.96552
+    drumIndex: 2
+    duration: 0.6
+  - time: 16.482761
+    drumIndex: 3
+    duration: 0.6
+  - time: 16.482761
+    drumIndex: 0
+    duration: 0.6
+  - time: 17.000002
+    drumIndex: 0
     duration: 0.6
   - time: 17.000002
     drumIndex: 3
     duration: 0.6
-  - time: 17.714287
-    drumIndex: 2
-    duration: 0.6
-  - time: 18.428572
+  - time: 17.517242
     drumIndex: 0
     duration: 0.6
-  - time: 19.142857
+  - time: 17.517242
+    drumIndex: 2
+    duration: 0.6
+  - time: 18.034483
     drumIndex: 1
     duration: 0.6
-  - time: 19.142857
+  - time: 18.551723
+    drumIndex: 1
+    duration: 0.6
+  - time: 18.551723
     drumIndex: 0
     duration: 0.6
-  - time: 19.857141
+  - time: 19.068964
+    drumIndex: 2
+    duration: 0.6
+  - time: 19.586205
     drumIndex: 0
     duration: 0.6
-  - time: 20.571426
+  - time: 20.103445
+    drumIndex: 2
+    duration: 0.6
+  - time: 20.620686
+    drumIndex: 1
+    duration: 0.6
+  - time: 21.137926
+    drumIndex: 3
+    duration: 0.6
+  - time: 21.137926
+    drumIndex: 2
+    duration: 0.6
+  - time: 21.655167
+    drumIndex: 2
+    duration: 0.6
+  - time: 22.172407
     drumIndex: 0
     duration: 0.6
-  - time: 21.285711
-    drumIndex: 2
+  - time: 22.689648
+    drumIndex: 3
     duration: 0.6
-  - time: 21.285711
+  - time: 23.206888
+    drumIndex: 3
+    duration: 0.6
+  - time: 23.206888
     drumIndex: 0
     duration: 0.6
-  - time: 21.999996
+  - time: 23.724129
     drumIndex: 1
     duration: 0.6
-  - time: 22.714281
-    drumIndex: 1
-    duration: 0.6
-  - time: 22.714281
+  - time: 24.24137
     drumIndex: 3
     duration: 0.6
-  - time: 23.428566
-    drumIndex: 1
-    duration: 0.6
-  - time: 24.14285
-    drumIndex: 3
-    duration: 0.6
-  - time: 24.857136
+  - time: 24.24137
     drumIndex: 0
     duration: 0.6
-  - time: 25.57142
+  - time: 24.75861
+    drumIndex: 3
+    duration: 0.6
+  - time: 25.27585
+    drumIndex: 1
+    duration: 0.6
+  - time: 25.27585
+    drumIndex: 3
+    duration: 0.6
+  - time: 25.79309
     drumIndex: 0
     duration: 0.6
-  - time: 25.57142
+  - time: 25.79309
+    drumIndex: 2
+    duration: 0.6
+  - time: 26.310331
+    drumIndex: 3
+    duration: 0.6
+  - time: 26.827572
+    drumIndex: 3
+    duration: 0.6
+  - time: 27.344812
+    drumIndex: 3
+    duration: 0.6
+  - time: 27.862053
     drumIndex: 1
     duration: 0.6
-  - time: 26.285706
-    drumIndex: 3
-    duration: 0.6
-  - time: 26.285706
+  - time: 27.862053
     drumIndex: 2
     duration: 0.6
-  - time: 26.99999
-    drumIndex: 2
-    duration: 0.6
-  - time: 27.714275
-    drumIndex: 3
-    duration: 0.6
-  - time: 27.714275
+  - time: 28.379293
     drumIndex: 1
     duration: 0.6
-  - time: 28.42856
+  - time: 28.896534
     drumIndex: 3
     duration: 0.6
-  - time: 28.42856
-    drumIndex: 2
-    duration: 0.6
-  - time: 29.142845
-    drumIndex: 3
-    duration: 0.6
-  - time: 29.142845
-    drumIndex: 2
-    duration: 0.6
-  - time: 29.85713
-    drumIndex: 1
-    duration: 0.6
-  - time: 29.85713
-    drumIndex: 3
-    duration: 0.6
-  - time: 30.571415
-    drumIndex: 3
-    duration: 0.6
-  - time: 31.2857
-    drumIndex: 1
-    duration: 0.6
-  - time: 31.999985
-    drumIndex: 2
-    duration: 0.6
-  - time: 32.71427
+  - time: 28.896534
     drumIndex: 0
     duration: 0.6
-  - time: 32.71427
-    drumIndex: 2
+  - time: 29.413774
+    drumIndex: 3
     duration: 0.6
-  - time: 33.42856
+  - time: 29.413774
     drumIndex: 0
     duration: 0.6
-  - time: 34.142845
+  - time: 29.931015
     drumIndex: 3
     duration: 0.6
-  - time: 34.142845
+  - time: 30.448256
+    drumIndex: 1
+    duration: 0.6
+  - time: 30.965496
+    drumIndex: 2
+    duration: 0.6
+  - time: 31.482737
+    drumIndex: 1
+    duration: 0.6
+  - time: 31.999977
     drumIndex: 0
     duration: 0.6
-  - time: 34.857132
+  - time: 32.51722
     drumIndex: 1
     duration: 0.6
-  - time: 35.57142
+  - time: 32.51722
+    drumIndex: 3
+    duration: 0.6
+  - time: 33.034462
+    drumIndex: 3
+    duration: 0.6
+  - time: 33.034462
+    drumIndex: 2
+    duration: 0.6
+  - time: 33.551704
     drumIndex: 0
     duration: 0.6
-  - time: 36.285706
+  - time: 33.551704
+    drumIndex: 2
+    duration: 0.6
+  - time: 34.068947
     drumIndex: 1
     duration: 0.6
-  - time: 36.999992
+  - time: 34.58619
+    drumIndex: 3
+    duration: 0.6
+  - time: 34.58619
     drumIndex: 0
     duration: 0.6
-  - time: 36.999992
-    drumIndex: 3
-    duration: 0.6
-  - time: 37.71428
-    drumIndex: 3
-    duration: 0.6
-  - time: 38.428566
-    drumIndex: 3
-    duration: 0.6
-  - time: 38.428566
+  - time: 35.10343
     drumIndex: 2
     duration: 0.6
-  - time: 39.142853
-    drumIndex: 2
+  - time: 35.10343
+    drumIndex: 0
     duration: 0.6
-  - time: 39.85714
+  - time: 35.620674
+    drumIndex: 0
+    duration: 0.6
+  - time: 36.137917
+    drumIndex: 0
+    duration: 0.6
+  - time: 36.65516
     drumIndex: 3
     duration: 0.6
-  - time: 39.85714
+  - time: 37.1724
     drumIndex: 1
     duration: 0.6
-  - time: 40.571426
+  - time: 37.689644
     drumIndex: 3
     duration: 0.6
-  - time: 40.571426
-    drumIndex: 2
-    duration: 0.6
-  - time: 41.285713
-    drumIndex: 3
-    duration: 0.6
-  - time: 41.285713
-    drumIndex: 2
-    duration: 0.6
-  - time: 42
-    drumIndex: 3
-    duration: 0.6
-  - time: 42.714287
-    drumIndex: 3
-    duration: 0.6
-  - time: 43.428574
-    drumIndex: 3
-    duration: 0.6
-  - time: 44.14286
-    drumIndex: 3
-    duration: 0.6
-  - time: 44.14286
-    drumIndex: 2
-    duration: 0.6
-  - time: 44.857147
+  - time: 38.206886
     drumIndex: 1
     duration: 0.6
-  - time: 44.857147
+  - time: 38.72413
     drumIndex: 3
     duration: 0.6
-  - time: 45.571434
+  - time: 39.24137
     drumIndex: 1
     duration: 0.6
-  - time: 45.571434
+  - time: 39.758614
     drumIndex: 3
     duration: 0.6
-  - time: 46.28572
+  - time: 39.758614
+    drumIndex: 2
+    duration: 0.6
+  - time: 40.275856
+    drumIndex: 2
+    duration: 0.6
+  - time: 40.275856
+    drumIndex: 1
+    duration: 0.6
+  - time: 40.7931
+    drumIndex: 3
+    duration: 0.6
+  - time: 40.7931
+    drumIndex: 2
+    duration: 0.6
+  - time: 41.31034
+    drumIndex: 3
+    duration: 0.6
+  - time: 41.827583
+    drumIndex: 2
+    duration: 0.6
+  - time: 41.827583
+    drumIndex: 3
+    duration: 0.6
+  - time: 42.344826
+    drumIndex: 2
+    duration: 0.6
+  - time: 42.86207
+    drumIndex: 2
+    duration: 0.6
+  - time: 42.86207
+    drumIndex: 0
+    duration: 0.6
+  - time: 43.37931
+    drumIndex: 3
+    duration: 0.6
+  - time: 43.896553
+    drumIndex: 2
+    duration: 0.6
+  - time: 44.413795
+    drumIndex: 3
+    duration: 0.6
+  - time: 44.413795
+    drumIndex: 0
+    duration: 0.6
+  - time: 44.931038
+    drumIndex: 3
+    duration: 0.6
+  - time: 44.931038
+    drumIndex: 1
+    duration: 0.6
+  - time: 45.44828
+    drumIndex: 1
+    duration: 0.6
+  - time: 45.44828
+    drumIndex: 0
+    duration: 0.6
+  - time: 45.965523
+    drumIndex: 1
+    duration: 0.6
+  - time: 45.965523
+    drumIndex: 0
+    duration: 0.6
+  - time: 46.482765
     drumIndex: 3
     duration: 0.6
   - time: 47.000008
-    drumIndex: 0
+    drumIndex: 2
     duration: 0.6
   - time: 47.000008
-    drumIndex: 2
-    duration: 0.6
-  - time: 47.714294
-    drumIndex: 2
-    duration: 0.6
-  - time: 47.714294
-    drumIndex: 0
-    duration: 0.6
-  - time: 48.42858
-    drumIndex: 0
-    duration: 0.6
-  - time: 48.42858
-    drumIndex: 3
-    duration: 0.6
-  - time: 49.142868
     drumIndex: 1
     duration: 0.6
-  - time: 49.857155
-    drumIndex: 0
-    duration: 0.6
-  - time: 50.57144
-    drumIndex: 2
-    duration: 0.6
-  - time: 51.28573
+  - time: 47.51725
     drumIndex: 1
     duration: 0.6
-  - time: 52.000015
-    drumIndex: 2
-    duration: 0.6
-  - time: 52.000015
+  - time: 48.034492
     drumIndex: 0
     duration: 0.6
-  - time: 52.714302
+  - time: 48.551735
+    drumIndex: 0
+    duration: 0.6
+  - time: 49.068977
+    drumIndex: 0
+    duration: 0.6
+  - time: 49.068977
+    drumIndex: 3
+    duration: 0.6
+  - time: 49.58622
     drumIndex: 2
     duration: 0.6
-  - time: 53.42859
+  - time: 49.58622
     drumIndex: 1
     duration: 0.6
-  - time: 54.142876
+  - time: 50.103462
     drumIndex: 0
     duration: 0.6
-  - time: 54.142876
-    drumIndex: 3
-    duration: 0.6
-  - time: 54.857162
+  - time: 50.103462
     drumIndex: 2
     duration: 0.6
-  - time: 54.857162
-    drumIndex: 3
-    duration: 0.6
-  - time: 55.57145
-    drumIndex: 2
-    duration: 0.6
-  - time: 56.285736
-    drumIndex: 3
-    duration: 0.6
-  - time: 56.285736
-    drumIndex: 2
-    duration: 0.6
-  - time: 57.000023
-    drumIndex: 2
-    duration: 0.6
-  - time: 57.71431
-    drumIndex: 2
-    duration: 0.6
-  - time: 58.428596
-    drumIndex: 2
-    duration: 0.6
-  - time: 58.428596
-    drumIndex: 3
-    duration: 0.6
-  - time: 59.142883
-    drumIndex: 2
-    duration: 0.6
-  - time: 59.85717
-    drumIndex: 2
-    duration: 0.6
-  - time: 60.571457
+  - time: 50.620705
     drumIndex: 1
     duration: 0.6
-  - time: 60.571457
-    drumIndex: 2
+  - time: 50.620705
+    drumIndex: 0
     duration: 0.6
-  - time: 61.285744
+  - time: 51.137947
     drumIndex: 1
     duration: 0.6
-  - time: 61.285744
+  - time: 51.137947
     drumIndex: 3
     duration: 0.6
-  - time: 62.00003
-    drumIndex: 3
-    duration: 0.6
-  - time: 62.714317
-    drumIndex: 0
-    duration: 0.6
-  - time: 62.714317
-    drumIndex: 3
-    duration: 0.6
-  - time: 63.428604
-    drumIndex: 3
-    duration: 0.6
-  - time: 63.428604
-    drumIndex: 2
-    duration: 0.6
-  - time: 64.14289
-    drumIndex: 3
-    duration: 0.6
-  - time: 64.85718
-    drumIndex: 0
-    duration: 0.6
-  - time: 65.571465
-    drumIndex: 2
-    duration: 0.6
-  - time: 65.571465
-    drumIndex: 3
-    duration: 0.6
-  - time: 66.28575
+  - time: 51.65519
     drumIndex: 1
     duration: 0.6
-  - time: 67.00004
+  - time: 52.172432
     drumIndex: 2
     duration: 0.6
-  - time: 67.714325
+  - time: 52.172432
+    drumIndex: 1
+    duration: 0.6
+  - time: 52.689674
+    drumIndex: 1
+    duration: 0.6
+  - time: 53.206917
     drumIndex: 0
     duration: 0.6
-  - time: 68.42861
-    drumIndex: 2
-    duration: 0.6
-  - time: 68.42861
-    drumIndex: 0
-    duration: 0.6
-  - time: 69.1429
+  - time: 53.206917
     drumIndex: 3
     duration: 0.6
-  - time: 69.857185
-    drumIndex: 0
-    duration: 0.6
-  - time: 70.57147
-    drumIndex: 2
-    duration: 0.6
-  - time: 71.28576
+  - time: 53.72416
     drumIndex: 3
     duration: 0.6
-  - time: 72.000046
+  - time: 53.72416
+    drumIndex: 1
+    duration: 0.6
+  - time: 54.2414
+    drumIndex: 1
+    duration: 0.6
+  - time: 54.758644
     drumIndex: 2
     duration: 0.6
-  - time: 72.71433
+  - time: 54.758644
+    drumIndex: 1
+    duration: 0.6
+  - time: 55.275887
+    drumIndex: 1
+    duration: 0.6
+  - time: 55.275887
     drumIndex: 2
     duration: 0.6
-  - time: 73.42862
+  - time: 55.79313
+    drumIndex: 0
+    duration: 0.6
+  - time: 55.79313
+    drumIndex: 1
+    duration: 0.6
+  - time: 56.31037
+    drumIndex: 1
+    duration: 0.6
+  - time: 56.31037
+    drumIndex: 2
+    duration: 0.6
+  - time: 56.827614
+    drumIndex: 1
+    duration: 0.6
+  - time: 56.827614
     drumIndex: 3
     duration: 0.6
-  - time: 74.14291
-    drumIndex: 2
-    duration: 0.6
-  - time: 74.14291
+  - time: 57.344856
     drumIndex: 0
     duration: 0.6
-  - time: 74.85719
-    drumIndex: 1
-    duration: 0.6
-  - time: 74.85719
+  - time: 57.344856
     drumIndex: 2
     duration: 0.6
-  - time: 75.57148
-    drumIndex: 0
-    duration: 0.6
-  - time: 75.57148
-    drumIndex: 2
-    duration: 0.6
-  - time: 76.28577
+  - time: 57.8621
     drumIndex: 3
     duration: 0.6
-  - time: 76.28577
-    drumIndex: 0
-    duration: 0.6
-  - time: 77.00005
-    drumIndex: 1
-    duration: 0.6
-  - time: 77.00005
-    drumIndex: 0
-    duration: 0.6
-  - time: 77.71434
+  - time: 57.8621
     drumIndex: 2
     duration: 0.6
-  - time: 78.42863
+  - time: 58.37934
     drumIndex: 1
     duration: 0.6
-  - time: 79.142914
+  - time: 58.896584
+    drumIndex: 0
+    duration: 0.6
+  - time: 59.413826
+    drumIndex: 1
+    duration: 0.6
+  - time: 59.413826
     drumIndex: 3
     duration: 0.6
-  - time: 79.142914
-    drumIndex: 2
-    duration: 0.6
-  - time: 79.8572
+  - time: 59.93107
     drumIndex: 3
     duration: 0.6
-  - time: 79.8572
+  - time: 59.93107
     drumIndex: 1
     duration: 0.6
-  - time: 80.57149
-    drumIndex: 2
-    duration: 0.6
-  - time: 80.57149
-    drumIndex: 1
-    duration: 0.6
-  - time: 81.285774
-    drumIndex: 1
-    duration: 0.6
-  - time: 81.285774
+  - time: 60.44831
     drumIndex: 0
     duration: 0.6
-  - time: 82.00006
-    drumIndex: 0
-    duration: 0.6
-  - time: 82.71435
-    drumIndex: 1
-    duration: 0.6
-  - time: 82.71435
-    drumIndex: 0
-    duration: 0.6
-  - time: 83.428635
-    drumIndex: 1
-    duration: 0.6
-  - time: 83.428635
-    drumIndex: 2
-    duration: 0.6
-  - time: 84.14292
-    drumIndex: 2
-    duration: 0.6
-  - time: 84.85721
-    drumIndex: 0
-    duration: 0.6
-  - time: 85.571495
-    drumIndex: 0
-    duration: 0.6
-  - time: 86.28578
+  - time: 60.965553
     drumIndex: 3
     duration: 0.6
-  - time: 87.00007
-    drumIndex: 3
-    duration: 0.6
-  - time: 87.00007
+  - time: 61.482796
     drumIndex: 2
     duration: 0.6
-  - time: 87.714355
+  - time: 61.482796
     drumIndex: 0
     duration: 0.6
-  - time: 88.42864
+  - time: 62.00004
+    drumIndex: 1
+    duration: 0.6
+  - time: 62.00004
+    drumIndex: 0
+    duration: 0.6
+  - time: 62.51728
     drumIndex: 2
     duration: 0.6
-  - time: 89.14293
+  - time: 63.034523
     drumIndex: 0
     duration: 0.6
-  - time: 89.14293
+  - time: 63.034523
     drumIndex: 2
     duration: 0.6
-  - time: 89.857216
+  - time: 63.551765
+    drumIndex: 1
+    duration: 0.6
+  - time: 64.06901
+    drumIndex: 0
+    duration: 0.6
+  - time: 64.58625
     drumIndex: 2
     duration: 0.6
-  - time: 90.5715
+  - time: 64.58625
+    drumIndex: 3
+    duration: 0.6
+  - time: 65.10349
+    drumIndex: 1
+    duration: 0.6
+  - time: 65.620735
     drumIndex: 0
     duration: 0.6
-  - time: 90.5715
+  - time: 65.620735
     drumIndex: 1
     duration: 0.6
-  - time: 91.28579
-    drumIndex: 1
-    duration: 0.6
-  - time: 92.00008
+  - time: 66.13798
     drumIndex: 3
     duration: 0.6
-  - time: 92.71436
+  - time: 66.13798
     drumIndex: 0
     duration: 0.6
-  - time: 93.42865
-    drumIndex: 3
+  - time: 66.65522
+    drumIndex: 0
     duration: 0.6
-  - time: 94.14294
-    drumIndex: 1
+  - time: 67.17246
+    drumIndex: 0
     duration: 0.6
-  - time: 94.85722
-    drumIndex: 1
-    duration: 0.6
-  - time: 94.85722
-    drumIndex: 3
-    duration: 0.6
-  - time: 95.57151
+  - time: 67.689705
     drumIndex: 2
     duration: 0.6
-  - time: 95.57151
+  - time: 68.20695
     drumIndex: 1
     duration: 0.6
-  - time: 96.2858
-    drumIndex: 1
-    duration: 0.6
-  - time: 96.2858
-    drumIndex: 3
-    duration: 0.6
-  - time: 97.000084
-    drumIndex: 1
-    duration: 0.6
-  - time: 97.000084
+  - time: 68.20695
     drumIndex: 0
     duration: 0.6
-  - time: 97.71437
+  - time: 68.72419
     drumIndex: 0
     duration: 0.6
-  - time: 98.42866
+  - time: 69.24143
     drumIndex: 2
     duration: 0.6
-  - time: 98.42866
+  - time: 69.24143
     drumIndex: 3
     duration: 0.6
-  - time: 99.142944
-    drumIndex: 2
-    duration: 0.6
-  - time: 99.85723
-    drumIndex: 2
-    duration: 0.6
-  - time: 99.85723
-    drumIndex: 3
-    duration: 0.6
-  - time: 100.57152
+  - time: 69.758675
     drumIndex: 1
     duration: 0.6
-  - time: 100.57152
-    drumIndex: 0
+  - time: 69.758675
+    drumIndex: 2
     duration: 0.6
-  - time: 101.285805
+  - time: 70.27592
+    drumIndex: 2
+    duration: 0.6
+  - time: 70.79316
     drumIndex: 3
     duration: 0.6
-  - time: 101.285805
+  - time: 71.3104
+    drumIndex: 2
+    duration: 0.6
+  - time: 71.3104
+    drumIndex: 1
+    duration: 0.6
+  - time: 71.827644
+    drumIndex: 2
+    duration: 0.6
+  - time: 72.34489
+    drumIndex: 2
+    duration: 0.6
+  - time: 72.86213
+    drumIndex: 2
+    duration: 0.6
+  - time: 73.37937
+    drumIndex: 1
+    duration: 0.6
+  - time: 73.896614
     drumIndex: 0
+    duration: 0.6
+  - time: 73.896614
+    drumIndex: 1
+    duration: 0.6
+  - time: 74.41386
+    drumIndex: 1
+    duration: 0.6
+  - time: 74.9311
+    drumIndex: 0
+    duration: 0.6
+  - time: 74.9311
+    drumIndex: 3
+    duration: 0.6
+  - time: 75.44834
+    drumIndex: 0
+    duration: 0.6
+  - time: 75.44834
+    drumIndex: 1
+    duration: 0.6
+  - time: 75.96558
+    drumIndex: 1
+    duration: 0.6
+  - time: 76.48283
+    drumIndex: 0
+    duration: 0.6
+  - time: 77.00007
+    drumIndex: 3
+    duration: 0.6
+  - time: 77.51731
+    drumIndex: 2
+    duration: 0.6
+  - time: 78.03455
+    drumIndex: 3
+    duration: 0.6
+  - time: 78.03455
+    drumIndex: 2
+    duration: 0.6
+  - time: 78.551796
+    drumIndex: 2
+    duration: 0.6
+  - time: 79.06904
+    drumIndex: 3
+    duration: 0.6
+  - time: 79.06904
+    drumIndex: 0
+    duration: 0.6
+  - time: 79.58628
+    drumIndex: 1
+    duration: 0.6
+  - time: 80.10352
+    drumIndex: 1
+    duration: 0.6
+  - time: 80.620766
+    drumIndex: 2
+    duration: 0.6
+  - time: 81.13801
+    drumIndex: 2
+    duration: 0.6
+  - time: 81.13801
+    drumIndex: 0
+    duration: 0.6
+  - time: 81.65525
+    drumIndex: 1
+    duration: 0.6
+  - time: 81.65525
+    drumIndex: 3
+    duration: 0.6
+  - time: 82.17249
+    drumIndex: 0
+    duration: 0.6
+  - time: 82.17249
+    drumIndex: 3
+    duration: 0.6
+  - time: 82.689735
+    drumIndex: 3
+    duration: 0.6
+  - time: 82.689735
+    drumIndex: 1
+    duration: 0.6
+  - time: 83.20698
+    drumIndex: 3
+    duration: 0.6
+  - time: 83.20698
+    drumIndex: 0
+    duration: 0.6
+  - time: 83.72422
+    drumIndex: 2
+    duration: 0.6
+  - time: 84.24146
+    drumIndex: 3
+    duration: 0.6
+  - time: 84.24146
+    drumIndex: 2
+    duration: 0.6
+  - time: 84.758705
+    drumIndex: 1
+    duration: 0.6
+  - time: 85.27595
+    drumIndex: 0
+    duration: 0.6
+  - time: 85.79319
+    drumIndex: 2
+    duration: 0.6
+  - time: 85.79319
+    drumIndex: 1
+    duration: 0.6
+  - time: 86.31043
+    drumIndex: 3
+    duration: 0.6
+  - time: 86.827675
+    drumIndex: 1
+    duration: 0.6
+  - time: 87.34492
+    drumIndex: 2
+    duration: 0.6
+  - time: 87.34492
+    drumIndex: 1
+    duration: 0.6
+  - time: 87.86216
+    drumIndex: 1
+    duration: 0.6
+  - time: 87.86216
+    drumIndex: 3
+    duration: 0.6
+  - time: 88.3794
+    drumIndex: 1
+    duration: 0.6
+  - time: 88.3794
+    drumIndex: 2
+    duration: 0.6
+  - time: 88.896645
+    drumIndex: 3
+    duration: 0.6
+  - time: 88.896645
+    drumIndex: 0
+    duration: 0.6
+  - time: 89.41389
+    drumIndex: 0
+    duration: 0.6
+  - time: 89.93113
+    drumIndex: 3
+    duration: 0.6
+  - time: 90.44837
+    drumIndex: 0
+    duration: 0.6
+  - time: 90.44837
+    drumIndex: 3
+    duration: 0.6
+  - time: 90.965614
+    drumIndex: 2
+    duration: 0.6
+  - time: 90.965614
+    drumIndex: 1
+    duration: 0.6
+  - time: 91.48286
+    drumIndex: 1
+    duration: 0.6
+  - time: 91.48286
+    drumIndex: 0
+    duration: 0.6
+  - time: 92.0001
+    drumIndex: 1
+    duration: 0.6
+  - time: 92.0001
+    drumIndex: 0
+    duration: 0.6
+  - time: 92.51734
+    drumIndex: 1
+    duration: 0.6
+  - time: 92.51734
+    drumIndex: 0
+    duration: 0.6
+  - time: 93.034584
+    drumIndex: 1
+    duration: 0.6
+  - time: 93.55183
+    drumIndex: 1
+    duration: 0.6
+  - time: 94.06907
+    drumIndex: 0
+    duration: 0.6
+  - time: 94.06907
+    drumIndex: 1
+    duration: 0.6
+  - time: 94.58631
+    drumIndex: 2
+    duration: 0.6
+  - time: 94.58631
+    drumIndex: 0
+    duration: 0.6
+  - time: 95.10355
+    drumIndex: 1
+    duration: 0.6
+  - time: 95.6208
+    drumIndex: 1
+    duration: 0.6
+  - time: 95.6208
+    drumIndex: 0
+    duration: 0.6
+  - time: 96.13804
+    drumIndex: 3
+    duration: 0.6
+  - time: 96.65528
+    drumIndex: 2
+    duration: 0.6
+  - time: 97.17252
+    drumIndex: 1
+    duration: 0.6
+  - time: 97.17252
+    drumIndex: 3
+    duration: 0.6
+  - time: 97.689766
+    drumIndex: 3
+    duration: 0.6
+  - time: 97.689766
+    drumIndex: 0
+    duration: 0.6
+  - time: 98.20701
+    drumIndex: 0
+    duration: 0.6
+  - time: 98.72425
+    drumIndex: 3
+    duration: 0.6
+  - time: 98.72425
+    drumIndex: 1
+    duration: 0.6
+  - time: 99.24149
+    drumIndex: 2
+    duration: 0.6
+  - time: 99.758736
+    drumIndex: 2
+    duration: 0.6
+  - time: 100.27598
+    drumIndex: 3
+    duration: 0.6
+  - time: 100.27598
+    drumIndex: 2
+    duration: 0.6
+  - time: 100.79322
+    drumIndex: 1
+    duration: 0.6
+  - time: 100.79322
+    drumIndex: 3
+    duration: 0.6
+  - time: 101.31046
+    drumIndex: 2
+    duration: 0.6
+  - time: 101.31046
+    drumIndex: 1
+    duration: 0.6
+  - time: 101.827705
+    drumIndex: 0
+    duration: 0.6
+  - time: 101.827705
+    drumIndex: 1
     duration: 0.6
   musicClip: {fileID: 8300000, guid: 9c309cdcc9f471c47b344824dc4565fd, type: 3}
   audioFileLength: 105.352

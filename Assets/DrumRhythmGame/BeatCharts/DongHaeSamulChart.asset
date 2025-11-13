@@ -1428,7 +1428,7 @@ MonoBehaviour:
   - time: 139.91034
     drumIndex: 0
     duration: 0.6
-  musicClip: {fileID: 0}
+  musicClip: {fileID: 8300000, guid: 57422f669db58b149976426f28871081, type: 3}
   audioFileLength: 140.957
   actualMusicEndTime: 140
   noteDensity: 1
