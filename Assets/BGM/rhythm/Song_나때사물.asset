@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc703923329fd34186e837ce0a9efd2, type: 3}
+  m_Name: "Song_\uB098\uB54C\uC0AC\uBB3C"
+  m_EditorClassIdentifier: 
+  songName: NaTaeSamul
+  artist: Samulverse
+  coverImage: {fileID: 0}
+  musicClip: {fileID: 8300000, guid: 6d9df1e362a64a047a20dddea22ff80e, type: 3}
+  beatChart: {fileID: 11400000, guid: fbecab33a591ac44a9de81e2b9ee97fd, type: 2}
+  difficulty: 1
+  difficultyText: Normal
+  description: "\uB178\uB798 \uC124\uBA85"
+  duration: 0

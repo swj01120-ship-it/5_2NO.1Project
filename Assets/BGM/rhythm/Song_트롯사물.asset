@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc703923329fd34186e837ce0a9efd2, type: 3}
+  m_Name: "Song_\uD2B8\uB86F\uC0AC\uBB3C"
+  m_EditorClassIdentifier: 
+  songName: TrotSamul
+  artist: Samulverse
+  coverImage: {fileID: 0}
+  musicClip: {fileID: 8300000, guid: a087a4218bf0dda4696a4b5db0d6ea70, type: 3}
+  beatChart: {fileID: 11400000, guid: 340181b12121dd94f9b2756341d1eb04, type: 2}
+  difficulty: 1
+  difficultyText: Normal
+  description: "\uB178\uB798 \uC124\uBA85"
+  duration: 0
